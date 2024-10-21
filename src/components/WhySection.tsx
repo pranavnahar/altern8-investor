@@ -39,7 +39,7 @@ function Alter8Features() {
                                     <div className='flex flex-col gap-5  w-full h-full'>
                                         {/* heading */}
                                         <div className='flex items-center gap-4'>
-                                            <img src='/img.svg' alt='logo' />
+                                            <img src={feature.icon} alt='logo' />
                                             <h4 className='text-xl font-semibold'>{feature.text}</h4>
                                         </div>
 
@@ -55,16 +55,16 @@ function Alter8Features() {
     )
 }
 
-function InvestorInput(props: { label: string }) {
+function InvestorInput(props: { label: string, amount: string }) {
     return (
-        <div className='flex flex-col gap-1 w-[290px] h-[62px]'>
+        <div className='flex flex-col gap-1 w-[290px] h-[80px]'>
             <span>{props.label}</span>
             <div className='flex items-center w-full h-full justify-between bg-[#F5F5F5] p-2'>
                 <div className='flex items-center gap-3'>
-                    <img src="/img.svg" alt="plus" />
-                    <span className='font-se'>1,00,000</span>
+                    <img src="/plusIcon.svg" alt="plus" />
+                    <span className='font-semibold'>{props.amount}</span>
                 </div>
-                <img src="/img.svg" alt="minus" />
+                <img src="/minusIcon.svg" alt="minus" />
             </div>
 
         </div>
@@ -103,9 +103,9 @@ function InvestorCalculator() {
         <div className=" w-full h-full px-10 py-5">
             {/* calculator inputs */}
             <div className='p-1 w-3/4 h-2/5 flex items-center gap-10 '>
-                <InvestorInput label={"If i invest a sum of"} />
-                <InvestorInput label={"For a period of"} />
-                <div className='flex h-[70%] items-end'>
+                <InvestorInput amount='1,000,000' label={"If i invest a sum of"} />
+                <InvestorInput amount='5 years' label={"For a period of"} />
+                <div className='flex h-[50%] items-end'>
                     <Button className='w-[290px] h-[60px] rounded-full'>Show Me Returns</Button>
                 </div>
             </div>
@@ -132,7 +132,7 @@ export const WhySection = () => {
         <div className="bg-[#F7F7FF] w-full h-full px-10 py-10">
 
             <div className="flex mt-5 flex-col gap-3">
-                <h1 className="text-31xl font-semibold leading-tight mt-0 mb-2">Why Alter8</h1>
+                <h1 className="text-31xl font-semibold leading-tight mt-0 mb-2">Why Altern8</h1>
                 <p>At Altern8 Club, our experienced team empower you to invest in real estate through innovative fractional ownership <br /> and lending solutions tailored to your financial goals. Ensuring you can confidently grow your wealth.</p>
 
                 {/* carousel */}
@@ -145,9 +145,9 @@ export const WhySection = () => {
                 </div>
                 <div className='mt-10 h-[380px] p-1'>
                     <div className='w-full h-full flex flex-col gap-5 '>
-                        <h2 className='text-21xl font-semibold'>Onboarding and identity stack with 70+ micro-services powered <br /> by M2P identity (Syntizen)</h2>
+                        <h2 className='text-21xl font-semibold'>Borrower Onboarding and identity stack with 70+ micro-services</h2>
 
-                        <div className='p-2 mt-5 flex gap-10  items-center'>
+                        <div className='p-2 mt-7 flex gap-10  items-center'>
                             {ALTERN8_SERVICES.map((feature, index) => (
                                 <div className='flex justify-between flex-col gap-2 flex-grow' key={index}>
                                     <img className='h-12 w-12' src={feature.icon} alt="logo" />
@@ -163,7 +163,7 @@ export const WhySection = () => {
                         >
                             <div className='mt-5 flex gap-2 items-center'>
                                 <p className='text-lg font-semibold'> Learn more</p>
-                                <img src="/arrow.svg" alt="learn more" />
+                                <img src="/arrow.svg" className='w-6 h-6' alt="learn more" />
                             </div>
                         </Link>
 

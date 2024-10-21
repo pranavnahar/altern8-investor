@@ -9,7 +9,7 @@ export const CompliantSection = () => {
                         Compliant <br />
                         and Regulated
                     </h1>
-                    <p className="font-semibold text-lg w-[420px]">
+                    <p className="text-lg w-[420px]">
                         We rigorously adhere to the RBI's prudential norms for risk
                         management, maintaining robust financial foundations to safeguard
                         our firm and contribute to overall financial stability. Our
@@ -22,17 +22,17 @@ export const CompliantSection = () => {
                 <div className="w-1/2 h-[95%] flex flex-col ">
                     <div className="bg-[#EFEFEF] h-1/3 flex items-center justify-center">
                         <div className="w-[218px] h-full">
-                            <img src="/compliance.png" alt="make in india" />
+                            <img src="/landingPage/altern8/makeInIndia.png" alt="make in india" />
                         </div>
                     </div>
                     <div className="bg-[#F7F7FF] h-1/3 flex items-center justify-center">
                         <div className="w-[218px] h-full">
-                            <img src="/compliance.png" alt="make in india" />
+                            <img src="./landingPage/altern8/sahamati.png" alt="sahamati" />
                         </div>
                     </div>
                     <div className="bg-[#FFF8EF] h-1/3 flex items-center justify-center">
                         <div className="w-[218px] h-full">
-                            <img src="/compliance.png" alt="make in india" />
+                            <img src="/landingPage/altern8/reserveBank.png" alt="reserve bank" />
                         </div>
                     </div>
                 </div>

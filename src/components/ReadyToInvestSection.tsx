@@ -95,7 +95,7 @@ export const ReadyToInvestSection = () => {
                 <div className='w-1/2 h-full p-1 '>
                     {/* heading and buttons */}
                     <div className='h-1/3 w-full flex flex-col '>
-                        <h1 className="text-31xl font-semibold leading-tight mt-0 mb-2">Ready to invest <br /> in Real-Estate?</h1>
+                        <h1 className="text-31xl font-semibold leading-tight mt-0 mb-2">Ready to invest <br /> in Fractional Real-Estate?</h1>
                         <p>Choose between advancing loans or <br /> fractional ownership and start building <br /> wealth with Altern8 Club today.</p>
 
                     </div>

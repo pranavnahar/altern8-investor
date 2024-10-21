@@ -8,7 +8,7 @@ export const Footer = () => {
 
                 <div className='w-1/2 flex gap-5 p-2 '>
                     <div className='w-1/3 flex flex-col p-2  gap-3'>
-                        <h4 className='text-2xl mb-3 font-semibold text-white'>Company</h4>
+                        <h4 className='text-2xl mb-3 font-semibold text-white'>Altern8</h4>
                         <Link
                             href="#"
                             className="text-white flex items-center text-sm transition-colors hover:underline"
@@ -39,7 +39,7 @@ export const Footer = () => {
                         </Link>
                     </div>
                     {/* 2 */}
-                    <div className='w-1/3 flex flex-col p-2 gap-3'>
+                    {/* <div className='w-1/3 flex flex-col p-2 gap-3'>
                         <h4 className='text-2xl mb-3 font-semibold text-white'>Altern8</h4>
                         <Link
                             href="#"
@@ -62,7 +62,7 @@ export const Footer = () => {
                         >
                             Resources
                         </Link>
-                    </div>
+                    </div> */}
                     {/* 3 */}
                     <div className='w-1/3 flex flex-col p-2  gap-3'>
                         <h4 className='text-2xl mb-3 font-semibold text-white'>Get Started</h4>

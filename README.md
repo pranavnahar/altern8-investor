@@ -1,8 +1,17 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TODOS
 
-## Getting Started
+- logo
+- c:\Users\DHANANJAY\AppData\Local\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TempState\ScreenClip\{870DCBB4-7CC9-4756-87D8-47F7C15514CC}.png
+  connect this to asset
+- reserve accses nav button
+  gap consistent diverse
+  carousel hover color change slide
 
-First, run the development server:
+nav remove properties
+footer - remove altern8 section
+company -> altern8
+
+contact us -> use from invoice discounting one
 
 ```bash
 npm run dev
