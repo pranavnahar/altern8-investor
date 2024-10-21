@@ -37,13 +37,6 @@ export default function Navbar() {
                             className="font-medium flex items-center text-sm transition-colors hover:underline"
                             prefetch={false}
                         >
-                            Properties
-                        </Link>
-                        <Link
-                            href="#"
-                            className="font-medium flex items-center text-sm transition-colors hover:underline"
-                            prefetch={false}
-                        >
                             About Us
                         </Link>
                         <Link
@@ -62,13 +55,15 @@ export default function Navbar() {
                         >
                             Login
                         </Link>
-                        <Link
-                            href="#"
-                            className="font-medium flex items-center text-sm transition-colors hover:underline"
-                            prefetch={false}
-                        >
-                            Reserve Access
-                        </Link>
+                        <Button variant={"outline"}>
+                            <Link
+                                href="#"
+                                className="font-medium flex items-center text-sm transition-colors"
+                                prefetch={false}
+                            >
+                                Reserve Access
+                            </Link>
+                        </Button>
                     </div>
                 </div>
             </div>

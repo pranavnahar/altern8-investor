@@ -34,7 +34,7 @@ function InvsestmentTypes(props: {
                                     <div className='flex-col w-full h-full p-1'>
                                         {/* photo */}
                                         <div className='w-full p-1 h-2/5 flex '>
-                                            <img src={investment.image} alt="investment" className=' object-contain ' />
+                                            <img src={investment.image} alt="investment" className='rounded-xl w-[500px] object-cover object-center' />
                                         </div>
                                         {/* descripton */}
                                         <div className='flex flex-col w-full h-2/5 p-1  '>

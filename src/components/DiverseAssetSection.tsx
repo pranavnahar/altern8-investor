@@ -29,9 +29,9 @@ function DiverseAssets() {
         >
             <CarouselContent className="w-full  h-full max-h-full ">
                 {ALTERN8_ASSET_TYPES.map((asset, index) => (
-                    <CarouselItem key={index} className="w-full h-full max-h-full basis-[15%]">
-                        <div className="w-full h-full p-1 ">
-                            <Badge variant="outline" className='h-[45px] border-2 border-black'>
+                    <CarouselItem key={index} className="w-full h-full max-h-full basis-[17%]">
+                        <div className="w-full h-full p-1   ">
+                            <Badge variant="outline" className='h-[45px] w-[185px] flex items-center justify-center border-2 border-black hover:bg-slate-50'>
                                 <span className='font-semibold text-sm'>{asset}</span>
                             </Badge>
                         </div>
