@@ -189,7 +189,7 @@ export const ALTERN8_INVESTMENT_TYPES = [
     },
     {
         heading: "Structured notes",
-        image: "/landingPage/investments/advLoans.png",
+        image: "/landingPage/investments/structuredNotes.png",
         description: [
             {
                 heading: "How it works",
@@ -210,7 +210,7 @@ export const ALTERN8_INVESTMENT_TYPES = [
     },
     {
         heading: "Commercial papers",
-        image: "/landingPage/investments/advLoans.png",
+        image: "/landingPage/investments/commercial.png",
         description: [
             {
                 heading: "How it works",

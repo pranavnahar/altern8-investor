@@ -30,8 +30,8 @@ function TestimonialCarousel() {
                     <CarouselItem key={index} className="w-full h-full max-h-full basis-1/3 p-2">
                         {/* card */}
                         <div className="w-full h-full   ">
-                            <Card className=" w-full h-full max-h-full">
-                                <CardContent className="w-full h-full flex items-center justify-center p-5 bg-[#F5F5F5]">
+                            <Card className=" w-full h-full max-h-full ">
+                                <CardContent className="w-full h-full flex items-center justify-center p-5 bg-[#F5F5F5]  hover:bg-zinc-50">
                                     <div className='flex flex-col gap-2  w-full h-full  p-1'>
                                         {/* heading */}
                                         <div className='flex items-center gap-4'>

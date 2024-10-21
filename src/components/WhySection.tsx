@@ -32,9 +32,9 @@ function Alter8Features() {
         >
             <CarouselContent className="w-full h-[190px] max-h-full ">
                 {ALTER8_FEATURES.map((feature, index) => (
-                    <CarouselItem key={index} className="w-full h-full max-h-full basis-2/5">
+                    <CarouselItem key={index} className="w-full h-full max-h-full basis-2/5 ">
                         <div className="w-full h-full p-1 ">
-                            <Card className=" w-full h-full max-h-full bg-[#FFFFFF]">
+                            <Card className=" w-full h-full max-h-full bg-[#FFFFFF] ">
                                 <CardContent className="w-full h-full flex items-center justify-center p-5">
                                     <div className='flex flex-col gap-5  w-full h-full'>
                                         {/* heading */}
