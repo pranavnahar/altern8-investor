@@ -2,7 +2,6 @@ import { AdvisorsSection } from "@/components/AdvisorsSection";
 import { CompliantSection } from "@/components/CompliantSection";
 import { DiverseAssetSection } from "@/components/DiverseAssetSection";
 import { FaqSection } from "@/components/FaqSection";
-import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { ReadyToInvestSection } from "@/components/ReadyToInvestSection";
 import { Testimonials } from "@/components/Testimonials";
@@ -19,7 +18,6 @@ export default function Home() {
       <AdvisorsSection />
       <CompliantSection />
       <FaqSection />
-      <Footer />
     </>
   );
 }

@@ -38,31 +38,6 @@ export const Footer = () => {
                             Careers
                         </Link>
                     </div>
-                    {/* 2 */}
-                    {/* <div className='w-1/3 flex flex-col p-2 gap-3'>
-                        <h4 className='text-2xl mb-3 font-semibold text-white'>Altern8</h4>
-                        <Link
-                            href="#"
-                            className="text-white flex items-center text-sm transition-colors hover:underline"
-                            prefetch={false}
-                        >
-                            Services
-                        </Link>
-                        <Link
-                            href="#"
-                            className="text-white flex items-center text-sm transition-colors hover:underline"
-                            prefetch={false}
-                        >
-                            Pricing
-                        </Link>
-                        <Link
-                            href="#"
-                            className="text-white flex items-center text-sm transition-colors hover:underline"
-                            prefetch={false}
-                        >
-                            Resources
-                        </Link>
-                    </div> */}
                     {/* 3 */}
                     <div className='w-1/3 flex flex-col p-2  gap-3'>
                         <h4 className='text-2xl mb-3 font-semibold text-white'>Get Started</h4>
@@ -82,6 +57,25 @@ export const Footer = () => {
                         </Link>
 
                     </div>
+                    {/* 2 */}
+                    <div className='w-1/3 flex flex-col p-2 gap-3'>
+                        <h4 className='text-2xl mb-3 font-semibold text-white'>Legal & Policies</h4>
+                        <Link
+                            href="/privacy-policy"
+                            className="text-white flex items-center text-sm transition-colors hover:underline"
+                            prefetch={false}
+                        >
+                            Privacy Policy
+                        </Link>
+                        <Link
+                            href="/terms-and-conditions"
+                            className="text-white flex items-center text-sm transition-colors hover:underline"
+                            prefetch={false}
+                        >
+                            Terms And Conditions
+                        </Link>
+
+                    </div>
 
                 </div>
 
@@ -95,6 +89,7 @@ export const Footer = () => {
                     </Link>
                 </div>
             </div>
+            <p className='text-white'>© Copyright 2023 <span className='font-bold'>Ethyx</span>. All Rights Reserved.</p>
         </div>
     )
 }
