@@ -1,5 +1,4 @@
 "use client"
-import React from 'react'
 import {
     Accordion,
     AccordionContent,
@@ -11,7 +10,8 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Input } from './ui/input'
 import { Checkbox } from './ui/checkbox'
 import { ALTERN8_AREA_OF_INTEREST, ALTERN8_FAQ } from '@/config/config'
-export const FaqSection = () => {
+import React, { forwardRef } from "react";
+export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
     return (
         <div className="bg-[#F5F5F5] w-full h-full px-10 py-10">
             <div className="flex mt-5  gap-3">
@@ -31,20 +31,23 @@ export const FaqSection = () => {
                     </Accordion>
 
                 </div>
-                <div className="w-2/5 p-5 items-center flex">
+                <div  ref={ref} {...props} className="w-2/5 p-5 items-center flex">
                     <Card className="w-[470px] h-auto">
                         <CardHeader>
                             <CardTitle>Do you have any questions?</CardTitle>
-                            <CardDescription>
+                            {/* <CardDescription>
                                 You can feel free to ask us any questions and we will answer you as soon as possible.
-                            </CardDescription>
+                            </CardDescription> */}
                         </CardHeader>
                         <CardContent>
                             <form>
                                 <div className="grid w-full items-center gap-4">
                                     <div className="flex flex-col space-y-1.5">
-                                        <Input className="bg-[#F5F5F5]" id="company_name" placeholder="Company Name" />
-                                        <Input className="bg-[#F5F5F5]" id="company_email" placeholder="Company Email" type="email" />
+                                    <Input className="bg-[#F5F5F5]" id="first_name" placeholder="First Name" />
+                                    <Input className="bg-[#F5F5F5]" id="Second_name" placeholder="Second Name" />
+                                        <Input className="bg-[#F5F5F5]" id="company_name" placeholder=" Name" />
+                                        <Input className="bg-[#F5F5F5]" id="company_email" placeholder="Email" type="email" />
+                                        <Input className="bg-[#F5F5F5]" id="number" placeholder="Mobile no" type="number" />
                                     </div>
 
                                     <div className="flex flex-col space-y-2">
@@ -66,12 +69,12 @@ export const FaqSection = () => {
 
                                     <div className="flex flex-col space-y-1.5">
                                         <label className="block mb-2 text-xs text-gray-400 uppercase">
-                                            Comments and questions
+                                            Comments, questions and requests.
                                         </label>
                                         <textarea
                                             className="w-full bg-[#F5F5F5] px-3 py-2 text-gray-600 rounded-md"
                                             id="company_query"
-                                            placeholder="Your comments or questions"
+                                            placeholder="Your comments or questions or request"
                                             rows={4}
                                         />
                                     </div>
@@ -97,4 +100,4 @@ export const FaqSection = () => {
             </div>
         </div>
     )
-}
+});

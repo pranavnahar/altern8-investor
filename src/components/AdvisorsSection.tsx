@@ -1,9 +1,9 @@
 import { ALTERN8_ADVISORS } from '@/config/config'
-import React from 'react'
+import React, { forwardRef } from "react";
 
-export const AdvisorsSection = () => {
+export const AdvisorsSection = forwardRef<HTMLDivElement>((props, ref) => {
     return (
-        <div className="bg-[#FFF8EF] w-full h-[850px] px-10 py-10">
+        <div  ref={ref} {...props} className="bg-[#FFF8EF] w-full h-[850px] px-10 py-10">
             <div className="flex mt-5 flex-col gap-3 w-full h-full">
                 <h1 className="text-31xl font-semibold leading-tight mt-0 mb-2">Board of advisors</h1>
 
@@ -32,4 +32,4 @@ export const AdvisorsSection = () => {
             </div>
         </div>
     )
-}
+});

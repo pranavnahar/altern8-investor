@@ -75,7 +75,7 @@ type IInvestmentCard = {
     heading: string,
     amount: number,
     investmentRateDescription: string,
-    monthlyReturnDescription: string | null,
+    // monthlyReturnDescription: string | null,
     active: boolean
 }
 
@@ -84,11 +84,11 @@ function InvestmentCard(props: IInvestmentCard) {
         <div className='h-[200px] w-[290px]'>
             <Card className={`w-full h-full max-h-full border-4 border-[#F5F5F5] ${props.active ? "bg-[#F5F5F5]" : ""}`}>
                 <CardContent className="w-full h-full flex items-center justify-center p-5">
-                    <div className='flex justify-between flex-col gap-3  w-full h-full'>
-                        <h4 className='text-2xl font-semibold'>{props.heading}</h4>
+                    <div className='flex justify-between flex-col gap-3  w-[70%] h-full '>
+                        <h4 className='text-2xl font-semibold h-72'>{props.heading}</h4>
                         <p className=' text-4xl font-semibold'>{props.amount}</p>
-                        <p className='text-lg'>{props.investmentRateDescription}</p>
-                        <p className=' text-sm'>{props.monthlyReturnDescription}</p>
+                        <p className='text-lg leading-[10px]'>{props.investmentRateDescription}</p>
+                        {/* <p className=' text-sm'>{props.monthlyReturnDescription}</p> */}
                     </div>
                 </CardContent>
             </Card>
@@ -99,6 +99,7 @@ function InvestmentCard(props: IInvestmentCard) {
 }
 
 function InvestorCalculator() {
+
     return (
         <div className=" w-full h-full px-10 py-5">
             {/* calculator inputs */}
@@ -110,15 +111,16 @@ function InvestorCalculator() {
                 </div>
             </div>
             {/* calculator cards */}
-            <div className='mt-2 p-1 w-4/4 h-3/5 flex items-center gap-10 '>
+            <div className='mt-2 p-1 w-4/4 h-3/5  flex items-center gap-10 '>
                 {ALTERN8_INVESTMENMTS.map((investment, index) => (
                     <InvestmentCard
                         key={index}
                         active={index === 0 ? true : false}
-                        heading={investment.heading}
+                         heading={investment.heading}
+                        // heading={<h3 className="heading w-40 leading-[25px]">{investment.heading}</h3>} 
                         amount={investment.amount}
                         investmentRateDescription={investment.investmentRateDescription}
-                        monthlyReturnDescription={investment.monthlyReturnDescription}
+                        // monthlyReturnDescription={investment.monthlyReturnDescription}
                     />
                 ))}
             </div>
@@ -133,7 +135,7 @@ export const WhySection = () => {
 
             <div className="flex mt-5 flex-col gap-3">
                 <h1 className="text-31xl font-semibold leading-tight mt-0 mb-2">Why Altern8</h1>
-                <p>At Altern8 Club, our experienced team empower you to invest in real estate through innovative fractional ownership <br /> and lending solutions tailored to your financial goals. Ensuring you can confidently grow your wealth.</p>
+                <p>At Altern8 Club, our experienced team empower you to invest in real estate through innovative fractional ownership and high-yield fixed-income products tailored to your financial goals. Ensuring you can confidently grow your wealth.</p>
 
                 {/* carousel */}
                 <div className='mt-5 h-[190px]'>
@@ -145,7 +147,7 @@ export const WhySection = () => {
                 </div>
                 <div className='mt-10 h-[380px] p-1'>
                     <div className='w-full h-full flex flex-col gap-5 '>
-                        <h2 className='text-21xl font-semibold'>Borrower Onboarding and identity stack with 70+ micro-services</h2>
+                        <h2 className='text-21xl font-semibold'>Real Estate Developer Due Diligence stack with 70+ micro risk factor analysis</h2>
 
                         <div className='p-2 mt-7 flex gap-10  items-center'>
                             {ALTERN8_SERVICES.map((feature, index) => (

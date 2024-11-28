@@ -3,20 +3,20 @@ import React from 'react';
 export default function TermsConditions() {
     return (
         <div className="p-4 max-w-7xl mx-auto">
-            <h1 className="text-3xl font-bold mb-4">Terms and Conditions - Ethyx</h1>
+            <h1 className="text-3xl font-bold mb-4">Terms and Conditions - Altern</h1>
             <p className="mb-4">
-                Ethyx and the Invoice Seller are collectively referred to as the Parties and individually as a Party.
+                Altern and the Invoice Seller are collectively referred to as the Parties and individually as a Party.
             </p>
 
             <h2 className="text-2xl font-bold mt-6 mb-2">Whereas:</h2>
             <p className="mb-4">
-                A. Ethyx is engaged in the business of assisting Invoice Sellers to raise additional funding through invoice discounting, recurring revenue discounting, and Debt funding on its revenue receivables through engaging in revenue based selling and discounting of present and future Invoices with potential retail patrons, and related services and operates a technology platform at Ethyx.
+                A. Altern is engaged in the business of assisting Invoice Sellers to raise additional funding through invoice discounting, recurring revenue discounting, and Debt funding on its revenue receivables through engaging in revenue based selling and discounting of present and future Invoices with potential retail patrons, and related services and operates a technology platform at Altern.
             </p>
             <p className="mb-4">
-                B. The Invoice Seller has agreed to sell their accounts receivables or revenue receivables from a sales contract and/or a service contract or Purchase Order or Inventory with their respective customers, to Individuals on boarded by Ethyx, and third party buyers of invoices and providers of revenue based discounting and Venture Discounting like individuals & NBFCs, etc (Patrons) who on the Platform in accordance with terms and conditions as may be required by Ethyx in exchange of payment against such receivables. Ethyx has agreed to be a technology platform for the Discounted Transactions (as defined hereinafter) wherein it shall provide technology services the sale of trade receivables of such Invoice Sellers to EthyxClub Patrons through the Platform..
+                B. The Invoice Seller has agreed to sell their accounts receivables or revenue receivables from a sales contract and/or a service contract or Purchase Order or Inventory with their respective customers, to Individuals on boarded by Altern, and third party buyers of invoices and providers of revenue based discounting and Venture Discounting like individuals & NBFCs, etc (Patrons) who on the Platform in accordance with terms and conditions as may be required by Altern in exchange of payment against such receivables. Altern has agreed to be a technology platform for the Discounted Transactions (as defined hereinafter) wherein it shall provide technology services the sale of trade receivables of such Invoice Sellers to AlternClub Patrons through the Platform..
             </p>
             <p className="mb-4">
-                C. The Invoice Seller independently and based on its own determination and market diligence has agreed to avail the Services (as defined hereinafter) from Ethyx by registering on the Platform and on the terms and conditions mentioned herein and on the website. The Parties have therefore decided to enter into this agreement to record the mutual terms and conditions between them.
+                C. The Invoice Seller independently and based on its own determination and market diligence has agreed to avail the Services (as defined hereinafter) from Altern by registering on the Platform and on the terms and conditions mentioned herein and on the website. The Parties have therefore decided to enter into this agreement to record the mutual terms and conditions between them.
             </p>
 
             <h2 className="text-2xl font-bold mt-6 mb-2">NOW THEREFORE, IN CONSIDERATION OF THE PROMISES, MUTUAL COVENANTS, TERMS AND CONDITIONS AND UNDERSTANDINGS SET FORTH HEREIN, THE PARTIES, WITH THE INTENT TO BE LEGALLY BOUND, HEREBY COVENANT AND AGREE AS FOLLOWS:</h2>
@@ -34,19 +34,19 @@ export default function TermsConditions() {
 
             <h2 className="text-2xl font-bold mt-6 mb-2">Cookies</h2>
             <p className="mb-4">
-                Whenever You interact with Us or Our website, Ethyx may place a “cookie” in Your computer's browser files. Cookies are data files that allow Your browser to communicate with the Ethyx website. By default, most browsers accept cookies. However, You can refuse or block cookies by altering Your browser settings. Remember that refusing or blocking cookies may limit Your ability to use certain features of Our Website and Services entirely.
+                Whenever You interact with Us or Our website, Altern may place a “cookie” in Your computer's browser files. Cookies are data files that allow Your browser to communicate with the Altern website. By default, most browsers accept cookies. However, You can refuse or block cookies by altering Your browser settings. Remember that refusing or blocking cookies may limit Your ability to use certain features of Our Website and Services entirely.
             </p>
 
             <h2 className="text-2xl font-bold mt-6 mb-2">Use of Information Collected</h2>
             <p className="mb-4">
-                The aim of Ethyx in acquiring personal information is to identify members and send them timely updates and essential notifications by postal mail and/or email. In addition, We perform demographic and interest research on Our members using the information they supply upon registration to improve Our Services.
+                The aim of Altern in acquiring personal information is to identify members and send them timely updates and essential notifications by postal mail and/or email. In addition, We perform demographic and interest research on Our members using the information they supply upon registration to improve Our Services.
                 We are committed to protecting Your personal information and will not share or transfer it to other parties except in accordance with this Privacy Policy. We retain the right to disclose or transfer Your personal information under the following conditions:
             </p>
             <ol className="list-decimal list-inside mb-4">
                 <li>With Your expressed consent.</li>
                 <li>When required to respond to claims.</li>
                 <li>When obligated to follow the law, legal procedures, or authorities.</li>
-                <li>When it is essential to defend the rights, property, interests, or safety of Ethyx, its employees, users, or the general public.</li>
+                <li>When it is essential to defend the rights, property, interests, or safety of Altern, its employees, users, or the general public.</li>
                 <li>In connection with the purchase, merger, or sale of all or a portion of Our business.</li>
             </ol>
             <p className="mb-4">
@@ -80,29 +80,29 @@ export default function TermsConditions() {
                 We reserve the right to disclose any information We may have about You with its third-party service providers for KYC purposes.
             </p>
             <p className="mb-4">
-                We reserve the right to disclose any information We may have about You (including Your identity) if We determines that such disclosure is necessary in connection with any investigation or complaint regarding Your use of the Platform, or to identify, contact or bring legal action against someone who may be causing injury to or interference with (either intentionally or unintentionally) Ethyx's rights or property, or the rights or property of Users of the Platform, including Ethyx's contributors.
+                We reserve the right to disclose any information We may have about You (including Your identity) if We determines that such disclosure is necessary in connection with any investigation or complaint regarding Your use of the Platform, or to identify, contact or bring legal action against someone who may be causing injury to or interference with (either intentionally or unintentionally) Altern's rights or property, or the rights or property of Users of the Platform, including Altern's contributors.
             </p>
             <p className="mb-4">
                 We reserve the right at all times to disclose any information including any Personal Information that We deem necessary to comply with any applicable law, regulation, legal process or governmental request. We also may disclose Your information when We determine that applicable law requires or permits such disclosure, including exchanging information with other companies and organizations for fraud protection purposes. We shall use all reasonable efforts to ensure that such disclosure would be in compliance with the applicable laws in force in India. We would use reasonable measures to inform You in the event of such disclosure.
             </p>
             <p className="mb-4">
-                You acknowledge and agree that We may preserve any communication by You with Us through the Platform, and may also disclose such data if required to do so by law or if We determine that such preservation or disclosure is reasonably necessary to: (1) comply with legal process; (2) enforce this Policy; (3) respond to claims that any such data violates the rights of others; or (4) protect the rights, property or personal safety of Ethyx, its employees, users of, or visitors to, the Platform, and the public. We would use reasonable measures to inform You in the event of such disclosure
+                You acknowledge and agree that We may preserve any communication by You with Us through the Platform, and may also disclose such data if required to do so by law or if We determine that such preservation or disclosure is reasonably necessary to: (1) comply with legal process; (2) enforce this Policy; (3) respond to claims that any such data violates the rights of others; or (4) protect the rights, property or personal safety of Altern, its employees, users of, or visitors to, the Platform, and the public. We would use reasonable measures to inform You in the event of such disclosure
             </p>
             <p className="mb-4">
-                You consent to Ethyx verifying Your PAN, Mobile, and Bank Account details via an Account Aggregator or any other means. The Account Aggregator data is fetched in partnership with pee dee finvest NBFC and You consent to pee dee finvest processing Your data.
+                You consent to Altern verifying Your PAN, Mobile, and Bank Account details via an Account Aggregator or any other means. The Account Aggregator data is fetched in partnership with pee dee finvest NBFC and You consent to pee dee finvest processing Your data.
             </p>
             <p className="mb-4">
-                You consent to Ethyx processing Your GST details, Other Financial Details, credit ratings, legal proceedings, details of Directors/ Partners/ POC, Income Tax details and any other information needed to make a credit decision.
+                You consent to Altern processing Your GST details, Other Financial Details, credit ratings, legal proceedings, details of Directors/ Partners/ POC, Income Tax details and any other information needed to make a credit decision.
             </p>
             <h2 className="text-2xl font-bold mt-6 mb-2">Third-party Sites</h2>
             <p className="mb-4">
-                The Platform and any e-mail sent to You may also contain/display third-party advertisements and links to other websites or products and services. Ethyx does not share any Personal Information with these third-party websites or agents or advertisers. However, Ethyx reserves the right to share with You the advertisements on behalf of any other parties.
+                The Platform and any e-mail sent to You may also contain/display third-party advertisements and links to other websites or products and services. Altern does not share any Personal Information with these third-party websites or agents or advertisers. However, Altern reserves the right to share with You the advertisements on behalf of any other parties.
             </p>
             <p className="mb-4">
-                Ethyx may provide links to other websites ("Linked Site") on the Platform or any e-mail sent to You. However, Ethyx has no control over such websites nor is Ethyx affiliated to or associated with such third party websites unless expressly specified on the Platform. These Linked Sites are solely for advertisement purposes and Ethyx is not responsible for any form of transmission, whatsoever, received by You from any Linked Site. Accordingly, Ethyx does not make any representations concerning the privacy practices or policies of such third parties or terms of use of such websites, nor does Ethyx control or guarantee the accuracy, integrity, or quality of the information, data, text, software, music, sound, photographs, graphics, videos, messages or other materials available on such websites. Further, the inclusion or exclusion does not imply any endorsement by Ethyx of the website, the website's provider, or the information on the website. The information provided by You to such third party websites shall be governed in accordance with the privacy policies of such websites and it is recommended that You review the privacy policy on any such websites prior to using such websites. Ethyx shall not be held responsible for any violation of Your privacy rights by such Linked Sites nor any loss, damage or injury suffered by You on account of action/inaction of such Linked Sites.
+                Altern may provide links to other websites ("Linked Site") on the Platform or any e-mail sent to You. However, Altern has no control over such websites nor is Altern affiliated to or associated with such third party websites unless expressly specified on the Platform. These Linked Sites are solely for advertisement purposes and Altern is not responsible for any form of transmission, whatsoever, received by You from any Linked Site. Accordingly, Altern does not make any representations concerning the privacy practices or policies of such third parties or terms of use of such websites, nor does Altern control or guarantee the accuracy, integrity, or quality of the information, data, text, software, music, sound, photographs, graphics, videos, messages or other materials available on such websites. Further, the inclusion or exclusion does not imply any endorsement by Altern of the website, the website's provider, or the information on the website. The information provided by You to such third party websites shall be governed in accordance with the privacy policies of such websites and it is recommended that You review the privacy policy on any such websites prior to using such websites. Altern shall not be held responsible for any violation of Your privacy rights by such Linked Sites nor any loss, damage or injury suffered by You on account of action/inaction of such Linked Sites.
             </p>
             <p className="mb-4">
-                Ethyx does not have access to or control over cookies or other features or technology that such Linked Sites or third party websites and advertisers may use to send the advertisements that appear on the Website directly to Your browser or to measure the effectiveness of their advertisements and to personalize advertising content. The information practices of these third-party websites and advertisers are not covered by this Policy. You are required to contact the Linked Site directly for more information about their privacy practices.
+                Altern does not have access to or control over cookies or other features or technology that such Linked Sites or third party websites and advertisers may use to send the advertisements that appear on the Website directly to Your browser or to measure the effectiveness of their advertisements and to personalize advertising content. The information practices of these third-party websites and advertisers are not covered by this Policy. You are required to contact the Linked Site directly for more information about their privacy practices.
             </p>
             <h2 className="text-2xl font-bold mt-6 mb-2">Protection of Personal Information</h2>
             <p className="mb-4">
@@ -122,7 +122,7 @@ export default function TermsConditions() {
 
             <h2 className="text-2xl font-bold mt-6 mb-2">Notifications and Website Updates</h2>
             <p className="mb-4">
-                We send email notifications to individuals who log into the Website as Ethyx Platform members. In addition, We may send You regular newsletters, updates, and promotional information to keep You updated on Platform updates.
+                We send email notifications to individuals who log into the Website as Altern Platform members. In addition, We may send You regular newsletters, updates, and promotional information to keep You updated on Platform updates.
             </p>
 
             <h2 className="text-2xl font-bold mt-6 mb-2">User Rights</h2>
@@ -137,7 +137,7 @@ export default function TermsConditions() {
 
             <h2 className="text-2xl font-bold mt-6 mb-2">Opt-Out Options and Service Notifications</h2>
             <p className="mb-4">
-                As a courtesy to Your privacy, We provide the option to opt out of any Services offered on the Website. If You do not opt out of any service, You agree to receive information about those Services. We only send You information if You have consented to receive it. If You wish to discontinue any Services, You can do so by selecting the unsubscribe option in the emails You receive or by using the Website's tabs. However, please note that You will not be able to opt out of any service notification that may be necessary for the website's operation, or that may be important to You as a member of Ethyx.
+                As a courtesy to Your privacy, We provide the option to opt out of any Services offered on the Website. If You do not opt out of any service, You agree to receive information about those Services. We only send You information if You have consented to receive it. If You wish to discontinue any Services, You can do so by selecting the unsubscribe option in the emails You receive or by using the Website's tabs. However, please note that You will not be able to opt out of any service notification that may be necessary for the website's operation, or that may be important to You as a member of Altern.
             </p>
 
             <h2 className="text-2xl font-bold mt-6 mb-2">Phishing</h2>

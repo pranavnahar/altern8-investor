@@ -9,13 +9,13 @@ export const ALTER8_FEATURES = [
         text: "Superior Yield",
         icon: "/landingPage/altern8/superiorYield.svg",
         description:
-            "Earn higher returns than traditional fixed-income landingPage/investments while enjoying consistent income from real estate.",
+            "Earn higher returns than traditional fixed-income investments while enjoying consistent income from real estate.",
     },
     {
         text: "Enhanced Liquidity",
         icon: "/landingPage/altern8/enhancedLiquidity.svg",
         description:
-            "Our liquidity bot ensures seamless trading of  fractional units to access a thriving secondary market for your landingPage/investments.",
+            "Our liquidity bot ensures seamless trading of  fractional units to access a thriving secondary market for your investments.",
     },
     {
         text: "Portfolio Management",
@@ -33,27 +33,27 @@ export const ALTER8_FEATURES = [
 
 export const ALTERN8_INVESTMENMTS = [
     {
-        heading: "Commercial Real Estate",
+        heading: "Commercial Secured",
         amount: 1540000,
-        investmentRateDescription: "17.1 XIRR since 2018",
-        monthlyReturnDescription: "Monthly income of 7500",
+        investmentRateDescription: "17.1 XIRR",
+        monthlyReturnDescription: null,
     },
     {
         heading: "Fixed Deposit",
         amount: 1210000,
-        investmentRateDescription: "7% XIRR since 2018",
+        investmentRateDescription: "7% XIRR",
         monthlyReturnDescription: null,
     },
     {
         heading: "Gold",
         amount: 1262789,
-        investmentRateDescription: "7% XIRR since 2018",
+        investmentRateDescription: "7% XIRR",
         monthlyReturnDescription: null,
     },
     {
         heading: "Stocks and Mutual Funds",
         amount: 1360000,
-        investmentRateDescription: "12% XIRR since 2018",
+        investmentRateDescription: "12% XIRR",
         monthlyReturnDescription: null,
     },
 ];
@@ -89,12 +89,12 @@ export const ALTERN8_INVESTMENT_TYPES = [
             {
                 heading: "How it works",
                 about:
-                    "Provide loans to real estate developers and property owners,helping fund their projects.",
+                    "Provide loans to real estate developers and property owners, helping fund their projects.",
             },
             {
                 heading: "Benefits",
                 about:
-                    "Earn steady interest payments, diversify your landingPage/investments, and actively contribute to real estate growth. Each loan is backed by comprehensive risk assessments, ensuring your investment is secure.",
+                    "Earn steady interest payments, diversify your investments, and actively contribute to real estate growth. Each loan is backed by comprehensive risk assessments, ensuring your investment is secure.",
             },
             {
                 heading: "Example",
@@ -115,7 +115,7 @@ export const ALTERN8_INVESTMENT_TYPES = [
             {
                 heading: "Benefits",
                 about:
-                    "Lower entry barriers, diversified property landingPage/investments, passive rental income, and property appreciation. Our professional team manages the assets, ensuring a hassle-free experience.",
+                    "Lower entry barriers, diversified property investments, passive rental income, and property appreciation. Our professional team manages the assets, ensuring a hassle-free experience.",
             },
             {
                 heading: "Example",
@@ -131,17 +131,17 @@ export const ALTERN8_INVESTMENT_TYPES = [
             {
                 heading: "How it works",
                 about:
-                    "Invest in a professionally managed portfolio of income-generating real estate assets such as shopping malls, office buildings, and residential complexes, with shares traded like stocks.",
+                    "Invest in a professionally managed portfolio of income-generating real estate assets such as shopping malls, office buildings, and residential complexes, with units in real estate traded like stocks.",
             },
             {
                 heading: "Benefits",
                 about:
-                    "Low investment thresholds, liquidity, regular dividend payouts, and professional property management. REITs offer access to a diversified real estate portfolio with minimal capital.",
+                    "Low investment thresholds, liquidity, regular  payouts, and professional property management. REITs offer access to a diversified real estate portfolio with minimal capital.",
             },
             {
                 heading: "Example",
                 about:
-                    "Own shares in a REIT that invests in commercial properties and receive dividends from rental income and property appreciation.",
+                    "Own shares in a REIT that invests in commercial properties and receive from rental income and property appreciation.",
             },
         ],
     },
@@ -178,7 +178,7 @@ export const ALTERN8_INVESTMENT_TYPES = [
             {
                 heading: "Benefits",
                 about:
-                    "Lower risk compared to unsecured landingPage/investments, fixed returns, and collateral backing. Secured debt offers a safer option for those seeking reliable returns.",
+                    "Lower risk compared to unsecured investments, fixed returns, and collateral backing. Secured debt offers a safer option for those seeking reliable returns.",
             },
             {
                 heading: "Example",
@@ -321,7 +321,7 @@ export const ALTERN8_ADVISORS = [
     {
         image: "/landingPage/advisors/valorie.png",
         name: "Valorie Wagoner",
-        post: "Head of Product",
+        post: "Head of Product, Global at Stripe",
         location: "Singapore"
     },
     {

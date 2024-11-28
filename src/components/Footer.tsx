@@ -23,20 +23,20 @@ export const Footer = () => {
                         >
                             Contact Us
                         </Link>
-                        <Link
+                        {/* <Link
                             href="#"
                             className="text-white flex items-center text-sm transition-colors hover:underline"
                             prefetch={false}
                         >
                             Our Team
-                        </Link>
-                        <Link
+                        </Link> */}
+                        {/* <Link
                             href="#"
                             className="text-white flex items-center text-sm transition-colors hover:underline"
                             prefetch={false}
                         >
                             Careers
-                        </Link>
+                        </Link> */}
                     </div>
                     {/* 3 */}
                     <div className='w-1/3 flex flex-col p-2  gap-3'>
@@ -74,6 +74,13 @@ export const Footer = () => {
                         >
                             Terms And Conditions
                         </Link>
+                        <Link
+                            href="/refund-and-cancellations"
+                            className="text-white flex items-center text-sm transition-colors hover:underline"
+                            prefetch={false}
+                        >
+                            Refund and cancellation
+                        </Link>
 
                     </div>
 
@@ -89,7 +96,7 @@ export const Footer = () => {
                     </Link>
                 </div>
             </div>
-            <p className='text-white'>© Copyright 2023 <span className='font-bold'>Ethyx</span>. All Rights Reserved.</p>
+            <p className='text-white'>© Copyright 2023 <span className='font-bold'>ALtern</span>. All Rights Reserved.</p>
         </div>
     )
 }
