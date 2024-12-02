@@ -20,9 +20,6 @@
 // import Link from "next/link"
 // import { Button } from "@/components/ui/button"
 
-
-
-
 // function NavbarLogo(props: any) {
 //     return (
 //         <img
@@ -67,7 +64,6 @@
 //   return smoothScrollTo;
 // };
 
-
 // export default function Navbar() {
 
 //   // const handleChange = (
@@ -89,16 +85,14 @@
 //   // const handleSubmit = (e: React.FormEvent) => {
 //   //   e.preventDefault();
 //   //   console.log(formData);
-  
+
 //   // };
- 
+
 //   const smoothScrollTo = useSmoothScroll();
 //   const investSectionRef = useRef<HTMLDivElement>(null);
 //   const reserveSectionRef = useRef<HTMLDivElement>(null);
 //   const processSectionRef = useRef<HTMLDivElement>(null);
 //   const categoriesSectionRef = useRef<HTMLDivElement>(null);
-
-
 
 //     return (
 //       <>
@@ -158,13 +152,13 @@
 //         </nav>
 //          <Hero />
 //          <WhySection />
-//          <ReadyToInvestSection 
-        
+//          <ReadyToInvestSection
+
 //          />
 //          <DiverseAssetSection />
 //          <Testimonials />
 //          <AdvisorsSection
-//           ref={investSectionRef} 
+//           ref={investSectionRef}
 //          />
 //          <CompliantSection />
 //          <FaqSection />
@@ -174,7 +168,7 @@
 // export default function Home() {
 //   return (
 //     <>
-     
+
 //     </>
 //   );
 // }
@@ -248,19 +242,16 @@ export default function Navbar() {
                   smoothScrollTo(ReadyToInvestSectionRef);
                 }}
                 className="font-medium flex items-center text-sm transition-colors hover:underline"
-               
               >
                 Invest
               </a>
               <a
-
-onClick={(e) => {
-  e.preventDefault();
-  smoothScrollTo(ReadyToInvestSectionRef);
-}}
+                onClick={(e) => {
+                  e.preventDefault();
+                  smoothScrollTo(ReadyToInvestSectionRef);
+                }}
                 href="#"
                 className="font-medium flex items-center text-sm transition-colors hover:underline"
-                
               >
                 About Us
               </a>
@@ -271,7 +262,6 @@ onClick={(e) => {
                   smoothScrollTo(FaqSectionRef);
                 }}
                 className="font-medium flex items-center text-sm transition-colors hover:underline"
-              
               >
                 Contact Us
               </a>
@@ -280,7 +270,6 @@ onClick={(e) => {
               <a
                 href="#"
                 className="font-medium flex items-center text-sm transition-colors hover:underline"
-               
               >
                 Login
               </a>
@@ -292,7 +281,6 @@ onClick={(e) => {
                     smoothScrollTo(FaqSectionRef);
                   }}
                   className="font-medium flex items-center text-sm transition-colors"
-                  
                 >
                   Reserve Access
                 </a>
@@ -303,13 +291,12 @@ onClick={(e) => {
       </nav>
       <Hero />
       <WhySection />
-      <ReadyToInvestSection ref={ReadyToInvestSectionRef}/>
+      <ReadyToInvestSection ref={ReadyToInvestSectionRef} />
       <DiverseAssetSection />
       <Testimonials />
-      <AdvisorsSection  />
+      <AdvisorsSection />
       <CompliantSection />
-      <FaqSection ref={FaqSectionRef}/>
+      <FaqSection ref={FaqSectionRef} />
     </>
   );
 }
-
