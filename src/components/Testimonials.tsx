@@ -36,12 +36,12 @@ function TestimonialCarousel() {
                                         {/* heading */}
                                         <div className='flex items-center gap-4'>
                                             <Avatar className=''>
-                                                <AvatarImage className='w-20 rounded-full  h-20' src={testimonial.icon} />
-                                                <AvatarFallback>CN</AvatarFallback>
+                                                {/* <AvatarImage className='w-20 rounded-full  h-20' src={testimonial.icon} /> */}
+                                                {/* <AvatarFallback>CN</AvatarFallback> */}
                                             </Avatar>
                                             <div className='flex flex-col gap-2'>
                                                 <h4 className='text-xl font-semibold'>{testimonial.customerName}</h4>
-                                                <p >{testimonial.subHeading}</p>
+                                                {/* <p >{testimonial.subHeading}</p> */}
                                             </div>
 
                                         </div>

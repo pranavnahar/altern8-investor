@@ -253,28 +253,46 @@ export const ALTERN8_ASSET_TYPES = [
 
 export const ALTERN8_CUSTOMER_TESTIMONIALS = [
     {
-        icon: "customer2.png",
-        customerName: "Sarah Connor",
-        subHeading: "Bought the Tranquil Haven project",
-        testimonial: "We are thrilled with our new home! The Tranquil Haven project exceeded all our expectations. The spacious rooms, cozy atmosphere, and high-quality materials have made our country house the perfect retreat. Thank you for your professionalism and attention to detail!"
+        // icon: "customer2.png",
+        customerName: "Sumit Misra",
+        // subHeading: "Bought the Tranquil Haven project",
+        testimonial: "I began my Altern8(founders) journey 10 years ago with just 5 lakhs, cautiously investing in affordable housing projects. Over the years, I’ve grown my portfolio to over 2 crores, thanks to the consistent and timely returns, with IRRs ranging from 9% to 21%. Every transaction is transparent, and the due diligence is unparalleled. What stands out to me is the in-depth analysis this new technology by Altern8 conducts—70+ APIs cross-verify everything from GST returns to RERA details. I always feel secure knowing their founders come from a legacy of structured finance and bring ethical values into every deal."
     },
     {
-        icon: "customer.png",
-        customerName: "Oleg Tinkoff",
-        subHeading: "Bought the Lakeside Serenity project",
-        testimonial: "Lakeside Serenity is a magnificent project! The house is situated by the lake, and the views are simply stunning. The spacious rooms and modern amenities make living in this house comfortable and enjoyable. A huge thank you for such a wonderful project and impeccable work!"
+        // icon: "customer.png",
+        customerName: "Sudeep Jain",
+        // subHeading: "Bought the Lakeside Serenity project",
+        testimonial: "Investing in co-living real estate projects through Altern8 (founders) has been one of my best financial decisions. The platform’s speed and transparency are impressive; deals close quickly, and I’ve had to act fast to participate. What gives me peace of mind is knowing that the current leadership team is not only experienced in structured finance but also guided by a background in Vipassana and ethical business practices. The detailed borrower analysis and project-level tracking reassure me that my investments are secure."
     },
     {
-        icon: "customer3.png",
-        customerName: "Barbara Streisand",
-        subHeading: "Bought the Sunny Retreat project",
-        testimonial: "The Sunny Retreat project is our dream home! Bright and spacious rooms, a smart layout, and top-notch construction quality. The team worked at the highest level, adhering to all deadlines and considering our wishes. We are very satisfied with the result!"
+        // icon: "customer3.png",
+        customerName: "Manan Gupta",
+        // subHeading: "Bought the Sunny Retreat project",
+        testimonial: "Altern8’s (founders) mixed-use realty investments have delivered returns that are 3-4 times what I’d earn in a bank account. I appreciate the level of detail in doing due diligence of every transaction, from PAN and KYC verification to director and related-party investigations. The board’s credibility, with members from global hedge funds and digital banking, adds another layer of trust. My returns have been consistently on time, and the founders’ emphasis on ethical investing keeps me coming back."
     },
     {
-        icon: "customer.png",
-        customerName: "Oleg Tinkoff",
-        subHeading: "Bought the Lakeside Serenity project",
-        testimonial: "Lakeside Serenity is a magnificent project! The house is situated by the lake, and the views are simply stunning. The spacious rooms and modern amenities make living in this house comfortable and enjoyable. A huge thank you for such a wonderful project and impeccable work!"
+        // icon: "customer.png",
+        customerName: "Amit Tyagi",
+        // subHeading: "Bought the Lakeside Serenity project",
+        testimonial: "Over the past decade, I’ve invested in several projects on Altern8 (founders), and I’m continually impressed. The terms are always crystal clear, and now I have learnt that their AI-enhanced analysis leaves no stone unturned. From checking Ministry of Corporate Affairs filings to evaluating project budgets, the scrutiny they apply minimizes risk. I’ve steadily increased my investments from initial 5 lakhs, confident in the platform’s thoroughness and the founders’ strong ties to both real estate and structured finance."
+    },
+    {
+        // icon: "customer.png",
+        customerName: "Poojan Shah",
+        // subHeading: "Bought the Lakeside Serenity project",
+        testimonial: "Altern8 (founders) helped me diversify my portfolio by investing in real estate assets. Their debt resolution and collection expertise, honed over decades in the founders’ families, have ensured my investments remain secure and productive. Despite the high-risk nature of these deals, the returns have been timely and impressive. Now with the use of AI and extensive API data analysis gives me confidence that the platform is constantly working to safeguard my capital."
+    },
+    {
+        // icon: "customer.png",
+        customerName: "Shrey Jain",
+        // subHeading: "Bought the Lakeside Serenity project",
+        testimonial: "Investing in agricultural land development through Altern8(formerly Garg Group) has been incredibly rewarding. Their talent at land use change,Their process of cross-analyzing bank statements with GST and ITR data is detailed and reassuring. Even with complex investments, I’ve always received my returns on time, and the IRRs have exceeded my expectations. The ethical approach and the founders’ commitment to transparency make me feel comfortable scaling my investments."
+    },
+    {
+        // icon: "customer.png",
+        customerName: "Saurabh Gupta",
+        // subHeading: "Bought the Lakeside Serenity project",
+        testimonial: "My first investment in warehousing projects via Altern8 (formerly Garg Group) was a learning experience, but I soon realized how exceptional their system is. The board members’ diverse expertise and the now the 320+ data points they use for due diligence make the risk feel manageable. Over the last decade, I’ve consistently patronized opportunities and have always received my returns. Altern8’s structured finance knowledge and the founders’ unique spiritual background set them apart from aggressive and unethical market players."
     },
 ]
 
