@@ -45,7 +45,7 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
                                     <div className="flex flex-col space-y-1.5">
                                     <Input className="bg-[#F5F5F5]" id="first_name" placeholder="First Name" />
                                     <Input className="bg-[#F5F5F5]" id="Second_name" placeholder="Second Name" />
-                                        <Input className="bg-[#F5F5F5]" id="company_name" placeholder=" Name" />
+                                        {/* <Input className="bg-[#F5F5F5]" id="company_name" placeholder=" Name" /> */}
                                         <Input className="bg-[#F5F5F5]" id="company_email" placeholder="Email" type="email" />
                                         <Input className="bg-[#F5F5F5]" id="number" placeholder="Mobile no" type="number" />
                                     </div>
