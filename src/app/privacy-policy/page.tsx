@@ -1,8 +1,20 @@
 import React from 'react';
+import Link from 'next/link';
+
 
 export default function PrivacyPolicy() {
     return (
         <div className="p-4 max-w-7xl mx-auto">
+
+<div className="flex  justify-between items-center mb-4">
+      <Link href="/">
+        <button
+        className="text-black text-[40px]"
+        >
+           &#8592;
+        </button>
+        </Link>
+      </div>
             <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
             <p className="mb-4">
                 This document is an electronic record in terms of Information Technology Act, 2000
@@ -145,7 +157,7 @@ export default function PrivacyPolicy() {
             </p>
             <ol className="list-decimal list-inside mb-4">
                 <li>Right to access and update the information you provided.</li>
-                <li>To stop us from using your information, you may revoke or withdraw your consent by writing to us at ____. Please note that if you refuse to allow us to use information we deem necessary to provide our Services, we reserve the right to limit or refuse to provide our Services to you.</li>
+                <li>To stop us from using your information, you may revoke or withdraw your consent by writing to us at <strong> <a href="mailto:blend@nahar.om">blend@nahar.om</a></strong>. Please note that if you refuse to allow us to use information we deem necessary to provide our Services, we reserve the right to limit or refuse to provide our Services to you.</li>
                 <li>You have choices about the types of marketing communications you receive from us. You may opt out of receiving marketing emails by following the instructions in the email or by contacting us using the contact information provided at the end of this policy.</li>
             </ol>
 
@@ -179,7 +191,7 @@ export default function PrivacyPolicy() {
 
             <h2 className="text-2xl font-bold mt-6 mb-2">Contact Us</h2>
             <p className="mb-4">
-                You can contact Us at _________ if You have any feedback or comments, believe We are not following Our Privacy Policy, or wish to remove something that violates a specific regulation.
+                You can contact Us at <strong> <a href="mailto:blend@nahar.om">blend@nahar.om</a></strong> if You have any feedback or comments, believe We are not following Our Privacy Policy, or wish to remove something that violates a specific regulation.
             </p>
 
 

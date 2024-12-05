@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import Link from 'next/link';
 
 const RefundAndCancellations: FC = () => {
   const headingClassName = 'mb-4 font-bold mt-4 ';
@@ -6,7 +7,16 @@ const RefundAndCancellations: FC = () => {
 
   return (
     <div className="max-w-[95%] sm:max-w-[90%] lg:max-w-[1320px] mx-auto text-black rounded-lg p-8">
-      <h1 className="text-3xl  mt-10 font-bold mb-4 text-black">Refund and Cancellations - Altern</h1>
+      <div className="flex  justify-between items-center mb-4">
+      <Link href="/">
+        <button
+        className="text-black text-[40px]"
+        >
+           &#8592;
+        </button>
+        </Link>
+      </div>
+      <h1 className="text-3xl  mt-10 font-bold mb-4 text-black">Refund and Cancellations - Altern </h1>
       <p className={contentClassName}>
         The Terms and Conditions contained herein shall apply to any person (“User”) using the
         services of Ekarth Ventures Private Limited (“Altern”) and its Affiliates for making
