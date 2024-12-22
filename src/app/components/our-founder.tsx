@@ -3,6 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "./hooks/use-outside-click";
+import { DirectionAwareHover } from "./ui/direction-aware-hover";
 
 export function ExpandableCardDemo() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
@@ -10,6 +11,17 @@ export function ExpandableCardDemo() {
   );
   const id = useId();
   const ref = useRef<HTMLDivElement>(null);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -42,7 +54,7 @@ export function ExpandableCardDemo() {
           />
         )}
       </AnimatePresence>
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {active && typeof active === "object" ? (
           <div className="fixed inset-0  grid place-items-center z-[100]">
             <motion.button
@@ -117,46 +129,99 @@ export function ExpandableCardDemo() {
             </motion.div>
           </div>
         ) : null}
-      </AnimatePresence>
+      </AnimatePresence> */}
      <div >
 
-    <h2 className="text-black text-center py-8 px-4  text-[40px] font-semibold">Our Founders</h2>
-      <ul className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 items-start gap-4 px-6">
-        {cards.map((card, index) => (
-          <motion.div
-            layoutId={`card-${card.title}-${id}`}
-            key={card.title}
-            onClick={() => setActive(card)}
-            className="p-4 flex flex-col  hover:bg-neutral-400  rounded-xl cursor-pointer group"
-          >
-            <div className="flex gap-4 flex-col  w-full">
-              <motion.div layoutId={`image-${card.title}-${id}`}>
-                <Image
-                  width={100}
-                  height={100}
-                  src={card.src}
-                  alt={card.title}
-                  className="h-60 w-full  rounded-lg object-cover object-top"
-                />
-              </motion.div>
-              <div className="flex justify-center items-center flex-col">
-                <motion.h3
-                  layoutId={`title-${card.title}-${id}`}
-                  className="font-medium text-black  group-hover:text-black  text-center md:text-left text-base"
-                >
-                  {card.title}
-                </motion.h3>
-                <motion.p
-                  layoutId={`description-${card.description}-${id}`}
-                  className="text-neutral-700  group-hover:text-black text-center md:text-left text-base"
-                >
-                  {card.description}
-                </motion.p>
+     <div className="w-[92%] mx-auto">
+        <h2 className="text-black text-center py-8 px-4  text-[40px] font-semibold">Our Founders</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {cards.map((card) => (
+              <div
+                key={card.title}
+                className="h-[24.5rem] relative flex items-center justify-center backdrop-brightness-95"
+              >
+                <DirectionAwareHover imageUrl={card.src}>
+                  <div className="text-left">
+                    <p className="font-bold text-xl">{card.title}</p>
+                    <p className="font-normal text-sm">{card.role}</p>
+                  </div>
+                </DirectionAwareHover>
               </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <div
+              onClick={handleOpenModal}
+              className="px-10 py-4 cursor-pointer  text-black w-fit mx-auto rounded-md text-base pt-1.5 border border-black hover:bg-[#555555]/30 hover:text-white transition-colors"
+            >
+              More on our Founders
             </div>
-          </motion.div>
-        ))}
-      </ul>
+            {isModalOpen && (
+              <motion.div
+                className="fixed inset-0 flex items-center justify-center z-50 bg-black/50"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.div
+                  className="bg-gradient-to-b bg-white p-6 rounded-md max-w-[40vw] text-black border border-[#6e3050]"
+                  initial={{ scale: 0.95 }}
+                  animate={{ scale: 1 }}
+                  exit={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <h2 className="text-2xl text-left font-bold mb-4">
+                    Our Founder's Journey
+                  </h2>
+                  <p className="text-sm text-left">
+                    Our founding team has a proven track record in scaling
+                    successful ventures across industries:
+                    <br />
+                    <br />
+                    <strong>Pranav</strong>: At 19, Pranav launched his first
+                    business in Oslo, expanding to 32 countries within three
+                    years before executing a profitable exit. He has been
+                    involved in transactions exceeding $700 million and led the
+                    launch of Indian operations for a €200 million carbon
+                    finance firm listed on the London Stock Exchange.
+                    <br />
+                    <br />
+                    <strong>Poonam</strong>: With extensive expertise in HR and
+                    organizational development, Poonam has implemented talent
+                    acquisition strategies, HR policies, and diversity
+                    initiatives for startups and large corporations. She
+                    co-created 20+ international workshops and retreats that
+                    blend contemporary coaching with traditional practices,
+                    revolutionizing personal and professional development.
+                    <br />
+                    <br />
+                    <strong>Ketan</strong>: Ketan brings over 20 years of
+                    technology leadership experience. He developed a SaaS
+                    product generating $10 million in revenue and created
+                    fault-tolerant systems ensuring 100% uptime. His technical
+                    innovations have contributed to $42 million in total
+                    revenue, underscoring his ability to transform technology
+                    into tangible business value.
+                    <br />
+                    <br /> Together, this dynamic team's diverse expertise in
+                    business expansion, HR innovation, and technology leadership
+                    makes them uniquely equipped to drive growth and create
+                    value in their future ventures.
+                  </p>
+                  <button
+                    onClick={handleCloseModal}
+                    className="mt-4 px-4 py-2 bg-red-600 text-white rounded-md"
+                  >
+                    Close
+                  </button>
+                </motion.div>
+              </motion.div>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );
@@ -197,79 +262,39 @@ export const CloseIcon = () => {
 
 const cards = [
   {
-    description: "Investor, Entrepreneur, FinTech",
-    title: "Paranav",
-    src: "/paranav.jpg",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p className="text-lg  text-black py-2 mb-4 max-h-32 overflow-y-auto">
-        Pranav is a visionary entrepreneur and a modern-day Renaissance
-        Yogi, blending the worlds of finance, technology, and ancient
-        wisdom. Starting his first business at 19 in Oslo, Norway, he
-        quickly expanded to 32 countries within three years before
-        selling it. A Chevening Scholar and Chazen Fellow, Pranav
-        graduated with Dean’s List honors from both London Business
-        School and Columbia Business School. <br></br>
-        <br></br>
-        With over $700 million in transactions to his credit, Pranav has
-        been instrumental in launching the Indian operations of a €200
-        million LSE-listed carbon finance firm and served as Head of
-        Asia at the Grassroots Business Fund, a Washington D.C.-based
-        social enterprise private equity outfit. <br></br>
-        <br></br>
-        Passionate about conscious capitalism, Pranav's journey extends
-        beyond finance. He has explored Vipassana and various eastern
-        practices, dedicating over 8 years to silent meditation and is a
-        trained Vipassana teacher.
+    title: "Pranav",
+    role: "Investor, Entrepreneur",
+    src: "/images/pranav.png",
+    fullDescription: () => (
+      <p className="text-base text-gray-300">
+        Pranav is a visionary entrepreneur with deep expertise in FinTech and
+        investment strategies. He brings innovative thinking and strategic
+        insights to transform business landscapes.
       </p>
-      );
-    },
+    ),
   },
   {
-    description: "Co-Founder @ Nahar OM Family Office",
     title: "Poonam",
+    role: "Co-Founder",
     src: "/poonam.avif",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p className="text-lg  text-black py-2 mb-4 max-h-32 overflow-y-auto">
-        Poonam is a seasoned HR professional, entrepreneur, and
-        transformative coach. With experience spanning talent
-        acquisition, HR policy consulting, and Diversity & Inclusion
-        (DNI) initiatives, she has facilitated inclusive workplaces and
-        led appraisals for small companies in India. Her corporate
-        journey includes roles at Bank of America, Canon India, and
-        Amazon India. <br></br>
-        <br></br>
-        Beyond her corporate career, Poonam has co-led over 20 workshops
-        and retreats globally, blending modern coaching with ancient
-        practices. Certified in Vipassana and well-versed in healing
-        modalities like NLP, hypnotherapy, and Kundalini yoga, she
-        guides individuals toward self-realization and transformation.
-        Poonam’s holistic approach bridges business acumen with deep
-        personal growth.
-        </p>
-      );
-    },
+    fullDescription: () => (
+      <p className="text-base text-gray-300">
+        Poonam is a seasoned HR professional with extensive experience in
+        organizational development and strategic human resource management.
+      </p>
+    ),
   },
-
   {
-    description: "Co-Founder",
     title: "Ketan",
-    src: "",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    content: () => {
-      return (
-        <p>
-       
-        </p>
-      );
-    },
-  }
+    role: "Co-Founder & CTO",
+    src: "/images/ketan.png",
+    fullDescription: () => (
+      <p className="text-base text-gray-300">
+        Ketan brings unique strategic perspectives and leadership skills to the
+        team, driving innovation and growth.
+      </p>
+    ),
+  },
 ];
 
 

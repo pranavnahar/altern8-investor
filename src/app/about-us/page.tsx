@@ -9,6 +9,8 @@ import React, { useState, useRef, FC } from "react";
 import { ExpandableCardDemo } from "../components/our-founder";
 import { MarqueeDemo } from "../components/advisors-marque";
 import Navbar from "@/components/Navbar";
+import { AdvisorsSection } from "@/components/AdvisorsSection";
+import { ALTERN8_ADVISORS } from "@/config/config";
 
 const AboutPage: React.FC = () => {
   interface Advisor {
@@ -20,118 +22,156 @@ const AboutPage: React.FC = () => {
 
   const advisors: Advisor[] = [
     {
-      image: "/advisors-image/image1.png",
+      image: "/advisors/Valorie-min.png",
       name: "Valorie Wagoner",
       position: "Head of Product, Global at Stripe",
       location: "Singapore",
     },
     {
-      image: "/advisors-image/image2.png",
+      image: "/advisors/Simon_Ng_Yu_Sum.png",
       name: "Yu Sum Simon Ng",
       position: "Economic Foreign Policy Analyst",
       location: "Ontario, Canada",
     },
     {
-      image: "/advisors-image/image3.png",
+      image: "/advisors/alexandru-min.png",
       name: "Alexandru Badulescu",
-      position: "Head of Payments and Lending, Advisor to CEO of Digital Ventures",
-      location: "Riyadh, Soudi",
+      position: "Head Digital Lending, Saudi National Bank",
+      location: "Riyadh, Saudi Arabia",
     },
     {
-      image: "/advisors-image/image4.png",
-      name: "Alain S.",
-      position: "CFO, Burger King",
+      image: "/advisors/alain-min.png",
+      name: "Alain S",
+      position: "CFO, Burger King Europe",
       location: "Zug, Switzerland",
     },
     {
-      image: "/advisors-image/image5.png",
-      name: "Laras-Erik Odman",
+      image: "/advisors/lars-min.png",
+      name: "Lars-Erik Odman",
       position: "Director at Oliver Wyman",
       location: "UAE",
     },
     {
-      image: "/advisors-image/image6.png",
+      image: "/advisors/bob-min.png",
       name: "Bob Webster",
       position: "New Investment Lead at DAI",
-      location: "Kylv, Ukraine",
+      location: "Kyiv, Ukraine",
     },
     {
-      image: "/advisors-image/image7.png",
+      image: "/advisors/eugene-min.png",
       name: "Eugene Prahin",
-      position: "Managing Partner aof Sivyxa LLC",
+      position: "Managing Partner of Sivyxa LLC",
       location: "New York, USA",
     },
     {
-      image: "/advisors-image/image8.png",
+      image: "/advisors/brandon-peele-in.png",
       name: "Brandon Peele",
       position: "Co-founder at Unity Lab",
       location: "California, USA",
     },
     {
-      image: "/advisors-image/image9.png",
+      image: "/advisors/noel-min.png",
       name: "Noel Connolly",
       position: "Managing Director at The Community",
       location: "UAE",
     },
     {
-      image: "/advisors-image/image10.png",
+      image: "/advisors/kai_roer-min.png",
       name: "Kai Roer",
-      position: "CEO & Founder at Proxis Security Labs",
+      position: "CEO & Founder at Praxis Security Labs",
       location: "Oslo, Norway",
     },
     {
-      image: "/advisors-image/image11.png",
+      image: "/advisors/endre_opdal-min.png",
       name: "Endre Opdal",
       position: "CEO & Founder at HotelOnline",
       location: "Kenya",
     },
     {
-      image: "/advisors-image/image12.png",
+      image: "/advisors/maria-hooper-min.png",
       name: "Maria Hooper",
-      position: "Organisational Change Consultant at Arcondis",
+      position: "Change Management Consultant, Arcondis",
       location: "Basel, Switzerland",
     },
   ];
-
   interface Team {
     name: string;
     image: string;
   }
 
   const teams: Team[] = [
+    // {
+    //   image:
+    //     'https://static.wixstatic.com/media/72f1e4_b73148cb8d774b3fbe6f94aab2a726d9~mv2.jpg/v1/fill/w_206,h_200,fp_0.46_0.31,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/pranav2.jpg',
+    //   name: 'Pranav',
+    // },
+    // {
+    //   image:
+    //     'https://static.wixstatic.com/media/72f1e4_98dadaee629c49828fdef1ccc1aebe81~mv2.jpg/v1/fill/w_206,h_200,fp_0.53_0.40,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/poonam1.jpg',
+    //   name: 'Poonam',
+    // },
+    // { image: '/images/ketan.png', name: 'Ketan' },
     {
-      image: "/vivek.avif",
-      name: "Vivek",
+      image:
+        'https://static.wixstatic.com/media/72f1e4_39b0b240d24b4ffd91197ab14d69bf35~mv2.jpeg/v1/fill/w_206,h_200,fp_0.47_0.42,lg_1,q_80,enc_avif,quality_auto/vivek.jpeg',
+      name: 'Vivek',
     },
     {
-      image: "/anurag.avif",
-      name: "Anurag",
+      image:
+        'https://static.wixstatic.com/media/72f1e4_d6768e6f04884b01a633866bd1330d68~mv2.jpg/v1/fill/w_206,h_200,fp_0.60_0.50,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/oeuvars-20240702-0002-modified.jpg',
+      name: 'Anurag',
     },
     {
-      image: "/Talib.jpg",
-      name: "Talib",
+      image:
+        'https://static.wixstatic.com/media/72f1e4_9259a742103c4217af9e0305f293f53c~mv2.jpeg/v1/fill/w_206,h_200,fp_0.49_0.51,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/himanshu.jpeg',
+      name: 'Himanshu',
     },
     {
-      image: "/kumar.avif",
-      name: "Raj",
+      image:
+        'https://static.wixstatic.com/media/72f1e4_8d8406ec65334acab5d1084751151f32~mv2.jpeg/v1/fill/w_206,h_200,fp_0.48_0.49,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/kumar.jpeg',
+      name: 'Raj',
     },
     {
-      image: "/jinith.avif",
-      name: "Jinith",
+      image:
+        'https://static.wixstatic.com/media/72f1e4_cfd2705c74b0474bbe1c4ffa89f670bc~mv2.jpeg/v1/fill/w_206,h_200,fp_0.50_0.52,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ajith.jpeg',
+      name: 'Ajith',
     },
     {
-      image: "/Arunkumar.avif",
-      name: "Arunkumar",
+      image:
+        'https://static.wixstatic.com/media/72f1e4_f603e07ef6af4e4b8a6bcddbe70c0044~mv2.jpeg/v1/fill/w_206,h_200,fp_0.57_0.38,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/sheriff.jpeg',
+      name: 'Sherriff',
     },
     {
-      image: "/sanjukta.avif",
-      name: "Sanjukta",
+      image:
+        'https://static.wixstatic.com/media/72f1e4_daf686d18dc243d8923d608138395036~mv2.jpg/v1/fill/w_206,h_200,fp_0.49_0.43,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ayudh_edited.jpg',
+      name: 'Ayudh',
     },
     {
-      image: "ajith.avif",
-      name: "Ajith",
+      image:
+        'https://static.wixstatic.com/media/72f1e4_5cae7b59c3bd4bc7bf7a143d5e31d6b5~mv2.jpeg/v1/fill/w_206,h_200,fp_0.48_0.35,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/raghav1.jpeg',
+      name: 'Raghav',
     },
-  ];
+    {
+      image:
+        'https://static.wixstatic.com/media/72f1e4_f6f580a3106445adabaa7117221b3dc6~mv2.jpeg/v1/fill/w_206,h_200,fp_0.54_0.48,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Arunkumar.jpeg',
+      name: 'Arunkumar',
+    },
+    {
+      image:
+        'https://static.wixstatic.com/media/72f1e4_9d83bb604c86425f8ef85dfd39f25360~mv2.jpg/v1/fill/w_206,h_200,fp_0.48_0.36,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/kishwar.jpg',
+      name: 'Kishwar',
+    },
+    {
+      image:
+        'https://static.wixstatic.com/media/72f1e4_2f4e4b2e45ff485182c84658591d1d16~mv2.jpg/v1/fill/w_206,h_200,fp_0.49_0.18,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/jinith-modified.jpg',
+      name: 'Jinith',
+    },
+    {
+      image:
+        'https://static.wixstatic.com/media/72f1e4_44c554a0fa304fb286a7542fec0c6857~mv2.jpg/v1/fill/w_206,h_200,fp_0.43_0.36,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/daksh-modified.jpg',
+      name: 'Daksh',
+    },
+  ]
 
   return (
     <>
@@ -142,9 +182,22 @@ const AboutPage: React.FC = () => {
             {/* Text Section */}
 
             <div className="md:w-full text-center md:text-left">
-              <h2 className="text-4xl text-black text-center font-semibold mb-8">Our Mission is to infuse <span className="text-gradient">consciousness in  every transaction.</span></h2>
+              <h2 className="text-4xl text-black text-center font-semibold mb-8">
+                Our Mission Is To Infuse{" "}
+                <span className="text-gradient">
+                  Consciousness In Every Transaction.
+                </span>
+              </h2>
               <p className="text-lg  text-black  mb-4">
-              Ethyx Estate envisions transforming the opaque small real estate industry, into creditable, transparent, accessible investment opportunities. By harnessing cutting-edge AI and data science, we aim to create a seamless, secure marketplace that empowers investors with high-yield returns and fosters trust through transparency and underbanked small real estate developers with finance with ease " Through fractional investments, liquidity facilitation, and robust risk engines, Ethyx Estate makes complex investments and financing simple and accessible for all. 
+                Ethyx Estate envisions transforming the opaque small real estate
+                industry, into creditable, transparent, accessible investment
+                opportunities. By harnessing cutting-edge AI and data science,
+                we aim to create a seamless, secure marketplace that empowers
+                investors with high-yield returns and fosters trust through
+                transparency and underbanked small real estate developers with
+                finance with ease " Through fractional investments, liquidity
+                facilitation, and robust risk engines, Ethyx Estate makes
+                complex investments and financing simple and accessible for all.
               </p>
             </div>
           </div>
@@ -158,50 +211,54 @@ const AboutPage: React.FC = () => {
                 Our Esteemed{" "}
                 <span className="text-gradient">Advisory Board</span>
               </h2>
- 
+
               <p className="text-[20px] font-normal text-center text-black mb-12">
-              A powerhouse of global leaders and experts driving international resilience, regulatory mastery, and market dominance. With expertise spanning fintech, marketing, public policy and enforcement, our advisors are equipped to future-proof the company, help in debt resolution, and achieve customer growth at unprecedentedly low acquisition costs.
+                A powerhouse of global leaders and experts driving international
+                resilience, regulatory mastery, and market dominance. With
+                expertise spanning fintech, marketing, public policy and
+                enforcement, our advisors are equipped to future-proof the
+                company, help in debt resolution, and achieve customer growth at
+                unprecedentedly low acquisition costs.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 ">
-                {advisors.map((advisor, index) => (
-                  <div key={index} className="rounded-lg  border ">
-                    <div>
-                      <img
-                        src={advisor.image}
-                        //  alt={advisor.name}
-                        className="object-cover   w-full h-44 rounded-lg"
-                      />
-                    </div>
-                    <div className="text-center mt-4">
-                      <h3 className="text-[18px] font-semibold text-black leading-[18px]">
-                        {advisor.name}
-                      </h3>
-                      <div className="mt-2 ">
-                        <p className="text-[12px] font-medium  leading-[13px] text-black">
-                          {advisor.position}
-                        </p>
-                        <p className="text-xs text-black  font-light">
-                          {advisor.location}
-                        </p>
-                      </div>
+              <div className=" mt-3 p-10 grid grid-cols-6 grid-rows-2 gap-5">
+                {ALTERN8_ADVISORS.map((advisor, index) => (
+                  <div
+                    key={index}
+                    className="relative group w-[190px] h-[240px] bg-gray-100 rounded-lg shadow-md overflow-hidden"
+                  >
+                    {/* Image */}
+                    <img
+                      src={advisor.image}
+                      alt="Advisor"
+                      className="object-cover w-full h-full"
+                    />
+
+                    {/* Always-visible overlay at the bottom */}
+                    <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent p-2 flex flex-col justify-end">
+                      <p className="text-white text-[16px]">{advisor.name}</p>
+                      <span className="text-gray-200 text-[12px]">
+                        {advisor.post}
+                      </span>
+                      <span className="text-[12px]  text-[#BF8EFE]">
+                        {advisor.location}
+                      </span>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-          
           </div>
         </section>
 
-        <MarqueeDemo/>
-         {/* <CardHoverEffectDemo /> */}
+        <MarqueeDemo />
+        {/* <CardHoverEffectDemo /> */}
         <ExpandableCardDemo />
 
         {/* Mission Section */}
         <section className="py-16 px-14">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8">
             <div className="w-full text-center ">
-              <h2 className="text-5xl text-center text-black font-semibold mb-12">
+              <h2 className=" text-center text-[40px] text-black font-semibold mb-12">
                 Our Team
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">

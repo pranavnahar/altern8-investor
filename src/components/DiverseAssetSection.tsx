@@ -46,7 +46,7 @@ export const DiverseAssetSection = () => {
     return (
         <div className="bg-[#EEFAFF] w-full h-[350px] px-10 py-10">
             <div className="flex mt-5 flex-col gap-3">
-                <h1 className="text-31xl font-semibold leading-tight mt-0 mb-3">Diverse Asset Alasses In Real-Estate </h1>
+                <h1 className="text-31xl font-semibold leading-tight mt-0 mb-3">Diverse Asset Classes In Real-Estate </h1>
                 <p>Explore a multitude of asset classes in the real-estate sector, each meticulously curated for optimal investment opportunity.</p>
 
                 <div className='mt-6 p-1 h-[70px]'>

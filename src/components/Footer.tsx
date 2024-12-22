@@ -83,7 +83,7 @@ export const Footer = () => {
         </div>
       </div>
       <p className="text-white">
-        © Copyright 2023 <span className="font-bold">ALtern</span>. All Rights
+        © Copyright 2023 <span className="font-bold">ALtern8</span>. All Rights
         Reserved.
       </p>
     </div>

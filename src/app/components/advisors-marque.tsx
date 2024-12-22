@@ -139,17 +139,17 @@ const CategoryCard = ({
 
 export function MarqueeDemo() {
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg  bg-background ">
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((category) => (
-          <CategoryCard {...category} />
+    <div className="relative flex mt-10 w-full flex-col items-center justify-center overflow-hidden rounded-lg  bg-background ">
+      <Marquee pauseOnHover className="[--duration:50s]">
+        {categories.map((category, key) => (
+          <CategoryCard {...category} key={key}/>
         ))}
       </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
+      {/* <Marquee reverse pauseOnHover className="[--duration:20s]">
         {secondRow.map((category) => (
           <CategoryCard {...category} />
         ))}
-      </Marquee>
+      </Marquee> */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
       <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
     </div>
