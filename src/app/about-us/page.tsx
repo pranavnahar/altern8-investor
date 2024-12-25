@@ -4,12 +4,11 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import React, { useState, useRef, FC } from "react";
+import React from "react";
 // import { CardHoverEffectDemo } from "../components/card-section";
 import { ExpandableCardDemo } from "../components/our-founder";
 import { MarqueeDemo } from "../components/advisors-marque";
 import Navbar from "../../components/Navbar";
-import { AdvisorsSection } from "../../components/AdvisorsSection";
 import { ALTERN8_ADVISORS } from "../../config/config";
 
 const AboutPage: React.FC = () => {
