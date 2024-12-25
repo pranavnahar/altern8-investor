@@ -187,6 +187,7 @@ import React, { useRef } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ALTERN8_CUSTOMER_TESTIMONIALS, ALTERN8_FEATURES } from "@/config/config";
+import PieChart from "./components/pie-chart";
 
 const useSmoothScroll = () => {
   const smoothScrollTo = (targetRef: React.RefObject<HTMLElement>) => {
@@ -294,6 +295,9 @@ export default function Navbar() {
       <Testimonials name="" data={ALTERN8_FEATURES} />
 
       <AdvisorsSection />
+      <div className=" w-[90vw] h-[400px] mx-auto sm:w-[500px] sm:h-[400px] my-10">
+        <PieChart />
+      </div>
       <CompliantSection />
       <FaqSection ref={FaqSectionRef} />
     </>
