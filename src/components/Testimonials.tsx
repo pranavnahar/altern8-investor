@@ -1,5 +1,5 @@
 "use client"
-import { ALTERN8_ASSET_TYPES, ALTERN8_CUSTOMER_TESTIMONIALS } from '@/config/config'
+import { ALTERN8_ASSET_TYPES, ALTERN8_CUSTOMER_TESTIMONIALS } from '../config/config'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import { Badge } from 'lucide-react'
 import React from 'react'
@@ -7,7 +7,7 @@ import { Carousel, CarouselContent, CarouselItem } from './ui/carousel'
 import { Card, CardContent } from './ui/card'
 import { Avatar, AvatarImage, AvatarFallback } from '@radix-ui/react-avatar'
 
-function TestimonialCarousel({data} : {data : any}) {
+function TestimonialCarousel({ data }: { data: any }) {
 
     const plugin = React.useRef(
         // Autoplay({ delay: 2000, stopOnInteraction: true })
@@ -26,7 +26,7 @@ function TestimonialCarousel({data} : {data : any}) {
             onMouseLeave={plugin.current.reset}
         >
             <CarouselContent className="w-full  h-[330px]  max-h-full ">
-                {data.map((testimonial : any, index : number) => (
+                {data.map((testimonial: any, index: number) => (
                     <CarouselItem key={index} className="w-full h-full max-h-full basis-1/3 p-2">
                         {/* card */}
                         <div className="w-full h-full   ">
@@ -60,7 +60,7 @@ function TestimonialCarousel({data} : {data : any}) {
     )
 }
 
-export const Testimonials = ({data,name} : {data : any,name : string}) => {
+export const Testimonials = ({ data, name }: { data: any, name: string }) => {
     return (
         <div className="w-full h-[550px] px-10 py-10 ">
             <div className="flex mt-5 flex-col gap-3">

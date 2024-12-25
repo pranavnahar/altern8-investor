@@ -13,6 +13,9 @@ RUN npm install --only=production
 # Copy the rest of the application code
 COPY . .
 
+# Install required devDependencies
+RUN npm install --save-dev eslint typescript @types/node
+
 # Copy the production environment file
 COPY .env.production .env
 

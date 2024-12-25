@@ -7,9 +7,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
-import { type CarouselApi } from "@/components/ui/carousel";
+import { type CarouselApi } from "../components/ui/carousel";
 import { Button } from "./ui/button";
-import { ALTERN8_INVESTMENT_TYPES } from "@/config/config";
+import { ALTERN8_INVESTMENT_TYPES } from "../config/config";
 import React, { forwardRef } from "react";
 
 export const ReadyToInvestSection = forwardRef<HTMLDivElement>((props, ref) => {
@@ -51,11 +51,10 @@ export const ReadyToInvestSection = forwardRef<HTMLDivElement>((props, ref) => {
             {ALTERN8_INVESTMENT_TYPES.map((investment, index) => (
               <Button
                 key={index}
-                className={`w-[510px] h-[75px] rounded-full bg-inherit text-black border-black border hover:bg-slate-100 ${
-                  current === index + 1
+                className={`w-[510px] h-[75px] rounded-full bg-inherit text-black border-black border hover:bg-slate-100 ${current === index + 1
                     ? "bg-black text-white hover:text-white hover:bg-black"
                     : ""
-                }`}
+                  }`}
                 onClick={() => handleCarouselMove(index)}
               >
                 {investment.heading

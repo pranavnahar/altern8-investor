@@ -1,5 +1,5 @@
 "use client"
-import { ALTERN8_ASSET_TYPES } from '@/config/config'
+import { ALTERN8_ASSET_TYPES } from '../config/config'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import React from 'react'
 import { Card, CardContent } from './ui/card'

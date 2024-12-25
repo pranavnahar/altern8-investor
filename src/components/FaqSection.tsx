@@ -4,7 +4,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "../components/ui/accordion";
 import { Button } from "./ui/button";
 import {
   Card,
@@ -16,19 +16,19 @@ import {
 } from "./ui/card";
 import { Input } from "./ui/input";
 import { Checkbox } from "./ui/checkbox";
-import { ALTERN8_AREA_OF_INTEREST, ALTERN8_FAQ } from "@/config/config";
+import { ALTERN8_AREA_OF_INTEREST, ALTERN8_FAQ } from "../config/config";
 import React, { forwardRef, useState } from "react";
 
 import { toast } from "react-toastify";
 type FormValues = {
-    firstName: string;
-    secondName: string;
-    email: string;
-    mobileNumber: string;
-    areaOfInterest: string[];
-    comments: string;
-    termsAgreed: boolean;
-  };
+  firstName: string;
+  secondName: string;
+  email: string;
+  mobileNumber: string;
+  areaOfInterest: string[];
+  comments: string;
+  termsAgreed: boolean;
+};
 
 export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
   const [formValues, setFormValues] = useState<FormValues>({
@@ -84,7 +84,7 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
     } else if (personalEmailDomains.includes(emailDomain)) {
       toast.error("Please provide a company email address.");
       isValid = false;
-    }else if (formValues.comments.length > 2000) {
+    } else if (formValues.comments.length > 2000) {
       toast.error("Comments and questions maximum be in 2000 characters only.");
       isValid = false;
     }

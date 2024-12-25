@@ -175,18 +175,18 @@
 
 "use client";
 
-import { AdvisorsSection } from "@/components/AdvisorsSection";
-import { CompliantSection } from "@/components/CompliantSection";
-import { DiverseAssetSection } from "@/components/DiverseAssetSection";
-import { FaqSection } from "@/components/FaqSection";
-import { Hero } from "@/components/Hero";
-import { ReadyToInvestSection } from "@/components/ReadyToInvestSection";
-import { Testimonials } from "@/components/Testimonials";
-import { WhySection } from "@/components/WhySection";
+import { AdvisorsSection } from "../components/AdvisorsSection";
+import { CompliantSection } from "../components/CompliantSection";
+import { DiverseAssetSection } from "../components/DiverseAssetSection";
+import { FaqSection } from "../components/FaqSection";
+import { Hero } from "../components/Hero";
+import { ReadyToInvestSection } from "../components/ReadyToInvestSection";
+import { Testimonials } from "../components/Testimonials";
+import { WhySection } from "../components/WhySection";
 import React, { useRef } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ALTERN8_CUSTOMER_TESTIMONIALS, ALTERN8_FEATURES } from "@/config/config";
+import { Button } from "../components/ui/button";
+import { ALTERN8_CUSTOMER_TESTIMONIALS, ALTERN8_FEATURES } from "../config/config";
 import PieChart from "./components/pie-chart";
 
 const useSmoothScroll = () => {

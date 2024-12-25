@@ -4,17 +4,17 @@
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Button } from "../components/ui/button"
 
 function NavbarLogo(props: any) {
     return (
         <Link href="/" className="flex items-center">
-        <img
-          className="h-8 w-auto"
-          alt="navbar logo"
-          src="/Alter8_nav_logo.svg"
-        />
-      </Link>
+            <img
+                className="h-8 w-auto"
+                alt="navbar logo"
+                src="/Alter8_nav_logo.svg"
+            />
+        </Link>
     )
 }
 
