@@ -1,17 +1,4 @@
-# TODOS
-
-- logo
-- c:\Users\DHANANJAY\AppData\Local\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TempState\ScreenClip\{870DCBB4-7CC9-4756-87D8-47F7C15514CC}.png
-  connect this to asset
-- reserve accses nav button
-  gap consistent diverse
-  carousel hover color change slide
-
-nav remove properties
-footer - remove altern8 section
-company -> altern8
-
-contact us -> use from invoice discounting one
+Altern8 Investor facing repo
 
 ```bash
 npm run dev
