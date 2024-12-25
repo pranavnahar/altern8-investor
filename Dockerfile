@@ -13,6 +13,9 @@ RUN npm install --only=production
 # Copy the rest of the application code
 COPY . .
 
+# Install required devDependencies
+RUN npm install --save-dev eslint typescript @types/node
+
 # Copy the production environment file
 COPY .env.production .env
 
@@ -31,4 +34,3 @@ EXPOSE 3002
 
 # Start the Next.js application and bind it to 0.0.0.0 with port 3002
 CMD ["npm", "start", "--", "-p", "3002", "-H", "0.0.0.0"]
-
