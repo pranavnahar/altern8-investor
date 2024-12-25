@@ -1,13 +1,25 @@
 "use client"
 import { ALTERN8_ASSET_TYPES, ALTERN8_CUSTOMER_TESTIMONIALS } from '../config/config'
 import AutoScroll from 'embla-carousel-auto-scroll'
-import { Badge } from 'lucide-react'
 import React from 'react'
 import { Carousel, CarouselContent, CarouselItem } from './ui/carousel'
 import { Card, CardContent } from './ui/card'
-import { Avatar, AvatarImage, AvatarFallback } from '@radix-ui/react-avatar'
+import { Avatar } from '@radix-ui/react-avatar'
 
-function TestimonialCarousel({ data }: { data: any }) {
+// Define the shape of testimonial data
+interface Testimonial {
+  customerName?: string;
+  title?: string;
+  testimonial?: string;
+  description?: string;
+  icon?: string;
+}
+
+interface TestimonialCarouselProps {
+  data: Testimonial[];
+}
+
+function TestimonialCarousel({ data }: TestimonialCarouselProps) {
 
     const plugin = React.useRef(
         // Autoplay({ delay: 2000, stopOnInteraction: true })
@@ -26,14 +38,13 @@ function TestimonialCarousel({ data }: { data: any }) {
             onMouseLeave={plugin.current.reset}
         >
             <CarouselContent className="w-full  h-[330px]  max-h-full ">
-                {data.map((testimonial: any, index: number) => (
+                {data.map((testimonial, index) => (
+
                     <CarouselItem key={index} className="w-full h-full max-h-full basis-1/3 p-2">
-                        {/* card */}
                         <div className="w-full h-full   ">
                             <Card className=" w-full h-full max-h-full ">
                                 <CardContent className="w-full h-full flex items-center justify-center p-5 bg-[#F5F5F5]  hover:bg-zinc-50">
                                     <div className='flex flex-col gap-2  w-full h-full  p-1'>
-                                        {/* heading */}
                                         <div className='flex items-center gap-4'>
                                             {testimonial.customerName && <Avatar className=''>
                                                 {/* <AvatarImage className='w-20 rounded-full  h-20' src={testimonial.icon} /> */}
@@ -41,11 +52,9 @@ function TestimonialCarousel({ data }: { data: any }) {
                                             </Avatar>}
                                             <div className='flex flex-col gap-2'>
                                                 <h4 className='text-xl font-semibold'>{testimonial.customerName || testimonial.title}</h4>
-                                                {/* <p >{testimonial.subHeading}</p> */}
                                             </div>
 
                                         </div>
-                                        {/* about */}
                                         <div className='h-full w-full p-1'>
                                             <p className="text-sm">{testimonial.testimonial || testimonial.description}</p>
                                         </div>
@@ -60,7 +69,14 @@ function TestimonialCarousel({ data }: { data: any }) {
     )
 }
 
-export const Testimonials = ({ data, name }: { data: any, name: string }) => {
+
+interface TestimonialsProps {
+  data: Testimonial[];
+  name: string;
+}
+
+export const Testimonials = ({ data, name }: TestimonialsProps) => {
+
     return (
         <div className="w-full h-[550px] px-10 py-10 ">
             <div className="flex mt-5 flex-col gap-3">
@@ -68,7 +84,6 @@ export const Testimonials = ({ data, name }: { data: any, name: string }) => {
             </div>
             <div className='mt-6 p-1 h-[350px] '>
                 <TestimonialCarousel data={data} />
-
             </div>
         </div>
     )

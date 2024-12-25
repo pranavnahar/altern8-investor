@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
-import React, { useEffect, useId, useRef, useState } from "react";
+
+import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "./hooks/use-outside-click";
 import { DirectionAwareHover } from "./ui/direction-aware-hover";
@@ -9,7 +9,7 @@ export function ExpandableCardDemo() {
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
     null
   );
-  const id = useId();
+
   const ref = useRef<HTMLDivElement>(null);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -174,7 +174,7 @@ export function ExpandableCardDemo() {
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <h2 className="text-2xl text-left font-bold mb-4">
-                    Our Founder's Journey
+                    Our Founder&apos;s Journey
                   </h2>
                   <p className="text-sm text-left">
                     Our founding team has a proven track record in scaling
@@ -206,7 +206,7 @@ export function ExpandableCardDemo() {
                     revenue, underscoring his ability to transform technology
                     into tangible business value.
                     <br />
-                    <br /> Together, this dynamic team's diverse expertise in
+                    <br /> Together, this dynamic team&apos;s diverse expertise in
                     business expansion, HR innovation, and technology leadership
                     makes them uniquely equipped to drive growth and create
                     value in their future ventures.

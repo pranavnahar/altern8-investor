@@ -10,9 +10,7 @@ import {
   Card,
   CardHeader,
   CardTitle,
-  CardDescription,
   CardContent,
-  CardFooter,
 } from "./ui/card";
 import { Input } from "./ui/input";
 import { Checkbox } from "./ui/checkbox";
@@ -41,6 +39,7 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
     termsAgreed: false,
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleInputChange = (e: any) => {
     console.log(typeof e, "pppo0");
 
@@ -51,8 +50,8 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
         termsAgreed: e,
       }));
     } else {
-      const { id, value, type } = e.target;
-
+      const { id, value } = e.target;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       setFormValues((prev) => ({
         ...prev,
         [id]: value,
@@ -247,3 +246,5 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
     </div>
   );
 });
+
+FaqSection.displayName = "FaqSection";

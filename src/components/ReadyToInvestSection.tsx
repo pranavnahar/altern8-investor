@@ -138,3 +138,5 @@ export const ReadyToInvestSection = forwardRef<HTMLDivElement>((props, ref) => {
 });
 
 export default ReadyToInvestSection;
+
+ReadyToInvestSection.displayName = "ReadyToInvestSection";

@@ -1,6 +1,5 @@
 "use client"
 import React from 'react'
-import Autoplay from "embla-carousel-autoplay"
 import AutoScroll from 'embla-carousel-auto-scroll'
 
 import { Card, CardContent } from "../components/ui/card"

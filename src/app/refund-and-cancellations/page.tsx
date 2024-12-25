@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { FC } from 'react';
 import Link from 'next/link';
 
@@ -34,7 +35,7 @@ const RefundAndCancellations: FC = () => {
           1.1 In these Terms and Conditions, the term “Chargeback” shall mean, approved and settled
           credit card or net banking purchase transaction(s) which are at any time refused, debited
           or charged back to merchant account (and shall also include similar debits to Payment
-          Service Provider's accounts, if any) by the acquiring bank or credit card company for any
+          Service Provider&apos;s accounts, if any) by the acquiring bank or credit card company for any
           reason whatsoever, together with the bank fees, penalties and other charges incidental
           thereto.
         </p>
@@ -63,9 +64,9 @@ const RefundAndCancellations: FC = () => {
           <p className={contentClassName}>
             2.3 Subject to the above, Altern will make reasonable efforts to process refunds
             within 5-7 business days from the date on which the refund request was initiated. Once
-            the User’s refund request is raised, Altern will send an email to notify the User of
+            the User&apos;s refund request is raised, Altern will send an email to notify the User of
             the approval or rejection of the refund request. If the request is approved, then the
-            User's refund will be processed within 5-7 business days from the date on which the
+            User&apos;s refund will be processed within 5-7 business days from the date on which the
             request for refund was approved by us.
           </p>
         </div>
@@ -76,7 +77,7 @@ const RefundAndCancellations: FC = () => {
             1.1 In these Terms and Conditions, the term “Chargeback” shall mean, approved and
             settled credit card or net banking purchase transaction(s) which are at any time
             refused, debited or charged back to merchant account (and shall also include similar
-            debits to Payment Service Provider's accounts, if any) by the acquiring bank or credit
+            debits to Payment Service Provider&apos;s accounts, if any) by the acquiring bank or credit
             card company for any reason whatsoever, together with the bank fees, penalties and other
             charges incidental thereto.
           </p>
@@ -93,9 +94,9 @@ const RefundAndCancellations: FC = () => {
         <div className="my-10">
           <h2 className={headingClassName}>3. Server Slow Down/Session Timeout:</h2>
           <p className={contentClassName}>
-            3.1 In case the Website or Payment Service Provider's webpage, that is linked to the
-            Website, is experiencing any server related issues like 'slowdown' or 'failure' or
-            'session timeout', the User shall, before initiating the second payment, check whether
+            3.1 In case the Website or Payment Service Provider&apos;s webpage, that is linked to the
+            Website, is experiencing any server related issues like &apos;slowdown&apos; or &apos;failure&apos; or
+            &apos;session timeout&apos;, the User shall, before initiating the second payment, check whether
             his/her bank account has been debited or not and accordingly resort to one of the
             following options:
           </p>

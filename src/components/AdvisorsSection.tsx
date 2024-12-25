@@ -33,3 +33,5 @@ export const AdvisorsSection = forwardRef<HTMLDivElement>((props, ref) => {
         </div>
     )
 });
+
+AdvisorsSection.displayName = 'AdvisorsSection';

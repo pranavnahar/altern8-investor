@@ -9,10 +9,10 @@ export const CompliantSection = () => {
             Compliant and Regulated
           </h1>
           <p className="text-lg mt-8  w-[70%] m-auto text-center">
-            We rigorously adhere to the RBI's & SEBI's prudential norms for risk
+            We rigorously adhere to the RBI&apos;s & SEBI&apos;s prudential norms for risk
             management, maintaining robust financial foundations to safeguard
             our firm and contribute to overall financial stability. Our
-            investment decisions are guided by the RBI's & SEBI's regulations,
+            investment decisions are guided by the RBI&apos;s & SEBI&apos;s regulations,
             aligning strategically with permissible sectors to support economic
             development responsibly.
           </p>

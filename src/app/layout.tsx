@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+
 import Navbar from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { ToastContainer } from "react-toastify";
@@ -24,11 +25,11 @@ const geistMono = localFont({
 // };
 
 export const metadata: Metadata = {
-  title: "Alter8",
-  description: "Alter8 investor's page",
+  title: "Altern8",
+  description: "Altern8 investor's page",
   openGraph: {
-    title: "Alter8",
-    description: "Alter8 investor's page",
+    title: "Altern8",
+    description: "Altern8 investor's page",
     url: "https://j59d8sfv-3000.inc1.devtunnels.ms/",
     type: "website",
     images: [

@@ -34,4 +34,3 @@ EXPOSE 3007
 
 # Start the Next.js application and bind it to 0.0.0.0 with port 3007
 CMD ["npm", "start", "--", "-p", "3007", "-H", "0.0.0.0"]
-

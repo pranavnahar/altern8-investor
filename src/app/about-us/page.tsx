@@ -1,6 +1,5 @@
 "use client";
-// import Footer from "../components/Footerr";
-// import Header from "../components/Header";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -19,6 +18,7 @@ const AboutPage: React.FC = () => {
     image: string;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const advisors: Advisor[] = [
     {
       image: "/advisors/Valorie-min.png",
@@ -194,7 +194,7 @@ const AboutPage: React.FC = () => {
                 we aim to create a seamless, secure marketplace that empowers
                 investors with high-yield returns and fosters trust through
                 transparency and underbanked small real estate developers with
-                finance with ease " Through fractional investments, liquidity
+                finance with ease. Through fractional investments, liquidity
                 facilitation, and robust risk engines, Ethyx Estate makes
                 complex investments and financing simple and accessible for all.
               </p>
