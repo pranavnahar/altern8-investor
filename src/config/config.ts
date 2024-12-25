@@ -296,6 +296,144 @@ export const ALTERN8_CUSTOMER_TESTIMONIALS = [
     },
 ]
 
+export const ALTERN8_FEATURES = [
+    {
+      title: "Credit limits monitoring",
+      description:
+        "A credit limit is the maximum amount of credit that a financial institution or other lender will extend to a debtor for a particular line of credit.",
+    },
+    {
+      title: "LOS leads evaluation and scoring",
+      description:
+        "Lead scoring is a methodology used to rank prospects against a scale that represents the perceived value each lead represents to the organization.",
+    },
+    {
+      title: "Automation Platform System health monitoring",
+      description:
+        "System Health Monitoring (SHM) is a concept that focuses on platform-agnostic health monitoring within complex systems.",
+    },
+    {
+      title: "LOS Conversion prediction",
+      description:
+        "Conversion prediction in the context of Lead Scoring involves assigning numerical scores to leads based on their attributes and behaviors.",
+    },
+    {
+      title: "Rounderwriting automation",
+      description:
+        "Rounderwriting automation refers to the use of technology-driven processes to streamline and expedite the underwriting of loans.",
+    },
+    {
+      title: "Default prediction",
+      description:
+        "Default prediction refers to the process of forecasting the likelihood of a borrower or debtor failing to repay a loan or meet their financial obligations.",
+    },
+    {
+      title: "3rd party fraud prediction",
+      description:
+        "A credit limit is the maximum amount of credit that a financial institution or other lender will extend to a debtor for a particular line of credit.",
+    },
+    {
+      title: "Credit scoring",
+      description:
+        "Credit scoring is a statistical analysis performed by lenders and financial institutions to determine the creditworthiness.",
+    },
+    {
+      title: "Fraud prediction",
+      description:
+        "Fraud prediction involves using predictive analytics to proactively identify potential fraudulent activities.",
+    },
+    {
+      title: "Automated Affordability estimation",
+      description:
+        "Automated affordability estimation is a process that leverages Open Banking data to assess the ability to manage debt and make timely repayments.",
+    },
+    {
+      title: "3rd party fraud prediction",
+      description:
+        "Third-party fraud prediction refers to the process of assessing and forecasting fraudulent activities originating from third parties.",
+    },
+    {
+      title: "Multiple accounts discovery",
+      description:
+        "Multiple Accounts Discovery is a process that scans predefined machines to identify new and modified accounts and their dependencies.",
+    },
+    {
+      title: "Linked accounts discovery",
+      description:
+        "Conversion prediction in the context of Lead Scoring involves assigning numerical scores to leads based on their attributes and behaviors.",
+    },
+    {
+      title: "Serial fraud prediction",
+      description:
+        "Serial fraud prediction refers to the process of identifying patterns or trends related to fraudulent activities that occur in a sequential manner.",
+    },
+    {
+      title: "Anomaly detection and prevention",
+      description:
+        "Anomaly detection is the process of identifying patterns or data points that deviate significantly from the expected behavior within a dataset.",
+    },
+    {
+      title: "Retention / renewals prediction",
+      description:
+        "A credit limit is the maximum amount of credit that a financial institution or other lender will extend to a debtor for a particular line of credit.",
+    },
+    {
+      title: "LTV prediction",
+      description:
+        "LTV (Lifetime Value) is a crucial metric that quantifies the total value a customer brings to a business over the entire duration of their relationship with the company.",
+    },
+    {
+      title: "Intelligent limit allocation and management",
+      description:
+        "Intelligent limit allocation and management involves dynamically adjusting limits based on real-time data and risk factors.",
+    },
+    {
+      title: "Risk Adjusted Pricing",
+      description:
+        "Risk-adjusted pricing optimizes lending by tailoring interest rates to individual borrower risk profiles.",
+    },
+    {
+      title: "Acceptance Prediction",
+      description:
+        "Acceptance prediction involves forecasting the likelihood of approval or rejection for financial applications based on data analysis and predictive modeling.",
+    },
+    {
+      title: "Social and Behaviour Scoring",
+      description:
+        "Social and behavior scoring is the assessment of an individual's creditworthiness based on their social media activity, online behavior, and other non-traditional data sources.",
+    },
+    {
+      title: "Renewals Prediction",
+      description:
+        "Renewals prediction forecasts customer subscription or contract renewals using historical data and predictive analytics.",
+    },
+    {
+      title: "Fraud Related Gaming Prediction",
+      description:
+        "Fraud-related gaming prediction is the forecasting of fraudulent gaming activity using data analysis and predictive modeling techniques.",
+    },
+    {
+      title: "Cancellation Prediction",
+      description:
+        "Cancellation prediction is the forecasting of the likelihood of a service or subscription being canceled based on historical data and predictive analytics.",
+    },
+    {
+      title: "Mid-Term Cancellation Prediction",
+      description:
+        "Mid-term cancellation prediction forecasts the likelihood of service or subscription cancellations midway through their term using data analytics.",
+    },
+    {
+      title: "Claims Prediction",
+      description:
+        "Claims prediction is the process of forecasting the likelihood of insurance claims being filed based on historical data and predictive analytics.",
+    },
+    {
+      title: "Behaviour Based Credit Score",
+      description:
+        "Behavior-based credit score evaluates creditworthiness by analyzing an individual's financial behavior alongside traditional credit history.",
+    },
+  ];
+  
 export const ALTERN8_FAQ = [
     {
         value: 'item-1',
@@ -337,75 +475,75 @@ export const ALTERN8_AREA_OF_INTEREST = [
 
 export const ALTERN8_ADVISORS = [
     {
-        image: "/landingPage/advisors/valorie.png",
-        name: "Valorie Wagoner",
-        post: "Head of Product, Global at Stripe",
-        location: "Singapore"
+      image: '/advisors/Valorie-min.png',
+      name: 'Valorie Wagoner',
+      post: 'Head of Product, Global at Stripe',
+      location: 'Singapore',
     },
     {
-        image: "/landingPage/advisors/yusum.png",
-        name: "Yu Sum Simon Ng",
-        post: "Economic Foreign Policy Analyst",
-        location: "Ontario, Canada"
+      image: '/advisors/Simon_Ng_Yu_Sum.png',
+      name: 'Yu Sum Simon Ng',
+      post: 'Economic Foreign Policy Analyst',
+      location: 'Ontario, Canada',
     },
     {
-        image: "/landingPage/advisors/alexandru.png",
-        name: "Alexandru Badulescu",
-        post: "Strategic Advisor at Change2Scale",
-        location: "Dubai, UAE"
+      image: '/advisors/alexandru-min.png',
+      name: 'Alexandru Badulescu',
+      post: 'Head Digital Lending, Saudi National Bank',
+      location: 'Riyadh, Saudi Arabia',
     },
     {
-        image: "/landingPage/advisors/alain.png",
-        name: "Alain S.",
-        post: "CAO at QSR Platform",
-        location: "Zug, Switzerland"
+      image: '/advisors/alain-min.png',
+      name: 'Alain S',
+      post: 'CFO, Burger King Europe',
+      location: 'Zug, Switzerland',
     },
     {
-        image: "/landingPage/advisors/lars.png",
-        name: "Laras-Erik Odman",
-        post: "Director at Oliver Wyman",
-        location: "UAE"
+      image: '/advisors/lars-min.png',
+      name: 'Lars-Erik Odman',
+      post: 'Director at Oliver Wyman',
+      location: 'UAE',
     },
     {
-        image: "/landingPage/advisors/bob.png",
-        name: "Bob Webster",
-        post: "New Investment Lead at DAI",
-        location: "Kylv, Ukraine"
+      image: '/advisors/bob-min.png',
+      name: 'Bob Webster',
+      post: 'New Investment Lead at DAI',
+      location: 'Kyiv, Ukraine',
     },
     {
-        image: "/landingPage/advisors/eugene.png",
-        name: "Eugene Prahin",
-        post: "Managing Partner aof Sivyxa LLC",
-        location: "New York, USA"
+      image: '/advisors/eugene-min.png',
+      name: 'Eugene Prahin',
+      post: 'Managing Partner of Sivyxa LLC',
+      location: 'New York, USA',
     },
     {
-        image: "/landingPage/advisors/brandon.png",
-        name: "Brandon Peele",
-        post: "Co-founder at Unity Lab",
-        location: "California, USA"
+      image: '/advisors/brandon-peele-in.png',
+      name: 'Brandon Peele',
+      post: 'Co-founder at Unity Lab',
+      location: 'California, USA',
     },
     {
-        image: "/landingPage/advisors/noel.png",
-        name: "Noel Connolly",
-        post: "Managing Director at The Community",
-        location: "UAE"
+      image: '/advisors/noel-min.png',
+      name: 'Noel Connolly',
+      post: 'Managing Director at The Community',
+      location: 'UAE',
     },
     {
-        image: "/landingPage/advisors/kai.png",
-        name: "Kai Roer",
-        post: "CEO & Founder at Proxis Security Labs",
-        location: "Oslo, Norway"
+      image: '/advisors/kai_roer-min.png',
+      name: 'Kai Roer',
+      post: 'CEO & Founder at Praxis Security Labs',
+      location: 'Oslo, Norway',
     },
     {
-        image: "/landingPage/advisors/endre.png",
-        name: "Endre Opdal",
-        post: "CEO & Founder at HotelOnline",
-        location: "Kenya"
+      image: '/advisors/endre_opdal-min.png',
+      name: 'Endre Opdal',
+      post: 'CEO & Founder at HotelOnline',
+      location: 'Kenya',
     },
     {
-        image: "/landingPage/advisors/maria.png",
-        name: "Maria Hooper",
-        post: "Organisational Change Consultant at Arcondis",
-        location: "Basel, Switzerland"
+      image: '/advisors/maria-hooper-min.png',
+      name: 'Maria Hooper',
+      post: 'Change Management Consultant, Arcondis',
+      location: 'Basel, Switzerland',
     },
-]
+  ];

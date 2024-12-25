@@ -186,6 +186,8 @@ import { WhySection } from "@/components/WhySection";
 import React, { useRef } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { ALTERN8_CUSTOMER_TESTIMONIALS, ALTERN8_FEATURES } from "@/config/config";
+import PieChart from "./components/pie-chart";
 
 const useSmoothScroll = () => {
   const smoothScrollTo = (targetRef: React.RefObject<HTMLElement>) => {
@@ -228,7 +230,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="z-50 bg-white shadow-sm dark:bg-gray-950/90">
+      <nav className="sticky top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90">
         <div className="w-full max-h-20 mx-auto px-10 ">
           <div className="flex justify-between h-20 items-center">
             <Link href="#" className="flex items-center" prefetch={false}>
@@ -245,16 +247,12 @@ export default function Navbar() {
               >
                 Invest
               </a>
-              <a
-                onClick={(e) => {
-                  e.preventDefault();
-                  smoothScrollTo(ReadyToInvestSectionRef);
-                }}
-                href="#"
+              <Link
+                href="/about-us"
                 className="font-medium flex items-center text-sm transition-colors hover:underline"
               >
                 About Us
-              </a>
+              </Link>
               <a
                 href="#"
                 onClick={(e) => {
@@ -293,8 +291,13 @@ export default function Navbar() {
       <WhySection />
       <ReadyToInvestSection ref={ReadyToInvestSectionRef} />
       <DiverseAssetSection />
-      <Testimonials />
+      <Testimonials name="Patrons Captial" data={ALTERN8_CUSTOMER_TESTIMONIALS} />
+      <Testimonials name="" data={ALTERN8_FEATURES} />
+
       <AdvisorsSection />
+      <div className=" w-[90vw] h-[400px] mx-auto sm:w-[500px] sm:h-[400px] my-10">
+        <PieChart />
+      </div>
       <CompliantSection />
       <FaqSection ref={FaqSectionRef} />
     </>
