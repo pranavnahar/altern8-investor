@@ -1,8 +1,7 @@
 "use client"
-import { ALTERN8_ASSET_TYPES } from '@/config/config'
+import { ALTERN8_ASSET_TYPES } from '../config/config'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import React from 'react'
-import { Card, CardContent } from './ui/card'
 import { Carousel, CarouselContent, CarouselItem } from './ui/carousel'
 import { Badge } from './ui/badge'
 

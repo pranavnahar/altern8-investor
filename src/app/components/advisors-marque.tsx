@@ -102,8 +102,8 @@ const categories = [
   },
 ];
 
-const firstRow = categories.slice(0, categories.length / 2);
-const secondRow = categories.slice(categories.length / 2);
+// const firstRow = categories.slice(0, categories.length / 2);
+// const secondRow = categories.slice(categories.length / 2);
 
 const CategoryCard = ({
   title,

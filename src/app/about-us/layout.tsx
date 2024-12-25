@@ -6,11 +6,11 @@ import type { Metadata } from "next";
 // };
 
 export const metadata: Metadata = {
-  title: "Alter8 About Us",
+  title: "Altern8 About Us",
   description: "Know About Alter8",
   openGraph: {
-    title: "Alter8 About Us",
-    description: "Know About Alter8",
+    title: "Altern8 About Us",
+    description: "Know About Altern8",
     url: "https://j59d8sfv-3000.inc1.devtunnels.ms/about-us",
     type: "website",
     images: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         width: 300,
         height: 300,
         type:'image/png',
-        alt: "Alter8",
+        alt: "Altern8",
       },
     ],
   },

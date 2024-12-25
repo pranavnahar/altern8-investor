@@ -86,7 +86,7 @@ export default function TermsConditions() {
       <h2 className="text-2xl font-bold mt-6 mb-2">Cookies</h2>
       <p className="mb-4">
         Whenever You interact with Us or Our website, Altern may place a
-        “cookie” in Your computer's browser files. Cookies are data files that
+        “cookie” in Your computer&apos;s browser files. Cookies are data files that
         allow Your browser to communicate with the Altern website. By default,
         most browsers accept cookies. However, You can refuse or block cookies
         by altering Your browser settings. Remember that refusing or blocking
@@ -152,7 +152,7 @@ export default function TermsConditions() {
         The user information will only be used for Website-related purposes and
         will not be used for additional purposes. This information will be
         retained until the termination of Your membership/listing on the
-        Platform or for such other period as We deem necessary for the Website's
+        Platform or for such other period as We deem necessary for the Website&apos;s
         operation.
       </p>
       <p className="mb-4">
@@ -172,7 +172,7 @@ export default function TermsConditions() {
         The user information will only be used for Website-related purposes and
         will not be used for additional purposes. This information will be
         retained until the termination of Your membership/listing on the
-        Platform or for such other period as We deem necessary for the Website's
+        Platform or for such other period as We deem necessary for the Website&apos;s
         operation.
       </p>
       <p className="mb-4">
@@ -185,8 +185,8 @@ export default function TermsConditions() {
         necessary in connection with any investigation or complaint regarding
         Your use of the Platform, or to identify, contact or bring legal action
         against someone who may be causing injury to or interference with
-        (either intentionally or unintentionally) Altern's rights or property,
-        or the rights or property of Users of the Platform, including Altern's
+        (either intentionally or unintentionally) Altern&apos;s rights or property,
+        or the rights or property of Users of the Platform, including Altern&apos;s
         contributors.
       </p>
       <p className="mb-4">
@@ -233,7 +233,7 @@ export default function TermsConditions() {
         parties.
       </p>
       <p className="mb-4">
-        Altern may provide links to other websites ("Linked Site") on the
+        Altern may provide links to other websites (&quot;Linked Site&quot;) on the
         Platform or any e-mail sent to You. However, Altern has no control over
         such websites nor is Altern affiliated to or associated with such third
         party websites unless expressly specified on the Platform. These Linked
@@ -246,7 +246,7 @@ export default function TermsConditions() {
         data, text, software, music, sound, photographs, graphics, videos,
         messages or other materials available on such websites. Further, the
         inclusion or exclusion does not imply any endorsement by Altern of the
-        website, the website's provider, or the information on the website. The
+        website, the website&apos;s provider, or the information on the website. The
         information provided by You to such third party websites shall be
         governed in accordance with the privacy policies of such websites and it
         is recommended that You review the privacy policy on any such websites
@@ -343,17 +343,17 @@ export default function TermsConditions() {
         You agree to receive information about those Services. We only send You
         information if You have consented to receive it. If You wish to
         discontinue any Services, You can do so by selecting the unsubscribe
-        option in the emails You receive or by using the Website's tabs.
+        option in the emails You receive or by using the Website&apos;s tabs.
         However, please note that You will not be able to opt out of any service
-        notification that may be necessary for the website's operation, or that
+        notification that may be necessary for the website&apos;s operation, or that
         may be important to You as a member of Altern.
       </p>
 
       <h2 className="text-2xl font-bold mt-6 mb-2">Phishing</h2>
       <p className="mb-4">
         Phishing is the name given to attempts to steal personal details and
-        financial account details from a website user. "Phishers" use fake or
-        "spoof" emails to lead users to counterfeit websites where the user is
+        financial account details from a website user. &quot;Phishers&quot; use fake or
+        &quot;spoof&quot; emails to lead users to counterfeit websites where the user is
         tricked into entering their details, such as card numbers, user names
         and passwords. If you receive such an e-mail or are asked for your
         password by anyone claiming to work for us, please forward the e-mail or
@@ -368,7 +368,7 @@ export default function TermsConditions() {
         discretion. The updated Privacy Policy will be published on the Website,
         and there will be no separate communication. You are responsible for
         informing yourself of changes to the Privacy Policy by regularly
-        checking the Website for updates. Your use of the Website's Services
+        checking the Website for updates. Your use of the Website&apos;s Services
         following a change in its Privacy Policy constitutes acceptance of the
         updated Privacy Policy.
       </p>

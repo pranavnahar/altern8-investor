@@ -7,9 +7,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
-import { type CarouselApi } from "@/components/ui/carousel";
+import { type CarouselApi } from "../components/ui/carousel";
 import { Button } from "./ui/button";
-import { ALTERN8_INVESTMENT_TYPES } from "@/config/config";
+import { ALTERN8_INVESTMENT_TYPES } from "../config/config";
 import React, { forwardRef } from "react";
 
 export const ReadyToInvestSection = forwardRef<HTMLDivElement>((props, ref) => {
@@ -139,3 +139,5 @@ export const ReadyToInvestSection = forwardRef<HTMLDivElement>((props, ref) => {
 });
 
 export default ReadyToInvestSection;
+
+ReadyToInvestSection.displayName = "ReadyToInvestSection";

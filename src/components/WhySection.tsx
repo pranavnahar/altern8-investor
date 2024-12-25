@@ -1,15 +1,14 @@
 "use client"
 import React from 'react'
-import Autoplay from "embla-carousel-autoplay"
 import AutoScroll from 'embla-carousel-auto-scroll'
 
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "../components/ui/card"
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
-} from "@/components/ui/carousel"
-import { ALTER8_FEATURES, ALTERN8_INVESTMENMTS, ALTERN8_SERVICES } from '@/config/config'
+} from "../components/ui/carousel"
+import { ALTER8_FEATURES, ALTERN8_INVESTMENMTS, ALTERN8_SERVICES } from '../config/config'
 import { Button } from './ui/button'
 import Link from 'next/link'
 

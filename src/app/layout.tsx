@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Footer } from "../components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ScrollToTopButton from "@/components/float-top-button";
+import ScrollToTopButton from "../components/float-top-button";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,11 +23,11 @@ const geistMono = localFont({
 // };
 
 export const metadata: Metadata = {
-  title: "Alter8",
-  description: "Alter8 investor's page",
+  title: "Altern8",
+  description: "Altern8 investor's page",
   openGraph: {
-    title: "Alter8",
-    description: "Alter8 investor's page",
+    title: "Altern8",
+    description: "Altern8 investor's page",
     url: "https://j59d8sfv-3000.inc1.devtunnels.ms/",
     type: "website",
     images: [
@@ -37,7 +36,7 @@ export const metadata: Metadata = {
         width: 300,
         height: 300,
         type:'image/png',
-        alt: "Alter8",
+        alt: "Altern8",
       },
     ],
   },

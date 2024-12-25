@@ -1,4 +1,4 @@
-import { ALTERN8_ADVISORS } from '@/config/config'
+import { ALTERN8_ADVISORS } from '../config/config'
 import React, { forwardRef } from "react";
 
 export const AdvisorsSection = forwardRef<HTMLDivElement>((props, ref) => {
@@ -33,3 +33,5 @@ export const AdvisorsSection = forwardRef<HTMLDivElement>((props, ref) => {
         </div>
     )
 });
+
+AdvisorsSection.displayName = 'AdvisorsSection';
