@@ -1,17 +1,15 @@
 import Link from "next/link"
-import Image from "next/image" // Import Image from next/image
+
+import { Button } from "../components/ui/button"
 
 // Remove the unused `props` parameter
 function NavbarLogo() {
     return (
         <Link href="/" className="flex items-center">
-            {/* Use Next.js Image component instead of <img> */}
-            <Image
+            <img
                 className="h-8 w-auto"
                 alt="navbar logo"
                 src="/Alter8_nav_logo.svg"
-                width={32}  // Define width
-                height={32} // Define height
             />
         </Link>
     )

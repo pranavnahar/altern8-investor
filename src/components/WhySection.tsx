@@ -115,11 +115,11 @@ function InvestorCalculator() {
                     <InvestmentCard
                         key={index}
                         active={index === 0 ? true : false}
-                         heading={investment.heading}
+                        heading={investment.heading}
                         // heading={<h3 className="heading w-40 leading-[25px]">{investment.heading}</h3>} 
                         amount={investment.amount}
                         investmentRateDescription={investment.investmentRateDescription}
-                        // monthlyReturnDescription={investment.monthlyReturnDescription}
+                    // monthlyReturnDescription={investment.monthlyReturnDescription}
                     />
                 ))}
             </div>

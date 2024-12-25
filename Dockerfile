@@ -30,7 +30,7 @@ ENV NODE_ENV=production
 RUN npm run build
 
 # Expose the port the app runs on
-EXPOSE 3002
+EXPOSE 3007
 
-# Start the Next.js application and bind it to 0.0.0.0 with port 3002
-CMD ["npm", "start", "--", "-p", "3002", "-H", "0.0.0.0"]
+# Start the Next.js application and bind it to 0.0.0.0 with port 3007
+CMD ["npm", "start", "--", "-p", "3007", "-H", "0.0.0.0"]
