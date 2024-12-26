@@ -11,7 +11,8 @@ on:
     inputs:
       version:
         description: "Image version"
-        required: true
+        required: false
+        default: "latest"
 
 # 2
 env:
