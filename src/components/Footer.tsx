@@ -1,7 +1,9 @@
+"use client"
 import Link from "next/link";
 import React from "react";
 
 export const Footer = () => {
+
   return (
     <div className="bg-[#262626] w-full h-[450px] px-20 py-20">
       <div className="flex mt-2 h-full w-full gap-3  p-1">

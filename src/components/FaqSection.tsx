@@ -128,7 +128,7 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
             ))}
           </Accordion>
         </div>
-        <div ref={ref} {...props} className="w-2/5 p-5 items-center flex">
+        <div id="contact-us" ref={ref} {...props} className="w-2/5 p-5 items-center flex">
           <Card className="w-[470px] h-auto">
             <CardHeader>
               <CardTitle>Do you have any questions?</CardTitle>
@@ -187,7 +187,7 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
                           <Checkbox
                             id={choice}
                             checked={formValues.areaOfInterest.includes(choice)}
-                            onChange={() => handleCheckboxChange(choice)}
+                            onCheckedChange={() => handleCheckboxChange(choice)}
                           />
                           <label
                             htmlFor={choice}

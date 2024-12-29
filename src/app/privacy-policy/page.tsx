@@ -1,16 +1,182 @@
 
-import React from "react";
+"use client"
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowLeftCircle } from "lucide-react";
+import { usePathname, useRouter } from 'next/navigation';
+import { Footer } from "@/components/Footer";
+import { motion } from "framer-motion";
+
+const useSmoothScroll = () => {
+  const smoothScrollTo = (targetRef: React.RefObject<HTMLElement>) => {
+    if (targetRef && targetRef.current) {
+      const targetPosition =
+        targetRef.current.getBoundingClientRect().top + window.scrollY;
+      const startPosition = window.scrollY;
+      const distance = targetPosition - startPosition;
+      const duration = 1000; // Duration in milliseconds
+      let startTime: number | null = null;
+
+      const smoothScroll = (currentTime: number) => {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, distance, duration);
+
+        window.scrollTo(0, run);
+
+        if (timeElapsed < duration) requestAnimationFrame(smoothScroll);
+      };
+
+      const ease = (t: number, b: number, c: number, d: number): number => {
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t + b;
+        t--;
+        return (-c / 2) * (t * (t - 2) - 1) + b;
+      };
+
+      requestAnimationFrame(smoothScroll);
+    }
+  };
+
+  return smoothScrollTo;
+};
+
+
+
+interface ClothUnrollEffectProps {
+  children: ReactNode;
+}
+
+const ClothUnrollEffect = ({ children }: ClothUnrollEffectProps) => {
+  return (
+    <motion.div
+      initial={{ height: 0, opacity: 0 }}
+      animate={{
+        height: '100%',
+        opacity: 1,
+        transition: {
+          duration: 2.5,
+          ease: [0.45, 1, 0.59, 1], // Custom easing for smooth unroll
+        },
+      }}
+      style={{
+        overflow: 'hidden', // Prevents content from being visible until unrolled
+        transformOrigin: 'top center',
+      }}
+    >
+      <motion.div
+        initial={{ y: -20 }}
+        animate={{
+          y: 0,
+          transition: {
+            duration: 0.7,
+            ease: 'easeOut',
+          },
+        }}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
+  );
+};
 
 export default function PrivacyPolicy() {
+  const smoothScrollTo = useSmoothScroll();
+  const ReadyToInvestSectionRef = useRef<HTMLDivElement>(null);
+  const FaqSectionRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const pathname = usePathname(); // Gets the current route
+
+  const [domainName, setDomainName] = useState('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setDomainName(window.location.hostname);
+    }
+  }, []);
+
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    if (pathname === '/') {
+      // Smooth scroll if on the landing page
+      smoothScrollTo(FaqSectionRef);
+    } else {
+      // Redirect to the landing page with hash
+      router.push('/#contact-us');
+    }
+  };
+
   return (
-    <div className="p-4 max-w-7xl mx-auto">
-      <div className="flex  justify-between items-center mb-4">
-        <Link href="/">
-          <button className="text-black text-[40px]">&#8592;</button>
-        </Link>
-      </div>
-      <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
+    <div className="">
+      <ClothUnrollEffect>
+      <nav className="sticky top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90">
+        <div className="w-full max-h-20 mx-auto px-10 ">
+          <div className="flex justify-between h-20 items-center">
+            <Link href="/" className="flex items-center" prefetch={false}>
+              <img alt="navbar logo" src="/Alter8_nav_logo.svg" />
+            </Link>
+            <nav className="hidden md:flex gap-10">
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  smoothScrollTo(ReadyToInvestSectionRef);
+                }}
+                className="font-medium flex items-center text-sm transition-colors hover:underline"
+              >
+                Invest
+              </a>
+              <Link
+                href="/about-us"
+                className="font-medium flex items-center text-sm transition-colors hover:underline"
+              >
+                About Us
+              </Link>
+              <a
+                  href="/#contact-us"
+                  onClick={handleContactClick}
+                className="font-medium flex items-center text-sm transition-colors hover:underline"
+              >
+                Contact Us
+              </a>
+            </nav>
+            <div className="flex items-center gap-4">
+              <a
+                href="#"
+                className="font-medium flex items-center text-sm transition-colors hover:underline"
+              >
+                Login
+              </a>
+              <Button variant={"outline"}>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    smoothScrollTo(FaqSectionRef);
+                  }}
+                  className="font-medium flex items-center text-sm transition-colors"
+                >
+                  Reserve Access
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div className="flex items-center justify-start ml-14 mt-10 space-x-2">
+          <Link href="/">
+            <button className="flex items-center text-gray-400 text-[13.5px] font-medium hover:underline hover:text-black">
+              <ArrowLeftCircle className="w-4 h-4" /> {/* Adjusted icon size */}
+              <span>&nbsp;back to home</span>
+            </button>
+          </Link>
+        </div>
+      <h1 className="text-3xl font-bold mb-4 text-center my-5">Privacy Policy</h1>
+
+      <div className="phone:w-[90%] md:w-[70%] xl:w-[60%] xxl:w-[55%] my-10 mx-auto text-md px-6 pb-5 text-justify">
+
+      
       <p className="mb-4">
         This document is an electronic record in terms of Information Technology
         Act, 2000 and rules there under as applicable and the amended provisions
@@ -23,12 +189,12 @@ export default function PrivacyPolicy() {
         This document is published in accordance with the provisions of Rule 3
         (1) of the Information Technology (Intermediaries guidelines) Rules,
         2011 that require publishing the rules and regulations, privacy policy
-        and Terms of Use for access or usage of domain name __________ including
+        and Terms of Use for access or usage of domain name <strong>{domainName}</strong> including
         the related mobile site and mobile application (hereinafter referred to
         as “Platform”).
       </p>
       <p className="mb-4">
-        This Platform i.e. domain name _________ including the related mobile
+        This Platform i.e. domain name <strong>{domainName}</strong> including the related mobile
         site and mobile application is owned by Ekarth Ventures Private Limited{" "}
         <strong>(CIN: U62099TN2024PTC169251)</strong> , having its registered
         office at <strong>46 College Road, Nungambakkam, Chennai, </strong>{" "}
@@ -444,8 +610,12 @@ export default function PrivacyPolicy() {
         Privacy Policy, or wish to remove something that violates a specific
         regulation.
       </p>
+      </div>
 
       {/* Continue this structure for each section of your privacy policy */}
+      <Footer />
+      </ClothUnrollEffect>
     </div>
+    
   );
 }

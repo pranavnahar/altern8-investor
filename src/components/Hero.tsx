@@ -30,10 +30,10 @@ export const Hero = () => {
         {/* main heading container*/}
         <div className="flex flex-col mt-32  m-5 w-full">
           <h1 className="text-32xl font-semibold leading-tight mt-0 mb-2">
-            Invest in Reliable Real-Estate
+            Invest in Reliable<br/> Real-Estate
           </h1>
           <p className="text-xl font-normal">
-            Grow your wealth with premium assets by investing in fractional
+            Grow your wealth with premium assets by investing<br/>in fractional
             ownership or by advancing loan.
           </p>
         </div>
