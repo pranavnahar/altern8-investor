@@ -19,14 +19,14 @@ import React, { forwardRef, useState } from "react";
 
 import { toast } from "react-toastify";
 type FormValues = {
-    firstName: string;
-    secondName: string;
-    email: string;
-    mobileNumber: string;
-    areaOfInterest: string[];
-    comments: string;
-    termsAgreed: boolean;
-  };
+  firstName: string;
+  secondName: string;
+  email: string;
+  mobileNumber: string;
+  areaOfInterest: string[];
+  comments: string;
+  termsAgreed: boolean;
+};
 
 export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
   const [formValues, setFormValues] = useState<FormValues>({
@@ -83,7 +83,7 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
     } else if (personalEmailDomains.includes(emailDomain)) {
       toast.error("Please provide a company email address.");
       isValid = false;
-    }else if (formValues.comments.length > 2000) {
+    } else if (formValues.comments.length > 2000) {
       toast.error("Comments and questions maximum be in 2000 characters only.");
       isValid = false;
     }

@@ -1,3 +1,5 @@
+"use client"
+import { ALTERN8_ASSET_TYPES, ALTERN8_CUSTOMER_TESTIMONIALS } from '../config/config'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import React from 'react'
 import { Carousel, CarouselContent, CarouselItem } from './ui/carousel'
@@ -82,6 +84,7 @@ function TestimonialCarousel1({ data }: TestimonialCarouselProps) {
         >
             <CarouselContent className="w-full  h-[210px]  max-h-full ">
                 {data.map((testimonial, index) => (
+
                     <CarouselItem key={index} className="w-full h-full max-h-full basis-1/3 p-2">
                         <div className="w-full h-full   ">
                             <Card className=" w-full h-full max-h-full ">
@@ -108,6 +111,7 @@ function TestimonialCarousel1({ data }: TestimonialCarouselProps) {
     )
 }
 
+
 interface TestimonialsProps {
   data: Testimonial[];
   name: string;
@@ -115,6 +119,7 @@ interface TestimonialsProps {
 }
 
 export const Testimonials = ({ data, name, whichTestimonial }: TestimonialsProps) => {
+
     return (
         <div className="w-full h-[550px] px-10 py-10 ">
             <div className="flex mt-5 flex-col gap-3">
