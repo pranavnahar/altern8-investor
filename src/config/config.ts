@@ -256,7 +256,7 @@ export const ALTERN8_CUSTOMER_TESTIMONIALS = [
         // icon: "customer2.png",
         customerName: "Sumit Misra",
         // subHeading: "Bought the Tranquil Haven project",
-        testimonial: "I began my Altern8(founders) journey 10 years ago with just 5 lakhs, cautiously investing in affordable housing projects. Over the years, I’ve grown my portfolio to over 2 crores, thanks to the consistent and timely returns, with IRRs ranging from 9% to 21%. Every transaction is transparent, and the due diligence is unparalleled. What stands out to me is the in-depth analysis this new technology by Altern8 conducts—70+ APIs cross-verify everything from GST returns to RERA details. I always feel secure knowing their founders come from a legacy of structured finance and bring ethical values into every deal."
+        testimonial: "I began my Altern8 (founders) journey 10 years ago with just 5 lakhs, cautiously investing in affordable housing projects. Over the years, I’ve grown my portfolio to over 2 crores, thanks to the consistent & timely returns, with IRRs ranging from 9% to 21%. Every transaction is transparent, & the due diligence is unparalleled. What stands out to me is the in-depth analysis this new technology by Altern8 conducts—70+ APIs cross-verify everything from GST returns to RERA details. I always feel secure knowing their founders come from a legacy of structured finance & bring ethical values into every deal."
     },
     {
         // icon: "customer.png",
@@ -286,7 +286,7 @@ export const ALTERN8_CUSTOMER_TESTIMONIALS = [
         // icon: "customer.png",
         customerName: "Shrey Jain",
         // subHeading: "Bought the Lakeside Serenity project",
-        testimonial: "Investing in agricultural land development through Altern8(formerly Garg Group) has been incredibly rewarding. Their talent at land use change,Their process of cross-analyzing bank statements with GST and ITR data is detailed and reassuring. Even with complex investments, I’ve always received my returns on time, and the IRRs have exceeded my expectations. The ethical approach and the founders’ commitment to transparency make me feel comfortable scaling my investments."
+        testimonial: "Investing in agricultural land development through Altern8 (formerly Garg Group) has been incredibly rewarding. Their talent at land use change,Their process of cross-analyzing bank statements with GST and ITR data is detailed and reassuring. Even with complex investments, I’ve always received my returns on time, and the IRRs have exceeded my expectations. The ethical approach and the founders’ commitment to transparency make me feel comfortable scaling my investments."
     },
     {
         // icon: "customer.png",
@@ -456,7 +456,7 @@ export const ALTERN8_FAQ = [
     {
         value: 'item-4',
         title: 'When can I draw on my Credit Limit?',
-        content: "As soon as you present the invoices and the Buyer/Anchor has approvedthe Invoice & Admin has approved the invoice you are eligible to withdraw",
+        content: "As soon as you present the invoices and the Buyer/Anchor has approvedthe Invoice   Admin has approved the invoice you are eligible to withdraw",
         image: null // Add image here if applicable
     },
     {
@@ -469,7 +469,7 @@ export const ALTERN8_FAQ = [
 export const ALTERN8_AREA_OF_INTEREST = [
     "Rental assets", "Retirement communities", "Co-living", "Hospitality projects",
     "Warehousing", "Residential", "Commercial", "Townships", "Vacation properties",
-    "International properties", "Redevelopment", "Retirement communities",
+    "International properties", "Redevelopment",
     "Student accommodation", "Serviced apartments", "Mixed-use property", "Affordable housing", "Plotted land"
 ];
 

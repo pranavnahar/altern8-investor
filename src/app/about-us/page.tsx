@@ -3,20 +3,117 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import React from "react";
-// import { CardHoverEffectDemo } from "../components/card-section";
-import { ExpandableCardDemo } from "../components/our-founder";
-import { MarqueeDemo } from "../components/advisors-marque";
-import Navbar from "../../components/Navbar";
+import React, { ReactNode, useRef } from "react";
 import { ALTERN8_ADVISORS } from "../../config/config";
+import { Button } from "@/components/ui/button";
+import { ArrowLeftCircle } from "lucide-react";
+import { usePathname, useRouter } from 'next/navigation';
+import Link from "next/link";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '../components/ui/dialog';
+import { motion } from "framer-motion";
+import { Footer } from "@/components/Footer";
 
-const AboutPage: React.FC = () => {
+interface ClothUnrollEffectProps {
+  children: ReactNode;
+}
+
+const ClothUnrollEffect = ({ children }: ClothUnrollEffectProps) => {
+  return (
+    <motion.div
+      initial={{ height: 0, opacity: 0 }}
+      animate={{
+        height: '100%',
+        opacity: 1,
+        transition: {
+          duration: 2.5,
+          ease: [0.45, 1, 0.59, 1], // Custom easing for smooth unroll
+        },
+      }}
+      style={{
+        overflow: 'hidden', // Prevents content from being visible until unrolled
+        transformOrigin: 'top center',
+      }}
+    >
+      <motion.div
+        initial={{ y: -20 }}
+        animate={{
+          y: 0,
+          transition: {
+            duration: 0.7,
+            ease: 'easeOut',
+          },
+        }}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
+  );
+};
+
+const useSmoothScroll = () => {
+  const smoothScrollTo = (targetRef: React.RefObject<HTMLElement>) => {
+    if (targetRef && targetRef.current) {
+      const targetPosition =
+        targetRef.current.getBoundingClientRect().top + window.scrollY;
+      const startPosition = window.scrollY;
+      const distance = targetPosition - startPosition;
+      const duration = 1000; // Duration in milliseconds
+      let startTime: number | null = null;
+
+      const smoothScroll = (currentTime: number) => {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, distance, duration);
+
+        window.scrollTo(0, run);
+
+        if (timeElapsed < duration) requestAnimationFrame(smoothScroll);
+      };
+
+      const ease = (t: number, b: number, c: number, d: number): number => {
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t + b;
+        t--;
+        return (-c / 2) * (t * (t - 2) - 1) + b;
+      };
+
+      requestAnimationFrame(smoothScroll);
+    }
+  };
+
+  return smoothScrollTo;
+};
+const AboutUsPage: React.FC = () => {
   interface Advisor {
     name: string;
     position: string;
     location: string;
     image: string;
   }
+
+  const smoothScrollTo = useSmoothScroll();
+  const ReadyToInvestSectionRef = useRef<HTMLDivElement>(null);
+  const FaqSectionRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const pathname = usePathname(); // Gets the current route
+
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    if (pathname === '/') {
+      // Smooth scroll if on the landing page
+      smoothScrollTo(FaqSectionRef);
+    } else {
+      // Redirect to the landing page with hash
+      router.push('/#contact-us');
+    }
+  };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const advisors: Advisor[] = [
@@ -99,17 +196,17 @@ const AboutPage: React.FC = () => {
   }
 
   const teams: Team[] = [
-    // {
-    //   image:
-    //     'https://static.wixstatic.com/media/72f1e4_b73148cb8d774b3fbe6f94aab2a726d9~mv2.jpg/v1/fill/w_206,h_200,fp_0.46_0.31,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/pranav2.jpg',
-    //   name: 'Pranav',
-    // },
-    // {
-    //   image:
-    //     'https://static.wixstatic.com/media/72f1e4_98dadaee629c49828fdef1ccc1aebe81~mv2.jpg/v1/fill/w_206,h_200,fp_0.53_0.40,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/poonam1.jpg',
-    //   name: 'Poonam',
-    // },
-    // { image: '/images/ketan.png', name: 'Ketan' },
+    {
+      image:
+        'https://static.wixstatic.com/media/72f1e4_b73148cb8d774b3fbe6f94aab2a726d9~mv2.jpg/v1/fill/w_206,h_200,fp_0.46_0.31,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/pranav2.jpg',
+      name: 'Pranav',
+    },
+    {
+      image:
+        'https://static.wixstatic.com/media/72f1e4_98dadaee629c49828fdef1ccc1aebe81~mv2.jpg/v1/fill/w_206,h_200,fp_0.53_0.40,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/poonam1.jpg',
+      name: 'Poonam',
+    },
+    { image: '/images/ketan.png', name: 'Ketan' },
     {
       image:
         'https://static.wixstatic.com/media/72f1e4_39b0b240d24b4ffd91197ab14d69bf35~mv2.jpeg/v1/fill/w_206,h_200,fp_0.47_0.42,lg_1,q_80,enc_avif,quality_auto/vivek.jpeg',
@@ -175,43 +272,140 @@ const AboutPage: React.FC = () => {
   return (
     <>
       <div className="bg-[#ffffff]">
-        <Navbar />
-        <section className="py-16 px-14">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8">
-            {/* Text Section */}
+      <ClothUnrollEffect>
 
-            <div className="md:w-full text-center md:text-left">
-              <h2 className="text-4xl text-black text-center font-semibold mb-8">
-                Our Mission Is To Infuse{" "}
-                <span className="text-gradient">
-                  Consciousness In Every Transaction.
-                </span>
-              </h2>
-              <p className="text-lg  text-black  mb-4">
-                Ethyx Estate envisions transforming the opaque small real estate
-                industry, into creditable, transparent, accessible investment
-                opportunities. By harnessing cutting-edge AI and data science,
-                we aim to create a seamless, secure marketplace that empowers
-                investors with high-yield returns and fosters trust through
-                transparency and underbanked small real estate developers with
-                finance with ease. Through fractional investments, liquidity
-                facilitation, and robust risk engines, Ethyx Estate makes
-                complex investments and financing simple and accessible for all.
+      <nav className="sticky top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90">
+        <div className="w-full max-h-20 mx-auto px-10 ">
+          <div className="flex justify-between h-20 items-center">
+            <Link href="/" className="flex items-center" prefetch={false}>
+              <img alt="navbar logo" src="/Alter8_nav_logo.svg" />
+            </Link>
+            <nav className="hidden md:flex gap-10">
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  smoothScrollTo(ReadyToInvestSectionRef);
+                }}
+                className="font-medium flex items-center text-sm transition-colors hover:underline"
+              >
+                Invest
+              </a>
+              <Link
+                href="/about-us"
+                className="font-medium flex items-center text-sm transition-colors hover:underline"
+              >
+                About Us
+              </Link>
+              <a
+                  href="/#contact-us"
+                  onClick={handleContactClick}
+                className="font-medium flex items-center text-sm transition-colors hover:underline"
+              >
+                Contact Us
+              </a>
+            </nav>
+            <div className="flex items-center gap-4">
+              <a
+                href="#"
+                className="font-medium flex items-center text-sm transition-colors hover:underline"
+              >
+                Login
+              </a>
+              <Button variant={"outline"}>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    smoothScrollTo(FaqSectionRef);
+                  }}
+                  className="font-medium flex items-center text-sm transition-colors"
+                >
+                  Reserve Access
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div className="flex items-center justify-start ml-14 mt-10 space-x-2">
+          <Link href="/">
+            <button className="flex items-center text-gray-400 text-[13.5px] font-medium hover:underline hover:text-black">
+              <ArrowLeftCircle className="w-4 h-4" /> {/* Adjusted icon size */}
+              <span>&nbsp;back to home</span>
+            </button>
+          </Link>
+        </div>
+
+
+
+        <ClothUnrollEffect>
+      
+        <section className="py-10 px-4 md:px-14">
+            <div className="max-w-7xl mx-auto relative w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden border-2 border-gray-600">
+              {/* Background Image with Gradient Overlay */}
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: "url('/about-us-bg.jpg')",
+                }}
+              ></div>
+
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-l from-black via-transparent to-black opacity-40"></div>
+
+              {/* Content */}
+              <div className="relative z-10 flex flex-col items-center justify-center h-full text-center bg-black bg-opacity-40 p-8 rounded-lg">
+                <h1 className="text-2xl md:text-3xl font-bold text-gray-100 mb-4">
+                  About Us&#xff0d;Altern8
+                </h1>
+               
+              </div>
+            </div>
+          </section>
+        </ClothUnrollEffect>
+
+        <section className="py-10 px-14">
+        <ClothUnrollEffect>
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Image Column */}
+            <div className="flex justify-center items-center">
+              <img
+                src="/altern8Main.svg"
+                alt="Our Vision"
+                className="w-full h-auto"
+              />
+            </div>
+
+            {/* Text Column */}
+            <div className="text-center md:text-left">
+              <h2 className="mt-32 text-4xl font-semibold mb-6">Our Mission</h2>
+              <p className="text-sm text-gray-800 mb-6 text-justify">
+                At Altern8, our mission is to infuse consciousness in every transaction.{' '}
+                <br />
+                Altern8 envisions transforming the opaque small real estate industry, into creditable, transparent, accessible investment opportunities. <br/><br/>By harnessing cutting-edge AI and data science, we aim to create a seamless, secure marketplace that empowers investors with high-yield returns and fosters trust through transparency and underbanked small real estate developers with finance with ease. Through fractional investments, liquidity facilitation, and robust risk engines, Altern8 makes complex investments and financing simple and accessible for all.
               </p>
             </div>
           </div>
+          </ClothUnrollEffect>
         </section>
+
+        <div className="mt-14 relative w-full py-4">
+          <div className="absolute inset-0 flex justify-center">
+            <div className="w-[90%] h-[1px] bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+          </div>
+        </div>
 
         <section className="py-2 px-14">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8">
             {/* Image Section */}
             <div className="w-full text-center md:text-left">
-              <h2 className="text-[50px] font-semibold text-center text-black mb-8">
+              <h2 className="text-4xl font-semibold text-center mb-8 mt-20">
                 Our Esteemed{" "}
                 <span className="text-gradient">Advisory Board</span>
               </h2>
 
-              <p className="text-[20px] font-normal text-center text-black mb-12">
+              <p className="text-sm font-normal text-center text-black mb-16 leading-relaxed mx-auto max-w-3xl">
                 A powerhouse of global leaders and experts driving international
                 resilience, regulatory mastery, and market dominance. With
                 expertise spanning fintech, marketing, public policy and
@@ -248,18 +442,23 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
         </section>
-
-        <MarqueeDemo />
-        {/* <CardHoverEffectDemo /> */}
-        <ExpandableCardDemo />
+        <div className="mt-14 relative w-full py-4">
+          <div className="absolute inset-0 flex justify-center">
+            <div className="w-[90%] h-[1px] bg-gradient-to-r from-transparent via-gray-500 to-transparent"></div>
+          </div>
+        </div>
 
         {/* Mission Section */}
         <section className="py-16 px-14">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8">
             <div className="w-full text-center ">
-              <h2 className=" text-center text-[40px] text-black font-semibold mb-12">
-                Our Team
+              <h2 className=" text-center text-[40px] text-black font-semibold mb-5">
+               Meet Our Team
               </h2>
+              <p className="text-sm font-normal text-center text-black mb-16 leading-relaxed mx-auto max-w-xl">
+              A group of passionate individuals committed to pushing the boundaries of conscious capitalism, blending purpose with profit, and driving positive impact in everything we do.
+              </p>
+              
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 {teams.map((team, index) => (
                   <div key={index} className="flex flex-col items-center">
@@ -277,11 +476,68 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
         </section>
+        <div className="text-center mt-5 mb-10">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button
+                variant="outline"
+                className=""
+              >
+                Get to know our Founding Team
+              </Button>
+            </DialogTrigger>
+            <DialogContent
+              className="sm:max-w-[625px] bg-gradient-to-b bg-white p-6 rounded-md max-w-[40vw] text-black border border-[#6e3050]"
+              
+            >
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold text-gray-800 mb-5">
+                  Our Founding Team&apos;s Journey
+                </DialogTitle>
+                <DialogDescription className="text-gray-700">
+                <p className="mb-4">
+                Our founding team has a proven track record of scaling successful ventures
+                across diverse industries. At a young age, one of our founders launched a
+                business that expanded to 32 countries within three years, culminating in a
+                profitable exit. Their experience includes transactions exceeding $700 million
+                and spearheading the Indian operations of a €200 million carbon finance firm
+                listed on the London Stock Exchange. Another founder brings deep expertise in HR
+                and organizational development, having implemented innovative talent acquisition
+                strategies, HR policies, and diversity initiatives for startups and large
+                corporations. <br /> <br /> They co-created over 20 international workshops and
+                retreats, blending modern coaching techniques with traditional practices to
+                revolutionize personal and professional growth. With over 20 years of experience
+                in technology leadership, another founder has developed SaaS products generating
+                millions in revenue and engineered fault-tolerant systems with 100% uptime.
+                Their technical innovations have driven substantial business value, contributing
+                to tens of millions in revenue.
+                <br /> <br />
+                Together, this dynamic team&apos;s diverse expertise in business expansion, HR
+                innovation, and technological leadership uniquely equips them to drive growth
+                and create exceptional value in their ventures.
+              </p>
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+        </div>
+
 
         {/* <Footer /> */}
+        </ClothUnrollEffect>  
       </div>
+      <Footer />
+      
     </>
   );
 };
+
+const AboutPage: React.FC = () => {
+  return (
+    <ClothUnrollEffect>
+      <AboutUsPage />
+    </ClothUnrollEffect>
+  );
+}
 
 export default AboutPage;
