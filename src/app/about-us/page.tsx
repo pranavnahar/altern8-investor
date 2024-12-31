@@ -462,6 +462,11 @@ const AboutUsPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                 {teams.map((team, index) => (
                   <div key={index} className="flex flex-col items-center">
+                    <motion.div
+                      whileHover={{ scale: 1.06 }}
+                      transition={{ duration: 0.45 }}
+                      className="flex flex-col items-center"
+                    >
                     <img
                       src={team.image}
                       alt={team.name}
@@ -470,6 +475,7 @@ const AboutUsPage: React.FC = () => {
                     <h3 className="text-[13px] font-semibold text-black text-center w-full leading-[18px] mt-2">
                       {team.name}
                     </h3>
+                    </motion.div>
                   </div>
                 ))}
               </div>
