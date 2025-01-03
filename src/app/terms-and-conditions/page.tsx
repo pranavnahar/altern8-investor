@@ -1,9 +1,9 @@
-"use client"
-import React, { ReactNode, useRef } from "react";
+"use client";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowLeftCircle } from "lucide-react";
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 
@@ -41,8 +41,6 @@ const useSmoothScroll = () => {
   return smoothScrollTo;
 };
 
-
-
 interface ClothUnrollEffectProps {
   children: ReactNode;
 }
@@ -52,7 +50,7 @@ const ClothUnrollEffect = ({ children }: ClothUnrollEffectProps) => {
     <motion.div
       initial={{ height: 0, opacity: 0 }}
       animate={{
-        height: '100%',
+        height: "100%",
         opacity: 1,
         transition: {
           duration: 2.5,
@@ -60,8 +58,8 @@ const ClothUnrollEffect = ({ children }: ClothUnrollEffectProps) => {
         },
       }}
       style={{
-        overflow: 'hidden', // Prevents content from being visible until unrolled
-        transformOrigin: 'top center',
+        overflow: "hidden", // Prevents content from being visible until unrolled
+        transformOrigin: "top center",
       }}
     >
       <motion.div
@@ -70,7 +68,7 @@ const ClothUnrollEffect = ({ children }: ClothUnrollEffectProps) => {
           y: 0,
           transition: {
             duration: 0.7,
-            ease: 'easeOut',
+            ease: "easeOut",
           },
         }}
       >
@@ -80,7 +78,6 @@ const ClothUnrollEffect = ({ children }: ClothUnrollEffectProps) => {
   );
 };
 
-
 export default function TermsConditions() {
   const router = useRouter();
   const pathname = usePathname(); // Gets the current route
@@ -88,76 +85,85 @@ export default function TermsConditions() {
   const ReadyToInvestSectionRef = useRef<HTMLDivElement>(null);
   const FaqSectionRef = useRef<HTMLDivElement>(null);
 
+  const [domainName, setDomainName] = useState("");
 
-  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setDomainName(window.location.hostname);
+    }
+  }, []);
+
+  const handleContactClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
     e.preventDefault();
-    if (pathname === '/') {
+    if (pathname === "/") {
       // Smooth scroll if on the landing page
       smoothScrollTo(FaqSectionRef);
     } else {
       // Redirect to the landing page with hash
-      router.push('/#contact-us');
+      router.push("/#contact-us");
     }
   };
 
   return (
     <div className="">
       <ClothUnrollEffect>
-      <nav className="sticky top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90">
-        <div className="w-full max-h-20 mx-auto px-10 ">
-          <div className="flex justify-between h-20 items-center">
-            <Link href="/" className="flex items-center" prefetch={false}>
-              <img alt="navbar logo" src="/Alter8_nav_logo.svg" />
-            </Link>
-            <nav className="hidden md:flex gap-10">
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  smoothScrollTo(ReadyToInvestSectionRef);
-                }}
-                className="font-medium flex items-center text-sm transition-colors hover:underline"
-              >
-                Invest
-              </a>
-              <a
-                href="/about-us"
-                className="font-medium flex items-center text-sm transition-colors hover:underline"
-              >
-                About Us
-              </a>
-              <a
-                 href="/#contact-us"
-                 onClick={handleContactClick}
-                className="font-medium flex items-center text-sm transition-colors hover:underline"
-              >
-                Contact Us
-              </a>
-            </nav>
-            <div className="flex items-center gap-4">
-              <a
-                href="#"
-                className="font-medium flex items-center text-sm transition-colors hover:underline"
-              >
-                Login
-              </a>
-              <Button variant={"outline"}>
+        <nav className="sticky top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90">
+          <div className="w-full max-h-20 mx-auto px-10 ">
+            <div className="flex justify-between h-20 items-center">
+              <Link href="/" className="flex items-center" prefetch={false}>
+                <img alt="navbar logo" src="/Alter8_nav_logo.svg" />
+              </Link>
+              <nav className="hidden md:flex gap-10">
                 <a
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    smoothScrollTo(FaqSectionRef);
+                    smoothScrollTo(ReadyToInvestSectionRef);
                   }}
-                  className="font-medium flex items-center text-sm transition-colors"
+                  className="font-medium flex items-center text-sm transition-colors hover:underline"
                 >
-                  Reserve Access
+                  Invest
                 </a>
-              </Button>
+                <a
+                  href="/about-us"
+                  className="font-medium flex items-center text-sm transition-colors hover:underline"
+                >
+                  About Us
+                </a>
+                <a
+                  href="/#contact-us"
+                  onClick={handleContactClick}
+                  className="font-medium flex items-center text-sm transition-colors hover:underline"
+                >
+                  Contact Us
+                </a>
+              </nav>
+              <div className="flex items-center gap-4">
+                <a
+                  href="#"
+                  className="font-medium flex items-center text-sm transition-colors hover:underline"
+                >
+                  Login
+                </a>
+                <Button variant={"outline"}>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      smoothScrollTo(FaqSectionRef);
+                    }}
+                    className="font-medium flex items-center text-sm transition-colors"
+                  >
+                    Reserve Access
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
-      <div className="flex items-center justify-start ml-14 mt-10 space-x-2">
+        </nav>
+        <div className="flex items-center justify-start ml-14 mt-10 space-x-2">
           <Link href="/">
             <button className="flex items-center text-gray-400 text-[13.5px] font-medium hover:underline hover:text-black">
               <ArrowLeftCircle className="w-4 h-4" /> {/* Adjusted icon size */}
@@ -165,414 +171,810 @@ export default function TermsConditions() {
             </button>
           </Link>
         </div>
-      <h1 className="text-3xl font-bold mb-4 text-center">Terms and Conditions - Altern</h1>
+        <h1 className="text-3xl font-bold mb-4 text-center my-5">
+          Terms and Conditions - Altern8
+        </h1>
 
-      <div className="phone:w-[90%] md:w-[70%] xl:w-[60%] xxl:w-[55%] my-10 mx-auto text-md px-6 pb-5 text-justify">
-      <p className="mb-4 text-center">
-        Altern and the Invoice Seller are collectively referred to as the
-        Parties and individually as a Party.
-      </p>
+        <div className="phone:w-[90%] md:w-[70%] xl:w-[60%] xxl:w-[55%] my-10 mx-auto text-sm px-6 pb-5 text-justify">
+          <p className="mb-4">
+            This document is an electronic record in terms of Information
+            Technology Act, 2000 and rules there under as applicable and the
+            amended provisions pertaining to electronic records in various
+            statutes as amended by the Information Technology Act, 2000. This
+            electronic record is generated by a computer system and does not
+            require any physical or digital signature.
+          </p>
 
-      <h2 className="text-1xl font-bold mt-6 mb-2 text-center">Whereas:</h2>
-      <p className="mb-4">
-        A. Altern is engaged in the business of assisting Invoice Sellers to
-        raise additional funding through invoice discounting, recurring revenue
-        discounting, and Debt funding on its revenue receivables through
-        engaging in revenue based selling and discounting of present and future
-        Invoices with potential retail patrons, and related services and
-        operates a technology platform at Altern.
-      </p>
-      <p className="mb-4">
-        B. The Invoice Seller has agreed to sell their accounts receivables or
-        revenue receivables from a sales contract and/or a service contract or
-        Purchase Order or Inventory with their respective customers, to
-        Individuals on boarded by Altern, and third party buyers of invoices and
-        providers of revenue based discounting and Venture Discounting like
-        individuals & NBFCs, etc (Patrons) who on the Platform in accordance
-        with terms and conditions as may be required by Altern in exchange of
-        payment against such receivables. Altern has agreed to be a technology
-        platform for the Discounted Transactions (as defined hereinafter)
-        wherein it shall provide technology services the sale of trade
-        receivables of such Invoice Sellers to AlternClub Patrons through the
-        Platform..
-      </p>
-      <p className="mb-4">
-        C. The Invoice Seller independently and based on its own determination
-        and market diligence has agreed to avail the Services (as defined
-        hereinafter) from Altern by registering on the Platform and on the terms
-        and conditions mentioned herein and on the website. The Parties have
-        therefore decided to enter into this agreement to record the mutual
-        terms and conditions between them.
-      </p>
+          <p className="mb-4">
+            This document is published in accordance with the provisions of Rule
+            3 (1) of the Information Technology (Intermediaries guidelines)
+            Rules, 2011 that require publishing the rules and regulations,
+            Privacy Policy and Terms of Use for access or usage of domain name
+            <strong> {domainName}</strong> including the related mobile site and
+            mobile application (hereinafter referred to as “Platform”). These
+            terms and conditions of use (&quot;Terms of Use&quot;) of the
+            Platform between <strong>Ekarth Ventures Private Limited</strong>, a
+            private company limited by shares incorporated under the provisions
+            of Companies Act, 2013 (Act No. 18 of 2013) with corporate
+            identification number <strong>(CIN: U62099TN2024PTC169251)</strong>,
+            and having its registered office at{" "}
+            <strong>46 College Road, Nungambakkam, Chennai, </strong>{" "}
+            (hereinafter referred to as “<strong>Altern8</strong>” which includes the
+            person(s)/entity(ies) associated/connected with it) and users
+            registering itself/himself on the Platform (&quot;You&quot; or
+            &quot;Your&quot; or &quot;Yourself&quot; or &quot;User&quot;)
+            describe the terms on which <strong>Altern8</strong> offers You access to the
+            Platform and the Services (as defined below) through the Platform.
+            Please read the Terms of Use carefully before using or registering
+            on the Platform or accessing any material, information or services
+            through the Platform. Accessing, browsing or otherwise using the
+            Platform indicates Your agreement to all the terms and conditions
+            under this Terms of Use and Your agreement to be legally bound by
+            them. By implicitly or expressly accepting these Terms of Use, You
+            also accept and agree to be bound by all <strong>Altern8</strong> Policies (including
+            but not limited to the Privacy Policy available on our Platform as
+            amended from time to time). If you do not agree to these terms, you
+            agree that your sole and exclusive remedy is to discontinue using
+            the Platform. Your compliance with these terms is a condition to
+            your right to access the Platform. Your breach of any provision of
+            these terms will automatically, without the requirement of notice or
+            other action, revoke and terminate your right to access the
+            Platform.
+          </p>
 
-      <h2 className="text-sm font-bold mt-6 mb-2">
-        NOW THEREFORE, IN CONSIDERATION OF THE PROMISES, MUTUAL COVENANTS, TERMS
-        AND CONDITIONS AND UNDERSTANDINGS SET FORTH HEREIN, THE PARTIES, WITH
-        THE INTENT TO BE LEGALLY BOUND, HEREBY COVENANT AND AGREE AS FOLLOWS:
-      </h2>
-      <h2 className="text-2xl font-bold mt-6 mb-2">
-        Definitions and Interpretations
-      </h2>
-      <p className="mb-4">
-        When You register to become a member on Our website, We ask for personal
-        information such as Your name, email address, and postal code (“Personal
-        Information”). Accurate information lets Us personalize Our Services to
-        meet Your needs better. In addition, when You interact with Our website,
-        We may collect additional information such as Your IP address, operating
-        system, and browser type. This information is collected to protect Your
-        privacy and to compile usage statistics. (“Other Information”).
-      </p>
-      <p className="mb-4">
-        Also, for the facilitation of the services on the Platform, we may
-        collect some financial information from you such as your financial
-        records, Information regarding your transactions on the website
-        (including transaction history) and other financial information such as
-        bank account information, accounts, audit reports, profit and loss
-        accounts etc.We may also take several other master data from you without
-        your consent such as bureau reports, credit checks, PAN numbers and
-        verification, Account Aggregator Bank account access, GST Details,
-        E-Invoice details, Ecommerce or POS sales data where applicable,
-        accounting information
-      </p>
-      <p className="mb-4">
-        We may save Your account ID, access token, and other information to keep
-        Your account linked to third-party integrations. However, any
-        information You provide with third-party integrations is under Your
-        control.
-      </p>
+          <h2 className="text-2xl font-bold mt-6 mb-2">General</h2>
+          <p className="mb-4">
+            Our platform is essentially an internet based platform operating as
+            a technological service provider assisting the NBFC named __________ and
+            other such NBFC partners and Qualified Patrons to identify its
+            borrowers i.e. real estate companies who will be borrowing. Use of
+            the Platform is offered to You conditioned on acceptance of all the
+            terms, conditions and notices contained in these Terms along with
+            any amendments made by <strong>Altern8</strong> at its sole discretion and posted on
+            the Platform, including by way of imposing an additional charge for
+            access to or use of a Service.
+          </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">Cookies</h2>
-      <p className="mb-4">
-        Whenever You interact with Us or Our website, Altern may place a
-        “cookie” in Your computer&apos;s browser files. Cookies are data files that
-        allow Your browser to communicate with the Altern website. By default,
-        most browsers accept cookies. However, You can refuse or block cookies
-        by altering Your browser settings. Remember that refusing or blocking
-        cookies may limit Your ability to use certain features of Our Website
-        and Services entirely.
-      </p>
+          <b>
+            NOTHING CONTAINED ON THE PLATFORM SHOULD BE CONSTRUED AS AN
+            AUTHORIZATION BY THE SECURITIES AND EXCHANGE BOARD OF INDIA (“SEBI”)
+            TO SOLICIT INVESTMENTS NOR SHOULD THE PLATFORMS BE CONSTRUED AS A
+            SEBI AUTHORIZED CROWDFUNDING PLATFORM OR A STOCK EXCHANGE OR A
+            COLLECTIVE OR ALTERNATE INVESTMENT SCHEME, OR THEIR EQUIVALENT.THE
+            PLATFORM MERELY ACTS AS A Technical Service Provider (TSP) BEING THE
+            FACILITATOR BETWEEN THE BORROWERS AND THE RETAIL PATRONS ACTING
+            THROUGH THE NBFC.
+          </b>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">
-        Use of Information Collected
-      </h2>
-      <p className="mb-4">
-        The aim of Altern in acquiring personal information is to identify
-        members and send them timely updates and essential notifications by
-        postal mail and/or email. In addition, We perform demographic and
-        interest research on Our members using the information they supply upon
-        registration to improve Our Services. We are committed to protecting
-        Your personal information and will not share or transfer it to other
-        parties except in accordance with this Privacy Policy. We retain the
-        right to disclose or transfer Your personal information under the
-        following conditions:
-      </p>
-      <ol className="list-decimal list-inside mb-4">
-        <li>With Your expressed consent.</li>
-        <li>When required to respond to claims.</li>
-        <li>
-          When obligated to follow the law, legal procedures, or authorities.
-        </li>
-        <li>
-          When it is essential to defend the rights, property, interests, or
-          safety of Altern, its employees, users, or the general public.
-        </li>
-        <li>
-          In connection with the purchase, merger, or sale of all or a portion
-          of Our business.
-        </li>
-      </ol>
-      <p className="mb-4">
-        When registering on the Application/Website, You may choose to provide
-        payment information such as credit card, debit card, bank account
-        details, and billing address. We prioritize the security of sensitive
-        data and only use approved payment gateways that are digitally encrypted
-        and provide the highest level of care available with current technology.
-      </p>
-      <p className="mb-4">
-        We will only use Your financial information to complete transactions
-        with you.
-      </p>
-      <h2 className="text-2xl font-bold mt-6 mb-2">
-        Use And Retention Of User Information
-      </h2>
-      <p className="mb-4">
-        All Information, Personal Information, Other Information, and
-        Automatically Generated Information shall be referred to as “User
-        Information.” The information the user provides will be used for
-        communication purposes such as newsletters, updates, notifications, and
-        other correspondence. We may also contact You by telephone to collect or
-        verify the information You have provided. Any recorded communication
-        will remain confidential unless required by law to be disclosed to
-        governmental authorities.
-      </p>
+          <h2 className="text-2xl font-bold mt-6 mb-2">Definitions</h2>
+          <p className="mb-4">
+            &quot;<strong>Altern8</strong>&quot;, &quot;The Company&quot;,
+            &quot;Ourselves&quot;, &quot;We&quot;, &quot;Our&quot; and
+            &quot;Us&quot;, refers to
+            <strong> Ekarth Ventures Private Limited</strong> bearing{" "}
+            <strong>CIN: U62099TN2024PTC169251</strong>
+          </p>
+          <p className="mb-4">
+            “<strong>Applicable Law</strong>” means all laws, ordinance,
+            statutes, rules, orders, decrees, injunctions, licenses, permits,
+            approvals, authorizations, consents, waivers, privileges, agreements
+            and regulations of any governmental authority/court of law having
+            jurisdiction over the relevant matter including any interpretations
+            thereof, in effect.
+          </p>
 
-      <p className="mb-4">
-        The user information will only be used for Website-related purposes and
-        will not be used for additional purposes. This information will be
-        retained until the termination of Your membership/listing on the
-        Platform or for such other period as We deem necessary for the Website&apos;s
-        operation.
-      </p>
-      <p className="mb-4">
-        You have the right to access and update the information You provided.
-        You must notify Us of any changes if the information provided is
-        incomplete or inaccurate.
-      </p>
+          <p className="mb-4">
+            “<strong>Terms and Conditions</strong>” means these Terms of Use,
+            Privacy Policy, Transaction Documents (if any) or any other document
+            which outlines or governs the relationship between the patron,
+            borrower, NBFC and the platform regarding the use and access of
+            Platform and its services.
+          </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">Disclosure</h2>
-      <p className="mb-4">
-        We will use information only in accordance with the Policy under which
-        the information was collected unless We have received explicit
-        authorization.
-      </p>
+          <p className="mb-4">
+            “<strong>Patron</strong>” means any patron or lender registered with
+            the platform and who is willing to invest his money in the escrow
+            account with the NBFC.
+          </p>
 
-      <p className="mb-4">
-        The user information will only be used for Website-related purposes and
-        will not be used for additional purposes. This information will be
-        retained until the termination of Your membership/listing on the
-        Platform or for such other period as We deem necessary for the Website&apos;s
-        operation.
-      </p>
-      <p className="mb-4">
-        We reserve the right to disclose any information We may have about You
-        with its third-party service providers for KYC purposes.
-      </p>
-      <p className="mb-4">
-        We reserve the right to disclose any information We may have about You
-        (including Your identity) if We determines that such disclosure is
-        necessary in connection with any investigation or complaint regarding
-        Your use of the Platform, or to identify, contact or bring legal action
-        against someone who may be causing injury to or interference with
-        (either intentionally or unintentionally) Altern&apos;s rights or property,
-        or the rights or property of Users of the Platform, including Altern&apos;s
-        contributors.
-      </p>
-      <p className="mb-4">
-        We reserve the right at all times to disclose any information including
-        any Personal Information that We deem necessary to comply with any
-        applicable law, regulation, legal process or governmental request. We
-        also may disclose Your information when We determine that applicable law
-        requires or permits such disclosure, including exchanging information
-        with other companies and organizations for fraud protection purposes. We
-        shall use all reasonable efforts to ensure that such disclosure would be
-        in compliance with the applicable laws in force in India. We would use
-        reasonable measures to inform You in the event of such disclosure.
-      </p>
-      <p className="mb-4">
-        You acknowledge and agree that We may preserve any communication by You
-        with Us through the Platform, and may also disclose such data if
-        required to do so by law or if We determine that such preservation or
-        disclosure is reasonably necessary to: (1) comply with legal process;
-        (2) enforce this Policy; (3) respond to claims that any such data
-        violates the rights of others; or (4) protect the rights, property or
-        personal safety of Altern, its employees, users of, or visitors to, the
-        Platform, and the public. We would use reasonable measures to inform You
-        in the event of such disclosure
-      </p>
-      <p className="mb-4">
-        You consent to Altern verifying Your PAN, Mobile, and Bank Account
-        details via an Account Aggregator or any other means. The Account
-        Aggregator data is fetched in partnership with pee dee finvest NBFC and
-        You consent to pee dee finvest processing Your data.
-      </p>
-      <p className="mb-4">
-        You consent to Altern processing Your GST details, Other Financial
-        Details, credit ratings, legal proceedings, details of Directors/
-        Partners/ POC, Income Tax details and any other information needed to
-        make a credit decision.
-      </p>
-      <h2 className="text-2xl font-bold mt-6 mb-2">Third-party Sites</h2>
-      <p className="mb-4">
-        The Platform and any e-mail sent to You may also contain/display
-        third-party advertisements and links to other websites or products and
-        services. Altern does not share any Personal Information with these
-        third-party websites or agents or advertisers. However, Altern reserves
-        the right to share with You the advertisements on behalf of any other
-        parties.
-      </p>
-      <p className="mb-4">
-        Altern may provide links to other websites (&quot;Linked Site&quot;) on the
-        Platform or any e-mail sent to You. However, Altern has no control over
-        such websites nor is Altern affiliated to or associated with such third
-        party websites unless expressly specified on the Platform. These Linked
-        Sites are solely for advertisement purposes and Altern is not
-        responsible for any form of transmission, whatsoever, received by You
-        from any Linked Site. Accordingly, Altern does not make any
-        representations concerning the privacy practices or policies of such
-        third parties or terms of use of such websites, nor does Altern control
-        or guarantee the accuracy, integrity, or quality of the information,
-        data, text, software, music, sound, photographs, graphics, videos,
-        messages or other materials available on such websites. Further, the
-        inclusion or exclusion does not imply any endorsement by Altern of the
-        website, the website&apos;s provider, or the information on the website. The
-        information provided by You to such third party websites shall be
-        governed in accordance with the privacy policies of such websites and it
-        is recommended that You review the privacy policy on any such websites
-        prior to using such websites. Altern shall not be held responsible for
-        any violation of Your privacy rights by such Linked Sites nor any loss,
-        damage or injury suffered by You on account of action/inaction of such
-        Linked Sites.
-      </p>
-      <p className="mb-4">
-        Altern does not have access to or control over cookies or other features
-        or technology that such Linked Sites or third party websites and
-        advertisers may use to send the advertisements that appear on the
-        Website directly to Your browser or to measure the effectiveness of
-        their advertisements and to personalize advertising content. The
-        information practices of these third-party websites and advertisers are
-        not covered by this Policy. You are required to contact the Linked Site
-        directly for more information about their privacy practices.
-      </p>
-      <h2 className="text-2xl font-bold mt-6 mb-2">
-        Protection of Personal Information
-      </h2>
-      <p className="mb-4">
-        We are dedicated to protecting Your personal information, including
-        billing and credit information, and providing a safe and secure Platform
-        for all users. Except as explicitly stated in this Privacy Policy, We
-        will not share Your personal information with third parties.
-      </p>
-      <p className="mb-4">
-        We appreciate Your trust in Us by providing Your personal information,
-        and We strive to protect it using commercially acceptable measures. Our
-        company has implemented reasonable security practices and procedures to
-        prevent the loss, misuse, and alteration of information under Our
-        control.
-      </p>
-      <h2 className="text-2xl font-bold mt-6 mb-2">Security</h2>
-      <p className="mb-4">
-        We strive to ensure the security, integrity, and privacy of Your
-        personal and sensitive information. In the event of a security breach,
-        We will take the necessary precautions to prevent misuse and may attempt
-        to notify You electronically so that You can take appropriate action.
-        However, despite Our security measures, third parties, such as hackers,
-        may gain unauthorized access to personal information. By using Our
-        Platform, You acknowledge and agree that We will not be held liable for
-        any damages resulting from such unauthorized access.
-      </p>
-      <p className="mb-4">
-        Notwithstanding anything contained in this Privacy Policy or elsewhere,
-        We shall not be held responsible for any loss, damage, or misuse of Your
-        Personal Information if such loss, damage, or misuse is attributable to
-        a Force Majeure Event.
-      </p>
+          <p className="mb-4">
+            “<strong>Debenture Trustee</strong>” refers to the person entrusted
+            to hold and manage the escrow account on behalf of all the patrons.
+          </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">
-        Notifications and Website Updates
-      </h2>
-      <p className="mb-4">
-        We send email notifications to individuals who log into the Website as
-        Altern Platform members. In addition, We may send You regular
-        newsletters, updates, and promotional information to keep You updated on
-        Platform updates.
-      </p>
+          <p className="mb-4">
+            “<strong>Borrower</strong>” means any real estate company that is
+            identified as a borrower by the NBFC.
+          </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">User Rights</h2>
-      <p className="mb-4">
-        We take reasonable steps to ensure that your information is accurate,
-        complete, and up to date. However, it is your sole responsibility to
-        review the accuracy of the information you provide and to contact us if
-        there are any discrepancies or if you wish to discontinue using our
-        Services. You have the following rights concerning your information:
-      </p>
-      <ol className="list-decimal list-inside mb-4">
-        <li>Right to access and update the information you provided.</li>
-        <li>
-          To stop us from using your information, you may revoke or withdraw
-          your consent by writing to us at <strong>blend@nahar.om</strong>. Please note that if you refuse
-          to allow us to use information we deem necessary to provide our
-          Services, we reserve the right to limit or refuse to provide our
-          Services to you.
-        </li>
-        <li>
-          You have choices about the types of marketing communications you
-          receive from us. You may opt out of receiving marketing emails by
-          following the instructions in the email or by contacting us using the
-          contact information provided at the end of this policy.
-        </li>
-      </ol>
+          <p className="mb-4">
+            “<strong>Intellectual Property Rights</strong>” means all patents,
+            designs and drawings, trademarks, service marks, logos, domain names
+            and utility models, copyrights, inventions, brand names and business
+            names and any similar rights and the benefit (subject to the burden)
+            of any of the foregoing (in each case whether registered or
+            otherwise), and includes applications for the grant of any of the
+            foregoing and the right to apply for any of the foregoing in any
+            part of the world.
+          </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">
-        Opt-Out Options and Service Notifications
-      </h2>
-      <p className="mb-4">
-        As a courtesy to Your privacy, We provide the option to opt out of any
-        Services offered on the Website. If You do not opt out of any service,
-        You agree to receive information about those Services. We only send You
-        information if You have consented to receive it. If You wish to
-        discontinue any Services, You can do so by selecting the unsubscribe
-        option in the emails You receive or by using the Website&apos;s tabs.
-        However, please note that You will not be able to opt out of any service
-        notification that may be necessary for the website&apos;s operation, or that
-        may be important to You as a member of Altern.
-      </p>
+          <h2 className="text-2xl font-bold mt-6 mb-2">Approval of use</h2>
+          <p className="mb-4">
+            By accessing the Platform, registering as an patron or borrower with
+            the Platform, submitting any material to the Platform, or using any
+            of the Services, you expressly agree that:
+          </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">Phishing</h2>
-      <p className="mb-4">
-        Phishing is the name given to attempts to steal personal details and
-        financial account details from a website user. &quot;Phishers&quot; use fake or
-        &quot;spoof&quot; emails to lead users to counterfeit websites where the user is
-        tricked into entering their details, such as card numbers, user names
-        and passwords. If you receive such an e-mail or are asked for your
-        password by anyone claiming to work for us, please forward the e-mail or
-        report the incident by e-mail to our Data Protection Officer.
-      </p>
+          <ul>
+            <li>
+              - You have read, understood and agreed to these Terms, and
+              acknowledge that these Terms shall apply to you and be binding on
+              you.
+            </li>
+            <li>
+              {" "}
+              You are entering into these Terms out of your own free will and
+              consent.
+            </li>
+            <li>
+              - You are either at least eighteen (18) years of age or acting
+              through legal guardian and neither you nor your legal guardian are
+              disqualified from contracting by law.
+            </li>
+          </ul>
+          <br />
+          <p>
+            Accordingly, if you wish not to accept the terms of use, you will
+            not be able to access the platform or the services available on it.
+          </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">
-        Modification of the Privacy Policy
-      </h2>
-      <p className="mb-4">
-        The Privacy Policy may be amended, modified, or refined at Our
-        discretion. The updated Privacy Policy will be published on the Website,
-        and there will be no separate communication. You are responsible for
-        informing yourself of changes to the Privacy Policy by regularly
-        checking the Website for updates. Your use of the Website&apos;s Services
-        following a change in its Privacy Policy constitutes acceptance of the
-        updated Privacy Policy.
-      </p>
+          <h2 className="text-2xl font-bold mt-6 mb-2">Services</h2>
+          <p className="mb-4">
+            The Platform is essentially a technical service provider set up as a
+            private limited companythat will assist the NBFC to identify
+            borrowers. The main purpose of the platform is to help real estate
+            borrowers secure additional funding and provide retail
+            patrons/lenders with an opportunity to earn good returns on their
+            investments. The user agree and acknowledge that <strong>Altern8</strong>'s role is
+            merely to facilitate the transaction between the real estate
+            borrowers and the retail patrons backed by the NBFC and is in no way
+            involved in the lending or pooling of money. All lending happens
+            through the escrow/virtual or nodal account and sometimes the NBFC
+            may bring the loans on their books and sell the loans. <strong>Altern8</strong> is in
+            no way involved in the flow of funds, repayments, collections etc.
+            and the debentures are issued directly by the real estate company to
+            the patrons. Role of <strong>Altern8</strong> is customer acquisition, basic due
+            diligence of the borrowers and the retail patrons/ lenders, credit
+            assessment, customer service etc. with the ultimate responsibility
+            being that of the NBFC. The Patron registers itself on the platform
+            and invest its money in the escrow that is being jointly managed by
+            the borrower and the debenture trustee, the amount is being used by
+            the borrower for carrying on its operations. Hence, there is no
+            selling or transfer of ownership over the real estate assets but
+            merely lending of funds for the real estate companies. In return,
+            the companies (borrowers) issues NCDs, OCDs, Secured Notes or other
+            eligible products to the patrons directly or through the NBFC, as
+            per the relevant provisions of Companies Act, 2013, Companies Issue
+            of Share Capital and Debentures Rules,2014 and SEBI Debenture
+            Trustee Regulations, 1993.
+          </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">
-        Governing Law and Dispute Resolution
-      </h2>
-      <p className="mb-4">
-        This Policy shall be governed by and construed in accordance with the
-        applicable laws in India. Courts at Chennai, India shall have the
-        exclusive jurisdiction over the subject matters of this Policy.
-      </p>
-      <p className="mb-4">
-        Any disputes relating to this Policy shall be subject to the award of
-        the sole arbitrator to be appointed by the President - Chennai
-        Arbitration Centre in accordance with its rules and subject to the
-        provisions of the Arbitration and Conciliation Act, 1996 as amended from
-        time to time. The venue of such Arbitration shall be the city of
-        Chennai, India, and the language of Arbitration shall be English.
-      </p>
+          <h2 className="text-2xl font-bold mt-6 mb-2">Eligibility to use</h2>
+          <p className="mb-4">
+            Any individual, company including a body corporate, LLP (limited
+            liability partnership), partnership firm, HUF (Hindu Undivided
+            Family), trust &amp; Sole proprietorship who is capable/competent to
+            form a binding contract and with a valid Permanent Account Number
+            (PAN) registered with the Income Tax authority under the laws of
+            India can register as “patron” on the Platform. The Services are not
+            available to any patron suspended or removed from <strong>Altern8</strong> system by
+            <strong> Altern8</strong> for any reason whatsoever. If You are removed, You shall not
+            be permitted to avail the Services or use the Platform.
+            Notwithstanding the foregoing, if You are below the age of eighteen
+            (18) years, You may avail the Services provided by <strong>Altern8</strong>, through
+            Your legal guardian in accordance with the applicable laws. You
+            agree and acknowledge that We shall, in no event, be liable to
+            verify your age or extent of parental guidance. The services are not
+            available to patron who has been restricted or prohibited from
+            investing in securities by SEBI, RBI or any other regulatory
+            authority under any law for the time being in force. You acknowledge
+            that <strong>Altern8</strong> reserves the right to refuse access to use the Services
+            offered at the Platform to new Users or to terminate access granted
+            to existing Users at any time without according any reasons for
+            doing so.
+          </p>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">Severability</h2>
-      <p className="mb-4">
-        We endeavour and have made every effort to ensure that this Policy
-        adheres with the applicable laws. If, for any reason, a court of
-        competent jurisdiction finds any provision of this Policy, or portion
-        thereof, to be unenforceable, the invalidity or unenforceability of such
-        part of this Policy shall not prejudice or affect the validity or
-        enforceability of the remainder of this Policy.
-      </p>
+          <strong>
+            IF YOU DO NOT MEET THE ELIGIBILITY CRITERIA OF THIS TOU (Terms of
+            Use), PLEASE DO NOT ATTEMPT TO USE ANY OF OUR SERVICES. USE OF A
+            VIRTUAL PRIVATE NETWORK TO CIRCUMVENT THE RESTRICTIONS SET FORTH IN
+            THESE TOU IS PROHIBITED.
+          </strong>
 
-      <h2 className="text-2xl font-bold mt-6 mb-2">Contact Us</h2>
-      <p className="mb-4">
-        You can contact Us at{" "}
-        <strong>
-          {" "}
-          <a href="mailto:blend@nahar.om">blend@nahar.om</a>
-        </strong>{" "}
-        if You have any feedback or comments, believe We are not following Our
-        Privacy Policy, or wish to remove something that violates a specific
-        regulation.
-      </p>
+          <h2 className="text-2xl font-bold mt-6 mb-2">
+            User Account, Password and Security
+          </h2>
+          <p className="mb-4">
+            In order to fully avail the services provided by <strong>Altern8</strong>, the patron
+            needs to create and account by providing several information like
+            name, address. PAN details, mail id, mobile no. (verification though
+            OTP) etc. (“Registered User”). Unless otherwise permitted by <strong>Altern8 </strong>
+            in writing, You may only possess one account at a time. You
+            acknowledge that You will be responsible for maintaining the
+            confidentiality of the Account Information, and are fully
+            responsible for all activities that occur under Your User Account.
+            You agree to (a) immediately notify <strong>Altern8</strong> of any unauthorized use
+            of Your Account Information or any other breach of security, and (b)
+            ensure that You exit from Your User Account at the end of each
+            session. <strong>Altern8</strong> cannot and shall not be liable for any loss or
+            damage arising from Your failure to comply with this Section.
+            Further, You understand that You may be held liable for losses
+            incurred by <strong>Altern8</strong> or any other user of or visitor to the Platform
+            due to authorized or unauthorized use of Your Account as a result of
+            Your failure in keeping Your Account Information secure and
+            confidential. <strong>Altern8</strong> reserves the right to refuse to offer access
+            to or use of the Platform to any person or entity at its sole
+            discretion including by changing its eligibility criteria at any
+            time. If You provide any information that is untrue, inaccurate, not
+            current or incomplete (or becomes untrue, inaccurate, not current or
+            incomplete), or <strong>Altern8</strong> has reasonable grounds to suspect that such
+            information is untrue, inaccurate, not current or incomplete,
+            <strong> Altern8</strong> has the right to suspend or terminate Your User Account and
+            refuse any and all current or future use of the Platform (or any
+            portion thereof) without providing any notice or according reasons
+            for the same.
+          </p>
 
-      {/* Continue this structure for each section of your privacy policy */}
-      </div>
-      <Footer />
+          <h2 className="text-2xl font-bold mt-6 mb-2">User Obligations</h2>
+          <p className="mb-4">
+            You agree to use the platform and avail its services only for lawful
+            purposes and in accordance with the applicable rules and
+            regulations. Your further agree not to undertake any such activity
+            that is prejudicial to the interest of the platform or of other
+            users associated with the platform such that it makes the services
+            inaccessible for them.
+          </p>
+          <p className="mb-4">
+            You agree and undertake not to reverse engineer, modify, copy,
+            distribute, transmit, display, perform, reproduce, publish, license,
+            create derivative works from, transfer, or sell any information or
+            software obtained from this Website.
+          </p>
+          <p className="mb-4">
+            You undertake that your access to the Services is-(a) not prohibited
+            by and does not otherwise violate or assist you to violate any
+            domestic or foreign law, rule, statute, regulation, by-law, order,
+            protocol, code, decree, or another directive, requirement, or
+            guideline, published or in force that applies to or is otherwise
+            intended to govern or regulate any person, property, transaction,
+            activity, event or other matter, including any rule, order,
+            judgment, directive or other requirement or guideline issued by any
+            domestic or foreign federal, provincial or state, municipal, local
+            or other governmental, regulatory, judicial or administrative
+            authority having jurisdiction over <strong>Altern8</strong>, you, the Website or the
+            Services, or as otherwise duly enacted, enforceable by law, the
+            common law or equity; and (b) does not contribute to or facilitate
+            any illegal activity.
+          </p>
+          <p className="mb-4">
+            During the use of the Platform or Services offered on the Platform,
+            You shall not post, host, display, upload, modify, publish,
+            transmit, update or share any information that:
+          </p>
+          <ul>
+            <li>
+              1) Impersonate any person or entity, or falsely state or otherwise
+              misrepresent Your affiliation with a person or entity;
+            </li>
+
+            <li>
+              2) Publish, post, upload, distribute or disseminate any
+              inappropriate, profane, defamatory, infringing, obscene, indecent
+              or unlawful topic, name, material or information through any
+              bookmark, tag or keyword;
+            </li>
+
+            <li>
+              3) Upload files, material or any information in violation of the
+              intellectual property rights of another person;
+            </li>
+
+            <li>
+              4) Upload files, material or any information in violation of any
+              confidentiality agreement with respect to a third party;
+            </li>
+
+            <li>
+              5) Upload or distribute files that contain viruses, corrupted
+              files, or any other similar software or programs that may damage
+              the operation of the Platform or another&#39;s computer;
+            </li>
+
+            <li>
+              6) Engage in any activity that interferes with or disrupts access
+              to the Platform or the Services (or the servers and networks which
+              are connected to the Platform);
+            </li>
+
+            <li>
+              7) Attempt to gain unauthorized access to any portion or feature
+              of the Platform, any other systems or networks connected to the
+              Platform
+            </li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">
+            Sale and Transfer of Units{" "}
+          </h2>
+          <p className="mb-4">
+            The Platform facilitates the transfer and sale of units of Real
+            Estate Debt Instruments of the Borrower entities between the
+            borrower and the patron as well as secondary sale of units between
+            two patrons also. Only the registered patrons and borrowers are
+            eligible to participate in these transactions.
+          </p>
+
+          <ol>
+            <li>
+              <b>Initial Sale of Units:</b> The borrowers intending to borrow
+              through issuance of Debt Instrument have to be registered on the
+              primary platform. The borrowers are also oblidges to clearly
+              specify the terms of issuance including the principal amount,
+              interest amount, redemption period and other relevant details. All
+              these details shall be available to the patrons on the Platform.
+              The Patron is allowed to purchase the units available on the
+              platform put forth by the borrowers by following price mechanism
+              and money settlement as specified in these terms. Upon execution
+              of the order by any patron, a specific contract note shall be
+              executed between the borrower and the patronwithin 24 hours via
+              e-mail, detailing the specifications about the transaction and
+              contractual relationship between the parties. Upon successful
+              completion of the transaction, all rights or interest with respect
+              to the Instrument in transaction shall stand transfertred to the
+              purchaser patron with immediate effect.
+            </li>
+            <br />
+            <li>
+              <b>Secondary sale of Units:</b> The Platform also facilitates
+              secondary sale and transfer of Debt Instruments among the patrons.
+              The selling patron acknowledges that upon successful completion of
+              the transfer, all rights, interest and liabilities with respect to
+              the Debt shall vest in the hands of the buying patron and he can
+              further engage directly with the borrower for his repayments or
+              interests. Upon execution of the order by any patron, a specific
+              contract note shall be forwardedto both the buyer and the seller
+              via e-mail within 24 hours of the execution on the Platform. Both
+              selling and buying patron will have to execute a specific contract
+              note detailing the specifications about the transactyion and
+              contractual relationship between the parties. The buyer of the
+              units shall have the right to receive the principal amount and any
+              interest payments from the original borrower according to the
+              terms of the debt instrument. The selling patron may ask for a
+              fixed or auctioned price for the units.
+            </li>
+          </ol>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">
+            Price Mechanism and Money Settlement{" "}
+          </h2>
+          <p className="mb-4">
+            For any order being placed on the platform, two types of price
+            mechanisms could be put forth by the selling patrons i.e. fixed
+            price mechanism or auctioned price mechanism.
+            <br />
+          </p>
+
+          <ol>
+            <li>
+              <b>Fixed Price: </b>Under this mechanism, a fixed price shall be
+              specified by the seller for the sale of any Debt Instrument. The
+              purchaser can pay the requisite price along with the applicable
+              service and taxation charges and can successfully complete the
+              transaction.
+            </li>
+            <br />
+            <li>
+              <b>Auction Price and Bidding: </b>The auctioned price shall be the
+              price determined by the platform as the final selling price of the
+              Debt Instrument put for sale by any particular patron. The
+              borrower will provide a starting price for the Debt on the
+              platform and each patron willing to purchase can put forth a bid
+              amount greater than the starting price as mentioned. After a
+              specified period known as auction period, the Platform shall
+              determine the highest bid receivedas the final price for the
+              transaction and the patron concerned shall be informed to execute
+              the contract note with the Seller. The bid amount will be deducted
+              from the successful patron's wallet.
+            </li>
+            <br />
+
+            <li>
+              <b>Payment Settlement: </b>The payment settlement for each
+              transaction executed through the Platform shall be through the
+              approved mode as provided on the platform and no outward
+              transaction shall be executed between the parties.
+            </li>
+            <br />
+
+            <li>
+              <b>Escrow Account: </b>Each patron registering on the Platform
+              shall have a linked escrow account created with the Partner bank
+              through which all the payments related to transactions will be
+              facilitated on the Platform. The Patron shall be obliged to
+              provide KYC and other details as required by the Partner bank for
+              creation of the Escrow Account. A debenture trustee shall be
+              appointed for the management of the escrow account in accordance
+              with the applicable provisions of Companies Act and other relevant
+              laws. The debenture trustee is responsible for the management and
+              control of the flow of funds through the escrow account.
+            </li>
+            <br />
+          </ol>
+
+          <h2 className="text-2xl font-bold mt-3 mb-2">Risk Disclosure </h2>
+          <p className="mb-4">
+            By using this platform, you acknowledge that investing in
+            non-convertible debentures (NCDs) , OCDs, Secured Notes and other
+            valid instruments and lending to real estate borrowers involves
+            significant risks. The value of investments in NCDs can fluctuate
+            due to changes in market conditions, interest rates, and economic
+            factors. Patrons may experience losses if market conditions
+            deteriorate. However, since the platform is merely a Technical
+            Service Provider (TSP) and the borrower directly issues the
+            instruments to the lenders, the risk involved in those debentures
+            must be borne by the patron himself and the platform shall not be
+            liable to any loss attributed to the risk in issuance of these NCDs.
+            Changes in laws, regulations, and policies can impact the operations
+            of the platform, the issuance of NCDs, and the returns on
+            investments. Patrons should be aware of the regulatory environment
+            and any potential changes that may affect their investments. It
+            shall not be the responsibility of the platform to communicate about
+            such changes to the patrons.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">
+            Intellectual Property Rights{" "}
+          </h2>
+          <p className="mb-4">
+            Unless otherwise expressly provided by the terms of the platform,
+            all the Intellectual Property Rights in the Platform and its content
+            are owned by <strong>Altern8</strong> and no user is entitled to use these
+            intellectual property rights except as consented by the platform
+            through these terms or any other policy for the time being. All
+            content and materials including but not limited to text, graphics,
+            website name, code, images, and logos are the intellectual property
+            of <strong>Altern8</strong> and are protected by applicable copyright and trademark
+            law. Any inappropriate use or transmission of any content on this
+            site is strictly prohibited unless specifically authorized to do so.
+            Except as expressly provided herein, You acknowledge and agree that
+            You shall not use, in any manner whatsoever, any Content through any
+            medium without obtaining the necessary authorization from <strong>Altern8</strong> or
+            thirty party owners of such Content. You agree that by use of the
+            Platform or by availing the Services You shall not obtain any right
+            or interest on the materials and Content. However, <strong>Altern8</strong> may
+            assign or license its trademark or other intellectual property
+            rights to any third party for promotional or marketing purposes.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">Royalty </h2>
+          <p className="mb-4">
+          <strong>Altern8</strong> reserves exclusive ownership rights over the Intellectual
+            Property associated with the platform and the Patron acknowledges
+            that they are granted a limited, non-exclusive license to use the
+            Platform in accordance with these Terms of Use. This license does
+            not transfer any ownership rights of the IP to the users. Users of
+            the platform are required to pay specific royalties to the platform
+            for using the technical services and the IPs of the platform. The
+            royalties are fees for the service of using <strong>Altern8</strong>'s proprietary
+            technology and intellectual property, which facilitate the
+            transactions between borrowers and patrons. Royalties provided for
+            availing the services of the Platform shall be exclusive of any
+            taxes since the same is exempted in accordance with the Provisions
+            of the Income Tax Act
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">
+            Modification of terms{" "}
+          </h2>
+          <p className="mb-4">
+          <strong>Altern8</strong> reserves the rights, at its sole discretion, to amend,
+            alter, modify, change, add or remove any portion of the Terms of Use
+            or the Privacy Policy, in whole or in part, at any time. The revised
+            Terms of Use shall be made available on the Platform. You agree to
+            take the responsibility to be aware of the updated terms of use by
+            frequently visiting the website and <strong>Altern8</strong> shall not be responsible
+            to communicate you about any changes made to the terms and
+            conditions of use. Your continued use of the Platform and/or the
+            Services made available on or through the Platform after any changes
+            to the Terms of Use or the Privacy Policy are posted will be
+            considered acceptance of such changes. You can determine when
+            <strong>Altern8</strong> last modified the Terms of Use by referring to the
+            &quot;Last Updated&quot; legend herein.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">Fees and Charges </h2>
+          <p className="mb-4">
+            The platform does not charge any registration fee from the patrons.
+            However, whenever the patron invests in any NCDs through the NBFC,
+            the platform may charge commission fee as specified on the platform
+            for such transaction for acting as a facilitator between the
+            borrower and the patron.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">
+            Data Protection and Privacy:{" "}
+          </h2>
+          <p className="mb-4">
+            The User hereby consents, expresses and agrees that they have read
+            and fully understands the privacy policy of <strong>Altern8</strong>{" "}
+            in respect of access to the platform.
+          </p>
+          <p className="mb-4">
+            You further consent that the terms and contents of such Privacy
+            Policy are acceptable to You and the platform reserves the right to
+            collect and process user data from you. <strong>Altern8</strong>{" "}
+            hereby undertakes to protect your data with integrity and safety
+            measures and shall implement and maintain appropriate technical and
+            organizational measures to protect personal data against
+            unauthorized or unlawful processing, accidental loss, destruction,
+            or damage.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">Confidentiality </h2>
+          <p className="mb-4">
+            Subject to the specific permissions in these Terms of Use, both
+            parties will protect each other's Confidential Information from
+            unauthorized use, access, or disclosure, using at least the same
+            level of care as they use to protect their own Confidential
+            Information, but no less than a reasonable standard of care. Except
+            as expressly allowed by these Terms of Use, each party may use the
+            other's Confidential Information only to exercise their rights and
+            fulfill their obligations under these Terms of Use.
+            &quot;Confidential Information&quot; refers to any information
+            labeled as &quot;confidential&quot; (or similarly) or that a
+            reasonable person would consider confidential given its nature and
+            the circumstances of disclosure. However, Confidential Information
+            does not include information that: (a) was already known to the
+            receiving party at the time of disclosure; (b) was obtained from a
+            third party without an obligation of confidentiality; (c) becomes
+            publicly available without breaching these Terms of Use; or (d) is
+            independently developed by the receiving party without using the
+            disclosing party's Confidential Information.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">Governing Law </h2>
+          <p className="mb-4">
+            These terms and conditions shall be governed by and construed in
+            accordance with the laws of India as applicable for the time being
+            in force. Subject to the generality of the foregoing, these terms
+            and conditions shall be subject to the provisions of Companies Act,
+            the Debenture rules, SEBI rules and regulations as well as RBI
+            regulations for NBFCs and issuance of NCDs.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">Dispute Resolution </h2>
+          <p className="mb-4">
+            The determination of existence of any disputes, the nature of the
+            disputes and how it should be handled relating to these terms and
+            conditions shall be decided by <strong>Altern8</strong>. Subject to the above, any
+            dispute arising out of the services provided by the platform, be it
+            between the patron and the platform or between borrower and the
+            platform or between the NBFC and the platform, the dispute shall be
+            resolved through award of sole arbitrator to be appointed by both
+            the parties in accordance with its rules and subject to the
+            provisions of the Arbitration and Conciliation Act, 1996 as amended
+            from time to time. The venue of Arbitration shall be at Chennai and
+            the language shall be English.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">
+            Representation and Warranties{" "}
+          </h2>
+          <p className="mb-4">
+            The user hereby agrees and warrants that the Platform, Services,
+            Content and other materials are provided by <strong>Altern8</strong> on an &quot;as
+            is&quot; basis without warranty of any kind, express, implied,
+            statutory or otherwise, including the implied warranties of
+            accuracy, reliability or fitness for a particular purpose. To the
+            fullest extent permissible pursuant to applicable law, <strong>Altern8 </strong>
+            disclaims all warranties, express or implied, including but not
+            limited to, implied warranties of merchantability and fitness for a
+            particular purpose. <strong>Altern8</strong> does not warrant that the website or the
+            server that makes it available is free from viruses or other harmful
+            components. Without limiting the foregoing, <strong>Altern8</strong> makes no
+            warranty that (i) the Platform or the Services will meet Your
+            requirements or Your use of the Platform or the Services will be
+            uninterrupted, timely, secure or error-free; (ii) the results that
+            may be obtained from the use of the Platform, Services or materials
+            will be effective, accurate or reliable; (iii) the quality of the
+            Platform, Services or other materials will meet your expectations;
+            or that (iv) any errors or defects in the Platform, Services or
+            other materials will be corrected. No advice or information, whether
+            oral or written, obtained by You from <strong>Altern8</strong> or through or from use
+            of the Services shall create any warranty not expressly stated in
+            the Terms of Use.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">
+            Limitation of liability{" "}
+          </h2>
+          <p className="mb-4">
+          <strong>Altern8</strong> does not guarantee that the user will get his expected
+            returns by investing in any particular venture. The platform merely
+            acts as a facilitator between the borrower and the patron and has no
+            liability to compensate if the patron is not able to get his
+            expected returns through the borrowers. The sole remedy available to
+            the patrons is to act in accordance with the Companies Act or the
+            SEBI regulations.
+            <br />
+            <strong>Altern8</strong> will not be liable for any direct, indirect, incidental,
+            consequential or exemplary loss or damages which may be incurred by
+            you as a result of using our Resources, or as a result of any
+            changes, data loss or corruption, cancellation, loss of access, or
+            downtime to the full extent that applicable limitation of liability
+            laws apply.
+            <br />
+            To the fullest extent permitted by applicable law, <strong>Altern8</strong> shall not
+            be liable to you for any damages arising from (i) errors, mistakes,
+            or inaccuracies in content, (ii) personal injury or property damage
+            resulting from your access to and use of the services, (iii)
+            unauthorized access to or use of our servers and any personal
+            information stored therein, (iv) any interruption or cessation of
+            transmission to or from our servers, (v) bugs, viruses, trojan
+            horses, or similar issues transmitted through the services by any
+            third party, (vi) loss of your data or content from the services,
+            (vii) errors or omissions in any content or any loss or damage
+            resulting from your use of any content posted, transmitted, or made
+            available through the services, whether based on warranty, contract,
+            tort, or any other legal theory, and whether or not we were advised
+            of the possibility of such damages, (viii) disclosure of information
+            according to these terms or our privacy policy, (ix) your failure to
+            keep your password or account details secure and confidential, or
+            (x) loss or damage incurred by you due to reliance on the
+            completeness, accuracy, or existence of any advertising, or due to
+            any relationship or transaction between you and any advertiser or
+            sponsor whose advertising appears on the services. In no event shall
+            we be liable to you for any indirect, incidental, special, punitive,
+            exemplary, or consequential damages, including but not limited to
+            loss of profit, goodwill, business reputation, data, or other
+            intangible losses.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">Termination</h2>
+          <p className="mb-4">
+          <strong>Altern8</strong> may terminate your access to all or any part of the platform
+            at any time with or without cause, with or without notice, effective
+            immediately, which may result in the loss and damage of all the
+            information and ongoing transactions you may have in connection with
+            the platform. Subject to the generality of the foregoing, <strong>Altern8 </strong>
+            may terminate your access to the platform if-
+          </p>
+
+          <ol>
+            <li>
+              (a) You have violated these terms of use or any other policy of
+              the platform such as privacy policy.{" "}
+            </li>
+            <li>
+              (b) You have acted in an illegal or unethical manner prejudicial
+              to the interest of other users/ sellers or other buyers or
+              borrowers on the platform, or against the interest of platform
+              itself.
+            </li>
+            <li>
+              (c) You have violated any of the applicable rules and regulations
+              regarding issue of NCDs as prescribed under applicable laws such
+              as Companies Act, Companies Share Capital and Debenture Rules
+              2014, or any SEBI or RBI regulations as applicable from time to
+              time.
+            </li>
+
+            <li>
+              (d) Any suspected illegal, fraudulent or abusive activity through
+              your user account shall also be a ground for termination.
+            </li>
+            <li>
+              (e) Any other activity incidental to the above stated activities,
+              which in the opinion of <strong>Altern8</strong>, is liable for termination.
+            </li>
+          </ol>
+          <br/>
+          <p>
+            If you object to any Terms and Conditions, your only recourse is to:
+            <br/><br/>
+            (a) discontinue use of the Platform or the Services; and <br/>(b) notify
+            <strong> Altern8</strong> of such discontinuance. Please note that such termination
+            shall only govern Your usage of the Platform and any Services
+            offered to You by an affiliate of <strong>Altern8</strong> (be it NBFC) or a third
+            party or a borrower shall continue to be governed by the terms
+            agreed in such individual service agreements.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">Report Abuse</h2>
+          <p className="mb-4">
+            In the event You come across any abuse or violation of these Terms
+            of Use including any Privacy Policy or Additional Terms or if You
+            become aware of any objectionable content on the Platform, please
+            report immediately to <strong>Altern8</strong> customer support.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">Communications</h2>
+          <p className="mb-4">
+            Upon your express consent by way of clicking on the check box
+            provided on the platform for this purpose, You expressly agree to
+            receive communications (including promotional materials) by way of
+            telephones, WhatsApp, RCS, SMS, e-mails, etc., from <strong>Altern8</strong> relating
+            to any Services provided through the Platform.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">Third party sites </h2>
+          <p className="mb-4">
+            The Website or the mails for communication may contain links to
+            third-party websites. However, these links are merely for
+            advertisement purposes only and the company has no connection or
+            affiliation with any of these third party sites or their products.
+            The company neither provides for the endorsement of any other
+            product or services through its platform. The provision of Third-
+            Party Content is for general informational or advertisement purposes
+            only. In no event shall <strong>Altern8</strong> be responsible for the information
+            contained on any Third-Party Sites or your use of or inability to
+            use any Third-Party Sites. You acknowledge and agree that <strong>Altern8 </strong>
+            shall not be liable or responsible, directly or indirectly, for any
+            damage or loss caused through any third-party website or resource.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">Miscellaneous </h2>
+          <p className="mb-4">
+            Notice: All notices to <strong>Altern8</strong> shall be served by email or by
+            general notification on the Platform. Any notice to be provided to
+            <strong> Altern8</strong> pursuant to the Terms of Use should be sent to customer
+            support <strong>
+              {" "}
+              <a href="mailto:blend@nahar.om">blend@nahar.om</a>
+            </strong>{" "}.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">Entire Agreement </h2>
+          <p className="mb-4">
+            These Terms of Use, together with the Privacy Policy constitute the
+            entire agreement between you and <strong>Altern8</strong> in relation to your use of
+            the Platform and supersede all previous agreements in respect of
+            your use of the Platform. Please note, however, that other aspects
+            of your use of Services may be governed by additional agreements. If
+            any term of this Terms of Use expressly conflicts with any term of
+            any individual service agreement executed between borrower, patron
+            or the NBFC, such conflict will be resolved at our sole discretion.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">Severability</h2>
+          <p className="mb-4">
+            If for any reason, a court of competent jurisdiction finds any
+            provision of the Term of Use, or portion thereof, to be
+            unenforceable, that provision shall be enforced to the maximum
+            extent permissible so as to give effect to the intent of the parties
+            as reflected by that provision, and the remainder of the Terms of
+            Use shall continue in full force and effect.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">Waiver </h2>
+          <p className="mb-4">
+          <strong>Altern8</strong>'s failure to enforce any provision of this Terms of Use
+            shall not be deemed to be a waiver of such provision nor of the
+            right to enforce such provision.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-6 mb-2">Contact </h2>
+          <p className="mb-4">
+            If you have any queries or doubt regarding the terms of use, please
+            reach the customer support of <strong>Altern8</strong> at{" "}
+            <strong>
+              {" "}
+              <a href="mailto:blend@nahar.om">blend@nahar.om</a>
+            </strong>{" "}
+          </p>
+
+        </div>
+        <Footer />
       </ClothUnrollEffect>
     </div>
   );
