@@ -255,32 +255,6 @@ const RefundAndCancellations: FC = () => {
 
             <div className="my-10">
               <h2 className={headingClassName}>
-                1. For Chargeback Transactions:
-              </h2>
-              <p className={contentClassName}>
-                1.1 In these Terms and Conditions, the term “Chargeback” shall
-                mean, approved and settled credit card or net banking purchase
-                transaction(s) which are at any time refused, debited or charged
-                back to merchant account (and shall also include similar debits
-                to Payment Service Provider&apos;s accounts, if any) by the
-                acquiring bank or credit card company for any reason whatsoever,
-                together with the bank fees, penalties and other charges
-                incidental thereto.
-              </p>
-              <p className={contentClassName}>
-                1.2 In the event there is any claim for/ of charge back by the
-                User for any reason whatsoever, such user shall immediately
-                intimate <strong>Altern8</strong> of the same. Such refund (if
-                any) shall be effected by <strong>Altern8</strong> via payment
-                gateway or such other means as <strong>Altern8</strong>, deems
-                appropriate. No claims for refund/chargeback shall be made by
-                any User to the Payment Service Provider(s) and in the event
-                such claim is made it shall not be entertained.
-              </p>
-            </div>
-
-            <div className="my-10">
-              <h2 className={headingClassName}>
                 3. Server Slow Down/Session Timeout:
               </h2>
               <p className={contentClassName}>
