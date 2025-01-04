@@ -1,58 +1,88 @@
 "use client"
 import { ALTERN8_ASSET_TYPES } from '../config/config'
-import AutoScroll from 'embla-carousel-auto-scroll'
-import React from 'react'
-import { Carousel, CarouselContent, CarouselItem } from './ui/carousel'
+import React, { useState } from 'react'
 import { Badge } from './ui/badge'
-
-
-
-
+import { motion, AnimatePresence } from 'framer-motion'
 
 function DiverseAssets() {
-    const plugin = React.useRef(
-        // Autoplay({ delay: 2000, stopOnInteraction: true })
-        AutoScroll({ speed: 3, stopOnMouseEnter: true, stopOnInteraction: false })
-    )
+    const [selectedAsset, setSelectedAsset] = useState<{ name: string; image: string } | null>(null);
+
+    const openModal = (asset: { name: string; image: string }) => {
+        setSelectedAsset(asset);
+        document.body.classList.add('overflow-hidden'); 
+
+    };
+
+    const closeModal = () => {
+        setSelectedAsset(null);
+        document.body.classList.remove('overflow-hidden');
+
+    };
 
     return (
-        <Carousel
-            opts={{
-                align: "start",
-                loop: true,
-            }}
-            plugins={[plugin.current]}
-            className="w-full h-full "
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
-        >
-            <CarouselContent className="w-full  h-full max-h-full ">
+        <>
+            <div className="grid grid-cols-6 gap-4">
                 {ALTERN8_ASSET_TYPES.map((asset, index) => (
-                    <CarouselItem key={index} className="w-full h-full max-h-full basis-[17%]">
-                        <div className="w-full h-full p-1   ">
-                            <Badge variant="outline" className='h-[45px] w-[185px] flex items-center justify-center border-2 border-black hover:bg-slate-50'>
-                                <span className='font-semibold text-sm'>{asset}</span>
-                            </Badge>
-                        </div>
-                    </CarouselItem>
+                    <div key={index} className="w-full h-full">
+                        <Badge
+                            onClick={() => openModal(asset)}
+                            variant="outline"
+                            className="h-[45px] w-[185px] flex items-center justify-center border-2 border-black hover:bg-slate-50 cursor-pointer"
+                        >
+                            <span className="font-semibold text-sm">{asset.name}</span>
+                        </Badge>
+                    </div>
                 ))}
-            </CarouselContent>
-        </Carousel>
-    )
+            </div>
+
+            {/* Modal */}
+            <AnimatePresence>
+                {selectedAsset && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 50 }}
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+                        onClick={closeModal}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9 }}
+                            animate={{ scale: 1 }}
+                            exit={{ scale: 0.9 }}
+                            className="bg-white p-5 rounded-lg shadow-lg relative"
+                            onClick={(e) => e.stopPropagation()} // Prevent closing modal when clicking inside
+                        >
+                            <button
+                                onClick={closeModal}
+                                className="absolute top-1 right-1 text-gray-500 hover:text-black"
+                            >
+                                ✖
+                            </button>
+                            <img
+                                src={selectedAsset.image}
+                                alt={selectedAsset.name}
+                                className="w-[50vw] h-[50vh]"
+                            />
+                            <p className="text-center mt-3 font-semibold">{selectedAsset.name}</p>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
+    );
 }
 
 export const DiverseAssetSection = () => {
     return (
-        <div className="bg-[#EEFAFF] w-full h-[350px] px-10 py-10">
+        <div className="bg-[#EEFAFF] w-full px-10 py-10">
             <div className="flex mt-5 flex-col gap-3">
-                <h1 className="text-31xl font-semibold leading-tight mt-0 mb-3">Diverse Asset Classes In Real-Estate </h1>
+                <h1 className="text-31xl font-semibold leading-tight mt-0 mb-3">Diverse Asset Classes In Real-Estate</h1>
                 <p>Explore a multitude of asset classes in the real-estate sector, each meticulously curated for optimal investment opportunity.</p>
 
-                <div className='mt-6 p-1 h-[70px]'>
+                <div className="mt-6 p-1">
                     <DiverseAssets />
                 </div>
             </div>
-
         </div>
-    )
-}
+    );
+};

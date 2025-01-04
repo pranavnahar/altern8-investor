@@ -21,11 +21,9 @@ export const AdvisorsSection = forwardRef<HTMLDivElement>((props, ref) => {
                             {/* Always-visible overlay at the bottom */}
                             <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent p-2 flex flex-col justify-end">
                                 <p className="text-white text-[16px]">{advisor.name}</p>
-                                <span className='text-gray-200 text-[12px]'>{advisor.post}</span>
+                                <span className='text-gray-200 text-[12px] h-[40px]'>{advisor.post}</span>
                                 <span className='text-[12px]  text-[#BF8EFE]'>{advisor.location}</span>
                             </div>
-
-
                         </div>
                     ))}
                 </div>

@@ -24,10 +24,25 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Altern8",
-  description: "Altern8 investor's page",
+  description: "Revolutionizing Lending Through Innovation, AI and Insight with Simplified Lending Stack.",
+  twitter: {
+    card: "summary_large_image",
+    title: "Ethyx Solo Club",
+    site: "ethyx.in",
+    description: "Invest Ethically, Grow Confidently: Empower Creators, Build Wealth",
+    images: [
+      {
+        url: "https://j59d8sfv-3001.inc1.devtunnels.ms/preview_image.png", 
+        width: 1200, // Update to Twitter's recommended size
+        height: 675, // Update to Twitter's recommended size
+        type: 'image/png',
+        alt: "ETHYX SOLO CLUB",
+      },
+    ], 
+  },
   openGraph: {
     title: "Altern8",
-    description: "Altern8 investor's page",
+    description: "Revolutionizing Lending Through Innovation, AI and Insight with Simplified Lending Stack.",
     url: "https://j59d8sfv-3000.inc1.devtunnels.ms/",
     type: "website",
     images: [

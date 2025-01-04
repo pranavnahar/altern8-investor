@@ -36,7 +36,7 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
     mobileNumber: "",
     areaOfInterest: [] as string[],
     comments: "",
-    termsAgreed: false,
+    termsAgreed: true,
   });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

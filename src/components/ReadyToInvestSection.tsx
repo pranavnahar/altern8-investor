@@ -33,7 +33,7 @@ export const ReadyToInvestSection = forwardRef<HTMLDivElement>((props, ref) => {
   };
 
   return (
-    <div ref={ref} {...props} className="w-full h-[900px] px-10 py-10">
+    <div ref={ref} {...props} id="invest" className="w-full h-[900px] px-10 py-10">
       <div className="flex gap-1 h-full w-full ">
         {/* Right */}
         <div className="w-1/2 h-fit p-3">
