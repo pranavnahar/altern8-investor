@@ -18,6 +18,13 @@ const InvestmentValues = [
   '5 crore above'
 ];
 
+const TargetIRR = [
+  "6% - 9%",
+  "9% - 13%",
+  "16% - 20%",
+  "21% and above"
+];
+
 export const Hero = () => {
   return (
     <div
@@ -44,9 +51,9 @@ export const Hero = () => {
               <SelectValue placeholder="Asset Value" className="" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="light">Light</SelectItem>
-              <SelectItem value="dark">Dark</SelectItem>
-              <SelectItem value="system">System</SelectItem>
+            {InvestmentValues.map((investmenValue, index) => (
+                <SelectItem value={investmenValue} key={index}>{investmenValue}</SelectItem>
+              ))}
             </SelectContent>
           </Select>
 
@@ -55,8 +62,8 @@ export const Hero = () => {
               <SelectValue placeholder="Target IRR" />
             </SelectTrigger>
             <SelectContent>
-              {InvestmentValues.map((investmenValue, index) => (
-                <SelectItem value={investmenValue} key={index}>{investmenValue}</SelectItem>
+            {TargetIRR.map((targetIrr, index) => (
+                <SelectItem value={targetIrr} key={index}>{targetIrr}</SelectItem>
               ))}
             </SelectContent>
           </Select>
