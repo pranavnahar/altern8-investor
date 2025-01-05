@@ -3,7 +3,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import React, { ReactNode, useRef } from "react";
+import React, { ReactNode, useEffect, useRef } from "react";
 import { ALTERN8_ADVISORS } from "../../config/config";
 import { Button } from "@/components/ui/button";
 import { ArrowLeftCircle } from "lucide-react";
@@ -23,6 +23,56 @@ import { Footer } from "@/components/Footer";
 interface ClothUnrollEffectProps {
   children: ReactNode;
 }
+import { animate, useTransform, AnimatePresence, useMotionValue } from 'framer-motion';
+
+const TypingAnimation = () => {
+  //animating taglines
+  const taglines = [
+    'Financial Acumen',
+    'Technology',
+    'Human Resources',
+    'Organizational Transformation',
+    'Innovation',
+    'Sustainability',
+    'Conscious Growth',
+    'Entrepreneurship',
+    'Transformative initiates',
+  ];
+  //
+  const textIndex = useMotionValue(0);
+  const baseText = useTransform(textIndex, latest => taglines[latest] || '');
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, latest => Math.round(latest));
+  const displayText = useTransform(rounded, latest => baseText.get().slice(0, latest));
+  const updatedThisRound = useMotionValue(true);
+
+  //useffect to trigger animation
+  useEffect(() => {
+    animate(count, 60, {
+      type: 'tween',
+      delay: 0.5,
+      duration: 1.3,
+      ease: 'easeIn',
+      repeat: Infinity,
+      repeatType: 'reverse',
+      repeatDelay: 0.1,
+      onUpdate(latest) {
+        if (updatedThisRound.get() === true && latest > 0) {
+          updatedThisRound.set(false);
+        } else if (updatedThisRound.get() === false && latest === 0) {
+          if (textIndex.get() === taglines.length - 1) {
+            textIndex.set(0);
+          } else {
+            textIndex.set(textIndex.get() + 1);
+          }
+          updatedThisRound.set(true);
+        }
+      },
+    });
+  }, []);
+
+  return <motion.div className="inline">{displayText}</motion.div>;
+};
 
 const ClothUnrollEffect = ({ children }: ClothUnrollEffectProps) => {
   return (
@@ -495,9 +545,7 @@ const AboutUsPage: React.FC = () => {
                 </DialogTitle>
                 <DialogDescription className="text-gray-700">
                 <p className="mb-4">
-                    The Team has Expertise in Financial Acumen, Technology, Human Resources,
-                    Organizational Transformation, Innovation, Sustainability, Conscious Growth,
-                    Entrepreneurship, Transformative initiates.
+                    The Team has Expertise in{' '}<b><TypingAnimation /></b>
                     <br />
                     <br />
                     The team's entrepreneurial vision has seen the successful launch and expansion
