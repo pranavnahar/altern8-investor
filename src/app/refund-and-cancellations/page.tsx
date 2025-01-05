@@ -111,6 +111,14 @@ const RefundAndCancellations: FC = () => {
     }
   };
 
+    const handleInvestClick = (
+      e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    ) => {
+      e.preventDefault();
+      router.push("/#invest");
+    };
+  
+
   return (
     <div className="">
       <ClothUnrollEffect>
@@ -122,12 +130,10 @@ const RefundAndCancellations: FC = () => {
               </Link>
               <nav className="hidden md:flex gap-10">
                 <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    smoothScrollTo(ReadyToInvestSectionRef);
-                  }}
-                  className="font-medium flex items-center text-sm transition-colors hover:underline"
+                  href="/#contact-us"
+                  onClick={handleContactClick}
+
+                  className="font-medium flex items-center text-sm transition-colors"
                 >
                   Invest
                 </a>

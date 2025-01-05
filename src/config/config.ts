@@ -232,24 +232,24 @@ export const ALTERN8_INVESTMENT_TYPES = [
 ];
 
 export const ALTERN8_ASSET_TYPES = [
-    "Rental assets",
-    "Retirement communities",
-    "Co living",
-    "Hospitality projects",
-    "Warehousing",
-    "Residential",
-    "Commercial",
-    "Townships",
-    "Vacation properties",
-    "International properties",
-    "Redevelopment",
-    "Retirement communities",
-    "Student accommodation",
-    "Serviced apartments",
-    "Mixed use properly",
-    "Affordable housing",
-    "Plotted land",
+    { name: "Rental assets", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "Retirement communities", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "Co living", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "Hospitality projects", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "Warehousing", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "Residential", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "Commercial", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "Townships", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "Vacation properties", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "International properties", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "Redevelopment", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "Student accommodation", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "Serviced apartments", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "Mixed use property", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "Affordable housing", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
+    { name: "Plotted land", image: "https://www.agentadvice.com/wp-content/uploads/2020/12/shutterstock_1247473441-scaled.jpg" },
 ];
+
 
 export const ALTERN8_CUSTOMER_TESTIMONIALS = [
     {

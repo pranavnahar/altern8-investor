@@ -106,6 +106,13 @@ export default function PrivacyPolicy() {
     }
   };
 
+  const handleInvestClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    router.push("/#invest");
+  };
+
   return (
     <div className="">
       <ClothUnrollEffect>
@@ -117,11 +124,8 @@ export default function PrivacyPolicy() {
               </Link>
               <nav className="hidden md:flex gap-10">
                 <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    smoothScrollTo(ReadyToInvestSectionRef);
-                  }}
+                  href="#invest"
+                  onClick={handleInvestClick}
                   className="font-medium flex items-center text-sm transition-colors hover:underline"
                 >
                   Invest
@@ -149,11 +153,8 @@ export default function PrivacyPolicy() {
                 </a>
                 <Button variant={"outline"}>
                   <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      smoothScrollTo(FaqSectionRef);
-                    }}
+                    href="#contact-us"
+                    onClick={handleContactClick}
                     className="font-medium flex items-center text-sm transition-colors"
                   >
                     Reserve Access

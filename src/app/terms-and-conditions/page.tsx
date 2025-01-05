@@ -106,56 +106,58 @@ export default function TermsConditions() {
     }
   };
 
+  const handleInvestClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    router.push("/#invest");
+  };
+
+
   return (
     <div className="">
       <ClothUnrollEffect>
-        <nav className="sticky top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90">
-          <div className="w-full max-h-20 mx-auto px-10 ">
-            <div className="flex justify-between h-20 items-center">
-              <Link href="/" className="flex items-center" prefetch={false}>
-                <img alt="navbar logo" src="/Alter8_nav_logo.svg" />
-              </Link>
-              <nav className="hidden md:flex gap-10">
+      <nav className="sticky top-0 z-50 bg-white shadow-sm dark:bg-gray-950/90">
+        <div className="w-full max-h-20 mx-auto px-10 ">
+          <div className="flex justify-between h-20 items-center">
+            <Link href="/" className="flex items-center" prefetch={false}>
+              <img alt="navbar logo" src="/Alter8_nav_logo.svg" />
+            </Link>
+            <nav className="hidden md:flex gap-10">
+              <a
+                href="#invest"
+                onClick={handleInvestClick}
+                className="font-medium flex items-center text-sm transition-colors hover:underline"
+              >
+                Invest
+              </a>
+              <a
+                href="/about-us"
+                className="font-medium flex items-center text-sm transition-colors hover:underline"
+              >
+                About Us
+              </a>
+              <a
+                 href="/#contact-us"
+                 onClick={handleContactClick}
+                className="font-medium flex items-center text-sm transition-colors hover:underline"
+              >
+                Contact Us
+              </a>
+            </nav>
+            <div className="flex items-center gap-4">
+              <a
+                href="#"
+                className="font-medium flex items-center text-sm transition-colors hover:underline"
+              >
+                Login
+              </a>
+              <Button variant={"outline"}>
                 <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    smoothScrollTo(ReadyToInvestSectionRef);
-                  }}
-                  className="font-medium flex items-center text-sm transition-colors hover:underline"
-                >
-                  Invest
-                </a>
-                <a
-                  href="/about-us"
-                  className="font-medium flex items-center text-sm transition-colors hover:underline"
-                >
-                  About Us
-                </a>
-                <a
-                  href="/#contact-us"
-                  onClick={handleContactClick}
-                  className="font-medium flex items-center text-sm transition-colors hover:underline"
-                >
-                  Contact Us
-                </a>
-              </nav>
-              <div className="flex items-center gap-4">
-                <a
-                  href="#"
-                  className="font-medium flex items-center text-sm transition-colors hover:underline"
-                >
-                  Login
-                </a>
-                <Button variant={"outline"}>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      smoothScrollTo(FaqSectionRef);
-                    }}
-                    className="font-medium flex items-center text-sm transition-colors"
-                  >
+                   href="/#contact-us"
+                   onClick={handleContactClick}
+                  className="font-medium flex items-center text-sm transition-colors"
+  >
                     Reserve Access
                   </a>
                 </Button>
