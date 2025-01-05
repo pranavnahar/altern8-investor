@@ -414,31 +414,24 @@ const AboutUsPage: React.FC = () => {
                 unprecedentedly low acquisition costs.
               </p>
               <div className=" mt-3 p-10 grid grid-cols-6 grid-rows-2 gap-5">
-                {ALTERN8_ADVISORS.map((advisor, index) => (
-                  <div
-                    key={index}
-                    className="relative group w-[190px] h-[240px] bg-gray-100 rounded-lg shadow-md overflow-hidden"
-                  >
-                    {/* Image */}
-                    <img
-                      src={advisor.image}
-                      alt="Advisor"
-                      className="object-cover w-full h-full"
-                    />
+                    {ALTERN8_ADVISORS.map((advisor, index) => (
+                        <div key={index} className="relative group w-[190px] h-[240px] bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                            {/* Image */}
+                            <img
+                                src={advisor.image}
+                                alt="Advisor"
+                                className="object-cover w-full h-full"
+                            />
 
-                    {/* Always-visible overlay at the bottom */}
-                    <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent p-2 flex flex-col justify-end">
-                      <p className="text-white text-[16px]">{advisor.name}</p>
-                      <span className="text-gray-200 text-[12px]">
-                        {advisor.post}
-                      </span>
-                      <span className="text-[12px]  text-[#BF8EFE]">
-                        {advisor.location}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                            {/* Always-visible overlay at the bottom */}
+                            <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent p-2 flex flex-col justify-end">
+                                <p className="text-white text-[16px]">{advisor.name}</p>
+                                <span className='text-gray-200 text-[12px] h-[40px]'>{advisor.post}</span>
+                                <span className='text-[12px]  text-[#BF8EFE]'>{advisor.location}</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
           </div>
         </section>

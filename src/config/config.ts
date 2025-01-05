@@ -437,32 +437,56 @@ export const ALTERN8_FEATURES = [
 export const ALTERN8_FAQ = [
     {
         value: 'item-1',
-        title: 'How do I set up my account?',
-        content: "To set up your account, click on the 'Sign Up' button and follow the instructions. You will need to provide your email and create a password.",
+        title: 'Who can invest with Altern8 Club?',
+        content: "Any Indian citizen, NRI, company (Pvt Ltd/ Proprietorship), HUF/Trust, cooperative society can invest with us subject to valid KYC and regulatory guidelines.",
         image: null // Add image here if applicable
     },
     {
         value: 'item-2',
-        title: 'What are your business hours?',
-        content: 'Our business hours are from 9:00 AM to 5:00 PM, Monday through Friday. We are closed on weekends and holidays.',
+        title: 'What documents do I need to sign up?',
+        content: 'Our KYC process is completely digital. You will require a scan/image of your Aadhar Card and PAN card, along with registering your mobile number.',
         image: null // Add image here if applicable
     },
     {
         value: 'item-3',
-        title: 'How do I contact support?',
-        content: "You can contact our support team by clicking on the 'Chat With Admin' button or by sending an email to support@example.com.",
+        title: 'How do I get started?',
+        content: "You can register on our platform or contact us for guidance. Once registered, you'll see all listed assets.",
         image: null // Add image here if applicable
     },
     {
         value: 'item-4',
-        title: 'When can I draw on my Credit Limit?',
-        content: "As soon as you present the invoices and the Buyer/Anchor has approvedthe Invoice   Admin has approved the invoice you are eligible to withdraw",
+        title: 'Do I need to visit the property location?',
+        content: "No. All documentation and signatures are done digitally.",
         image: null // Add image here if applicable
     },
     {
         value: 'item-5',
-        title: 'Is Ethyx Club a pan-India operation?',
-        content: "Yes",
+        title: 'What is the minimum investment amount?',
+        content: "The minimum investment amount varies depending on the property. Please check the specific property listing for details.",
+        image: null // Add image here if applicable
+    },
+    {
+        value: 'item-6',
+        title: 'How long does it take to process my investment?',
+        content: "Once you've completed the KYC process and made the initial investment, it typically takes e.g., 2-4 weeks to complete the investment process.",
+        image: null // Add image here if applicable
+    },
+    {
+        value: 'item-7',
+        title: 'How do I track the performance of my investment?',
+        content: "You can track the performance of your investment through your online dashboard. This includes details like rental income, property value, and overall returns.",
+        image: null // Add image here if applicable
+    },
+    {
+        value: 'item-8',
+        title: 'Can I sell my fractional ownership before the lock-in period?',
+        content: "No, you cannot sell your fractional ownership before the lock-in period, which is typically 1 year.",
+        image: null // Add image here if applicable
+    },
+    {
+        value: 'item-9',
+        title: 'What happens if the property is damaged or destroyed?',
+        content: "In case of damage or destruction, the property will be insured, and the insurance proceeds will be used to repair or rebuild the property.",
         image: null // Add image here if applicable
     },
 ];

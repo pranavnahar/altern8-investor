@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import { FaFacebook, FaTwitter, FaEnvelope, FaWhatsapp, FaLinkedin } from "react-icons/fa";
+
 
 export const Footer = () => {
-  const text = "Revolutionizing Lending Through Innovation, AI and Insight with Simplified Lending Stack.";
+  const text = "Hey have a look at Altern8 site.";
   const url = "https://j59d8sfv-3001.inc1.devtunnels.ms/";
   const imageUrl = "https://static.vecteezy.com/system/resources/previews/000/457/141/original/landing-page-template-of-website-design-illustration-concept-isometric-flat-design-concept-of-web-page-design-for-website-and-mobile-website-vector-illustration.jpg";
   const shareOnFacebook = () => {
@@ -39,36 +41,11 @@ export const Footer = () => {
   };
 
   const icons = [
-    {
-      id: "facebook",
-      src: "/facebook.png", // Replace with your actual path
-      alt: "Facebook",
-      onClick: shareOnFacebook,
-    },
-    {
-      id: "twitter",
-      src: "/x1.png", // Replace with your actual path
-      alt: "Twitter",
-      onClick: shareOnTwitter,
-    },
-    {
-      id: "email",
-      src: "/email.png", // Replace with your actual path
-      alt: "Email",
-      onClick: shareViaEmail,
-    },
-    {
-      id: "whatsapp",
-      src: "/whatsapp.png", // Replace with your actual path
-      alt: "WhatsApp",
-      onClick: shareOnWhatsapp,
-    },
-    {
-      id: "linkedin",
-      src: "/linkedin.png", // Replace with your actual path
-      alt: "LinkedIn",
-      onClick: shareOnLinkedIn,
-    },
+    { id: "facebook", Icon: FaFacebook, onClick: shareOnFacebook },
+    { id: "twitter", Icon: FaTwitter, onClick: shareOnTwitter },
+    { id: "email", Icon: FaEnvelope, onClick: shareViaEmail },
+    { id: "whatsapp", Icon: FaWhatsapp, onClick: shareOnWhatsapp },
+    { id: "linkedin", Icon: FaLinkedin, onClick: shareOnLinkedIn },
   ];
 
   return (
@@ -92,27 +69,7 @@ export const Footer = () => {
               Contact Us
             </Link>
           </div>
-          {/* 3 */}
-          {/* <div className="w-1/3 flex flex-col p-2  gap-3">
-            <h4 className="text-2xl mb-3 font-semibold text-white">
-              Get Started
-            </h4>
-            <Link
-              href="#"
-              className="text-white flex items-center text-sm transition-colors hover:underline"
-              prefetch={false}
-            >
-              Sign In
-            </Link>
-            <Link
-              href="#"
-              className="text-white flex items-center text-sm transition-colors hover:underline"
-              prefetch={false}
-            >
-              Sign Up
-            </Link>
-          </div> */}
-          {/* 2 */}
+
           <div className="w-1/3 flex flex-col p-2 gap-3">
             <h4 className="text-2xl mb-3 font-semibold text-white">
               Legal & Policies
@@ -151,10 +108,10 @@ export const Footer = () => {
           </Link>
         </div>
       </div>
-      <div className="flex gap-5 mb-2">
-        {icons.map(({ id, src, alt, onClick }) => (
-          <div key={id} onClick={onClick} className={`cursor-pointer `}>
-            <img src={src} alt={alt} className="h-10 w-10" />
+      <div className="flex gap-5 mb-5">
+        <p className="text-gray-200 text-sm font-bold">Share on:</p> {icons.map(({ id, Icon, onClick }) => (
+          <div key={id} onClick={onClick} className="cursor-pointer">
+            <Icon size={18} color="white" />
           </div>
         ))}
       </div>

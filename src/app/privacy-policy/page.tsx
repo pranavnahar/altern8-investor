@@ -446,7 +446,7 @@ export default function PrivacyPolicy() {
             You consent to <strong>Altern8 </strong> for verifying Your PAN,
             Mobile, and Bank Account details via an Account Aggregator or any
             other means. The Account Aggregator data is fetched in partnership
-            with _____ NBFC and You consent to NBFC for processing Your data.
+            with <strong>Pee Dee Finvest</strong> NBFC and You consent to NBFC for processing Your data.
           </p>
 
           <h2 className="text-2xl font-bold mt-6 mb-2">
