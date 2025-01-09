@@ -540,13 +540,12 @@ const AboutUsPage: React.FC = () => {
               
             >
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-gray-800 mb-5">
-                  Our Founding Team&apos;s Journey
-                </DialogTitle>
+                {/* <DialogTitle className="text-2xl font-bold text-gray-800 mb-5">
+                  Our Founding Team&apos;s Expertise
+                </DialogTitle> */}
                 <DialogDescription className="text-gray-700">
                 <p className="mb-4">
-                    The Team has Expertise in{' '}<b><TypingAnimation /></b>
-                    <br />
+                    <p className="text-base font-medium">The founding team has Expertise in{' '}<b><TypingAnimation /></b></p>
                     <br />
                     The team's entrepreneurial vision has seen the successful launch and expansion
                     of businesses across 32 countries, with over $700 million in transactions. Their
