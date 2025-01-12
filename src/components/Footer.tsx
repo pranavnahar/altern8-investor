@@ -1,13 +1,24 @@
 "use client";
 import Link from "next/link";
-import React from "react";
-import { FaFacebook, FaTwitter, FaEnvelope, FaWhatsapp, FaLinkedin } from "react-icons/fa";
-
+import React, { useState } from "react";
+import { FaFacebook, FaTwitter, FaEnvelope, FaWhatsapp, FaLinkedin, FaInstagram } from "react-icons/fa";
+import ShareMessageDialog from "./shareInstaMessageDialog";
 
 export const Footer = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const text = "Hey have a look at Altern8 site.";
-  const url = "https://j59d8sfv-3001.inc1.devtunnels.ms/";
-  const imageUrl = "https://static.vecteezy.com/system/resources/previews/000/457/141/original/landing-page-template-of-website-design-illustration-concept-isometric-flat-design-concept-of-web-page-design-for-website-and-mobile-website-vector-illustration.jpg";
+  const url = "https://ethyxsolo.club";
+  const imageUrl = "https://ethyxsolo.club/preview_image.png";
+  
+  const toggleDialog = () => {
+    setIsDialogOpen(!isDialogOpen);
+  };
+
+
+  const redirectToInstagram = () => {
+    window.open('https://www.instagram.com', '_blank');
+  };
+  
   const shareOnFacebook = () => {
     window.open(
       `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
@@ -39,6 +50,10 @@ export const Footer = () => {
       "_blank"
     );
   };
+
+  const shareOnInstagram = () => {
+    toggleDialog();
+  }
 
   const icons = [
     { id: "facebook", Icon: FaFacebook, onClick: shareOnFacebook },
@@ -109,11 +124,31 @@ export const Footer = () => {
         </div>
       </div>
       <div className="flex gap-5 mb-5">
-        <p className="text-gray-200 text-sm font-bold">Share on:</p> {icons.map(({ id, Icon, onClick }) => (
-          <div key={id} onClick={onClick} className="cursor-pointer">
-            <Icon size={18} color="white" />
-          </div>
-        ))}
+        
+        <div className="bg-[#ffffff] bottom-[15%] right-4 z-20 fixed flex flex-col gap-4 py-2 px-2 rounded-lg">
+          <FaFacebook
+            className="h-5 w-5 text-black cursor-pointer"
+            onClick={shareOnFacebook}
+          />
+          <FaTwitter
+            className="h-5 w-5 text-black cursor-pointer"
+            onClick={shareOnTwitter}
+          />
+          <FaWhatsapp
+            className="h-5 w-5 text-black cursor-pointer"
+            onClick={shareOnWhatsapp}
+          />
+          <FaLinkedin
+            className="h-5 w-5 text-black cursor-pointer"
+            onClick={shareOnLinkedIn}
+          />
+      
+          <FaInstagram
+          className="h-5 w-5 text-black cursor-pointer"
+          onClick={shareOnInstagram}
+          />
+          <ShareMessageDialog isOpen={isDialogOpen} onClose={toggleDialog} onRedirectToInstagram={redirectToInstagram} />
+        </div>
       </div>
       <p className="text-white">
         © Copyright 2023 <span className="font-bold">Altern8</span>. All Rights
