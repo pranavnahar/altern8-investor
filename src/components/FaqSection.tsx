@@ -11,11 +11,19 @@ import { Input } from "./ui/input";
 import { Checkbox } from "./ui/checkbox";
 import { ALTERN8_AREA_OF_INTEREST, ALTERN8_FAQ } from "../config/config";
 import React, { forwardRef, useState } from "react";
-import PhoneInput, { isPossiblePhoneNumber, isValidPhoneNumber } from "react-phone-number-input";
+import PhoneInput, {
+  isPossiblePhoneNumber,
+  isValidPhoneNumber,
+} from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { toast } from "react-toastify";
-
-
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 
 type FormValues = {
   firstName: string;
@@ -25,7 +33,18 @@ type FormValues = {
   areaOfInterest: string[];
   comments: string;
   termsAgreed: boolean;
+  investmentAppetite: string;
 };
+
+const investmentOptions = [
+  "5 lakh - 10 lakh",
+  "10 lakh - 15 lakh",
+  "15 lakh - 20 lakh",
+  "20 lakh - 30 lakh",
+  "30 lakh - 50 lakh",
+  "50 lakh - 1 crore",
+  "Above 1 crore",
+];
 
 const phoneInputCustomStyles = `
   .PhoneInput {
@@ -59,6 +78,7 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
     areaOfInterest: [] as string[],
     comments: "",
     termsAgreed: true,
+    investmentAppetite: "",
   });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -94,25 +114,32 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
   const handlePhoneChange = (value: string | undefined) => {
     setFormValues((prev) => ({
       ...prev,
-      mobileNumber: value || "",  // Provide empty string as fallback
+      mobileNumber: value || "", // Provide empty string as fallback
+    }));
+  };
+
+  const handleInvestmentChange = (option: string) => {
+    setFormValues((prev) => ({
+      ...prev,
+      investmentAppetite: option,
     }));
   };
   const validateForm = () => {
     let isValid = true;
-  
+
     // Check for empty required fields
     if (!formValues.firstName.trim()) {
       toast.error("Please enter your first name");
       isValid = false;
       return;
     }
-  
+
     if (!formValues.secondName.trim()) {
       toast.error("Please enter your second name");
       isValid = false;
       return;
     }
-  
+
     // Email validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formValues.email.trim()) {
@@ -124,7 +151,13 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
       isValid = false;
       return;
     }
-  
+
+    if(!formValues.investmentAppetite){
+      toast.error("Please select your investment appetite range.");
+      isValid = false;
+      return;
+    }
+
     // Phone validation
     if (!formValues.mobileNumber) {
       toast.error("Please enter your phone number");
@@ -141,14 +174,14 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
       isValid = false;
       return isValid;
     }
-  
+
     // Area of Interest validation
     if (formValues.areaOfInterest.length === 0) {
       toast.error("Please select at least one area of interest");
       isValid = false;
       return;
     }
-  
+
     // Comments validation
     if (!formValues.comments.trim()) {
       toast.error("Please enter your comments or questions");
@@ -159,34 +192,34 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
       isValid = false;
       return;
     }
-  
+
     return isValid;
   };
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formValues.termsAgreed) {
       toast.error("Please accept our privacy policy to continue");
       return;
     }
-  
+
     try {
       if (validateForm()) {
         // Show loading toast
         const loadingToast = toast.loading("Submitting your form...");
-        
+
         // Simulate API call - replace with actual API call
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
         // Update loading toast to success
         toast.update(loadingToast, {
           render: "Form submitted successfully!",
           type: "success",
           isLoading: false,
-          autoClose: 3000
+          autoClose: 3000,
         });
-  
+
         // Optional: Reset form
         setFormValues({
           firstName: "",
@@ -196,6 +229,7 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
           areaOfInterest: [],
           comments: "",
           termsAgreed: false,
+          investmentAppetite: "",
         });
       }
     } catch (error) {
@@ -308,6 +342,38 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
                     </div>
                   </div>
 
+                  <div className="relative">
+                    <label
+                      htmlFor="investment"
+                      className="block text-gray-400 text-sm mb-1"
+                    >
+                      Investment Appetite*
+                    </label>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <button
+                          type="button"
+                          className="w-full justify-between bg-transparent text-sm border-0 border-b border-gray-500 text-gray-500 rounded-none text-left hover:bg-transparent py-2"
+                        >
+                          {formValues.investmentAppetite ||
+                            "Select an investment range"}
+                          <ChevronDown className="h-4 w-4 opacity-50 float-right" />
+                        </button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent className="w-[--radix-dropdown-menu-trigger-width] bg-white text-sm">
+                        {investmentOptions.map((option) => (
+                          <DropdownMenuItem
+                            key={option}
+                            onClick={() => handleInvestmentChange(option)}
+                            className="cursor-pointer hover:bg-gray-100"
+                          >
+                            {option}
+                          </DropdownMenuItem>
+                        ))}
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+
                   {/* Comments */}
                   <div className="flex flex-col space-y-1.5">
                     <label className="block mb-2 text-xs text-gray-400 uppercase">
@@ -334,9 +400,10 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
                     />
                     <label
                       htmlFor="termsAgreed"
-                      className="text-[12px] font-medium leading-none"
+                      className="text-[11px] font-medium leading-none"
                     >
-                      By clicking the button you agree to the privacy policy.
+                      By clicking the button you agree to our terms, privacy
+                      policy and refund policy.
                     </label>
                   </div>
                   <Button
