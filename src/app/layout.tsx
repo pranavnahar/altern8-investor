@@ -27,31 +27,31 @@ export const metadata: Metadata = {
   description: "Revolutionizing Lending Through Innovation, AI and Insight with Simplified Lending Stack.",
   twitter: {
     card: "summary_large_image",
-    title: "Ethyx Solo Club",
-    site: "ethyx.in",
+    title: "Altern8",
+    site: "https://altern8-investor.vercel.app/",
     description: "Invest Ethically, Grow Confidently: Empower Creators, Build Wealth",
     images: [
       {
-        url: "https://j59d8sfv-3001.inc1.devtunnels.ms/preview_image.png", 
+        url: "https://altern8-investor-git-ayush-pranav-nahars-projects.vercel.app/altern8-investor-og.png",
         width: 1200, // Update to Twitter's recommended size
         height: 675, // Update to Twitter's recommended size
         type: 'image/png',
-        alt: "ETHYX SOLO CLUB",
+        alt: "Altern8",
       },
     ], 
   },
   openGraph: {
     title: "Altern8",
     description: "Revolutionizing Lending Through Innovation, AI and Insight with Simplified Lending Stack.",
-    url: "https://j59d8sfv-3000.inc1.devtunnels.ms/",
+    url: "https://altern8-investor.vercel.app",
     type: "website",
     images: [
       {
-        url: "https://j59d8sfv-3000.inc1.devtunnels.ms/Alter8_nav_logo.svg",
+        url: "https://altern8-investor-git-ayush-pranav-nahars-projects.vercel.app/altern8-investor-og.png",
         width: 300,
         height: 300,
         type: 'image/png',
-        alt: "Alter8",
+        alt: "Altern8",
       },
     ],
   },
