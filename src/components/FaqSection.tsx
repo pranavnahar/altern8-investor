@@ -6,18 +6,25 @@ import {
   AccordionTrigger,
 } from "../components/ui/accordion";
 import { Button } from "./ui/button";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-} from "./ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import { Input } from "./ui/input";
 import { Checkbox } from "./ui/checkbox";
 import { ALTERN8_AREA_OF_INTEREST, ALTERN8_FAQ } from "../config/config";
 import React, { forwardRef, useState } from "react";
-
+import PhoneInput, {
+  isPossiblePhoneNumber,
+  isValidPhoneNumber,
+} from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { toast } from "react-toastify";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
+
 type FormValues = {
   firstName: string;
   secondName: string;
@@ -26,7 +33,41 @@ type FormValues = {
   areaOfInterest: string[];
   comments: string;
   termsAgreed: boolean;
+  investmentAppetite: string;
 };
+
+const investmentOptions = [
+  "5 lakh - 10 lakh",
+  "10 lakh - 15 lakh",
+  "15 lakh - 20 lakh",
+  "20 lakh - 30 lakh",
+  "30 lakh - 50 lakh",
+  "50 lakh - 1 crore",
+  "Above 1 crore",
+];
+
+const phoneInputCustomStyles = `
+  .PhoneInput {
+    background-color: #F5F5F5;
+    border-radius: 0.375rem;
+  }
+  .PhoneInputInput {
+    background-color: #F5F5F5;
+    border: none;
+    padding: 0.5rem;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+     border-radius: 0.375rem;
+  }
+  .PhoneInputInput:focus {
+    outline: none;
+    ring: none;
+  }
+  .PhoneInputCountry {
+    padding-left: 0.5rem;
+  }
+`;
 
 export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
   const [formValues, setFormValues] = useState<FormValues>({
@@ -37,6 +78,7 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
     areaOfInterest: [] as string[],
     comments: "",
     termsAgreed: true,
+    investmentAppetite: "",
   });
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -69,49 +111,136 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
     });
   };
 
+  const handlePhoneChange = (value: string | undefined) => {
+    setFormValues((prev) => ({
+      ...prev,
+      mobileNumber: value || "", // Provide empty string as fallback
+    }));
+  };
+
+  const handleInvestmentChange = (option: string) => {
+    setFormValues((prev) => ({
+      ...prev,
+      investmentAppetite: option,
+    }));
+  };
   const validateForm = () => {
     let isValid = true;
 
-    // Email validation
-    const companyEmailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const personalEmailDomains = ["gmail.com", "yahoo.com", "outlook.com"];
-    const emailDomain = formValues.email.split("@")[1];
-
-    if (!companyEmailPattern.test(formValues.email)) {
-      toast.error("Invalid email address.");
+    // Check for empty required fields
+    if (!formValues.firstName.trim()) {
+      toast.error("Please enter your first name");
       isValid = false;
-    } else if (personalEmailDomains.includes(emailDomain)) {
-      toast.error("Please provide a company email address.");
-      isValid = false;
-    } else if (formValues.comments.length > 2000) {
-      toast.error("Comments and questions maximum be in 2000 characters only.");
-      isValid = false;
+      return;
     }
 
-    // Phone number validation
-    const phonePattern = /^\+\d{1,3}\d{7,}$/; // Country code and 7+ digits
-    if (!phonePattern.test(formValues.mobileNumber)) {
-      toast.error("Phone number must include a valid country code.");
+    if (!formValues.secondName.trim()) {
+      toast.error("Please enter your second name");
       isValid = false;
+      return;
+    }
+
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formValues.email.trim()) {
+      toast.error("Please enter your email address");
+      isValid = false;
+      return;
+    } else if (!emailPattern.test(formValues.email)) {
+      toast.error("Please enter a valid email address");
+      isValid = false;
+      return;
+    }
+
+    if(!formValues.investmentAppetite){
+      toast.error("Please select your investment appetite range.");
+      isValid = false;
+      return;
+    }
+
+    // Phone validation
+    if (!formValues.mobileNumber) {
+      toast.error("Please enter your phone number");
+      isValid = false;
+      return;
+    } else if (!isPossiblePhoneNumber(formValues.mobileNumber)) {
+      toast.error("Please enter a valid phone number with country code");
+      isValid = false;
+      return;
+    }
+
+    if (!isValidPhoneNumber(formValues.mobileNumber)) {
+      toast.error("Invalid phone number for the selected country");
+      isValid = false;
+      return isValid;
+    }
+
+    // Area of Interest validation
+    if (formValues.areaOfInterest.length === 0) {
+      toast.error("Please select at least one area of interest");
+      isValid = false;
+      return;
+    }
+
+    // Comments validation
+    if (!formValues.comments.trim()) {
+      toast.error("Please enter your comments or questions");
+      isValid = false;
+      return;
+    } else if (formValues.comments.length > 2000) {
+      toast.error("Comments must not exceed 2000 characters");
+      isValid = false;
+      return;
     }
 
     return isValid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formValues.termsAgreed) {
+
+    if (!formValues.termsAgreed) {
+      toast.error("Please accept our privacy policy to continue");
+      return;
+    }
+
+    try {
       if (validateForm()) {
-        console.log(formValues);
-        toast.success("Form submitted successfully!");
+        // Show loading toast
+        const loadingToast = toast.loading("Submitting your form...");
+
+        // Simulate API call - replace with actual API call
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        // Update loading toast to success
+        toast.update(loadingToast, {
+          render: "Form submitted successfully!",
+          type: "success",
+          isLoading: false,
+          autoClose: 3000,
+        });
+
+        // Optional: Reset form
+        setFormValues({
+          firstName: "",
+          secondName: "",
+          email: "",
+          mobileNumber: "",
+          areaOfInterest: [],
+          comments: "",
+          termsAgreed: false,
+          investmentAppetite: "",
+        });
       }
-    } else {
-      toast.error("Please accept our privacy policy.");
+    } catch (error) {
+      toast.error("Something went wrong. Please try again later.");
+      console.error("Form submission error:", error);
     }
   };
 
   return (
     <div className="bg-[#F5F5F5] w-full h-full px-10 py-10">
+      <style>{phoneInputCustomStyles}</style>
       <div className="flex mt-5  gap-3">
         <div className="w-3/5 flex flex-col gap-5">
           <h1 className="text-31xl font-semibold leading-tight mt-0 mb-3">
@@ -128,7 +257,12 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
             ))}
           </Accordion>
         </div>
-        <div id="contact-us" ref={ref} {...props} className="w-2/5 p-5 items-center flex">
+        <div
+          id="contact-us"
+          ref={ref}
+          {...props}
+          className="w-2/5 p-5 items-center flex"
+        >
           <Card className="w-[470px] h-auto">
             <CardHeader>
               <CardTitle>Do you have any questions?</CardTitle>
@@ -163,13 +297,21 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
                       value={formValues.email}
                       onChange={handleInputChange}
                     />
-                    <Input
+                    {/* <Input
                       className="bg-[#F5F5F5]"
                       id="mobileNumber"
                       placeholder="Mobile no"
                       type="number"
                       value={formValues.mobileNumber}
                       onChange={handleInputChange}
+                    /> */}
+
+                    <PhoneInput
+                      international
+                      countryCallingCodeEditable={false}
+                      defaultCountry="US"
+                      value={formValues.mobileNumber}
+                      onChange={handlePhoneChange}
                     />
                   </div>
 
@@ -200,6 +342,38 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
                     </div>
                   </div>
 
+                  <div className="relative">
+                    <label
+                      htmlFor="investment"
+                      className="block text-gray-400 text-sm mb-1"
+                    >
+                      Investment Appetite*
+                    </label>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <button
+                          type="button"
+                          className="w-full justify-between bg-transparent text-sm border-0 border-b border-gray-500 text-gray-500 rounded-none text-left hover:bg-transparent py-2"
+                        >
+                          {formValues.investmentAppetite ||
+                            "Select an investment range"}
+                          <ChevronDown className="h-4 w-4 opacity-50 float-right" />
+                        </button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent className="w-[--radix-dropdown-menu-trigger-width] bg-white text-sm">
+                        {investmentOptions.map((option) => (
+                          <DropdownMenuItem
+                            key={option}
+                            onClick={() => handleInvestmentChange(option)}
+                            className="cursor-pointer hover:bg-gray-100"
+                          >
+                            {option}
+                          </DropdownMenuItem>
+                        ))}
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+
                   {/* Comments */}
                   <div className="flex flex-col space-y-1.5">
                     <label className="block mb-2 text-xs text-gray-400 uppercase">
@@ -226,9 +400,10 @@ export const FaqSection = forwardRef<HTMLDivElement>((props, ref) => {
                     />
                     <label
                       htmlFor="termsAgreed"
-                      className="text-[12px] font-medium leading-none"
+                      className="text-[11px] font-medium leading-none"
                     >
-                      By clicking the button you agree to the privacy policy.
+                      By clicking the button you agree to our terms, privacy
+                      policy and refund policy.
                     </label>
                   </div>
                   <Button

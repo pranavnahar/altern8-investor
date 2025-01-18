@@ -208,7 +208,7 @@ export const WhySection = () => {
   
             {/* Render Testimonials component when "Learn more" is clicked */}
             {showTestimonials && (
-              <div className="">
+              <div className="mb-0">
                 <Testimonials name="" data={ALTERN8_FEATURES} whichTestimonial={1}/>
               </div>
             )}

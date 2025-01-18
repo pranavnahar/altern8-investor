@@ -71,7 +71,7 @@ export default function RootLayout({
         {/* <Navbar /> */}
         {children}
         
-        <ToastContainer />
+        <ToastContainer position="bottom-left"/>
         <ScrollToTopButton />
       </body>
     </html>

@@ -3,7 +3,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import React, { ReactNode, useRef } from "react";
+import React, { ReactNode, useEffect, useRef } from "react";
 import { ALTERN8_ADVISORS } from "../../config/config";
 import { Button } from "@/components/ui/button";
 import { ArrowLeftCircle } from "lucide-react";
@@ -23,6 +23,56 @@ import { Footer } from "@/components/Footer";
 interface ClothUnrollEffectProps {
   children: ReactNode;
 }
+import { animate, useTransform, AnimatePresence, useMotionValue } from 'framer-motion';
+
+const TypingAnimation = () => {
+  //animating taglines
+  const taglines = [
+    'Financial Acumen',
+    'Technology',
+    'Human Resources',
+    'Organizational Transformation',
+    'Innovation',
+    'Sustainability',
+    'Conscious Growth',
+    'Entrepreneurship',
+    'Transformative initiates',
+  ];
+  //
+  const textIndex = useMotionValue(0);
+  const baseText = useTransform(textIndex, latest => taglines[latest] || '');
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, latest => Math.round(latest));
+  const displayText = useTransform(rounded, latest => baseText.get().slice(0, latest));
+  const updatedThisRound = useMotionValue(true);
+
+  //useffect to trigger animation
+  useEffect(() => {
+    animate(count, 60, {
+      type: 'tween',
+      delay: 0.5,
+      duration: 1.3,
+      ease: 'easeIn',
+      repeat: Infinity,
+      repeatType: 'reverse',
+      repeatDelay: 0.1,
+      onUpdate(latest) {
+        if (updatedThisRound.get() === true && latest > 0) {
+          updatedThisRound.set(false);
+        } else if (updatedThisRound.get() === false && latest === 0) {
+          if (textIndex.get() === taglines.length - 1) {
+            textIndex.set(0);
+          } else {
+            textIndex.set(textIndex.get() + 1);
+          }
+          updatedThisRound.set(true);
+        }
+      },
+    });
+  }, []);
+
+  return <motion.div className="inline">{displayText}</motion.div>;
+};
 
 const ClothUnrollEffect = ({ children }: ClothUnrollEffectProps) => {
   return (
@@ -414,31 +464,24 @@ const AboutUsPage: React.FC = () => {
                 unprecedentedly low acquisition costs.
               </p>
               <div className=" mt-3 p-10 grid grid-cols-6 grid-rows-2 gap-5">
-                {ALTERN8_ADVISORS.map((advisor, index) => (
-                  <div
-                    key={index}
-                    className="relative group w-[190px] h-[240px] bg-gray-100 rounded-lg shadow-md overflow-hidden"
-                  >
-                    {/* Image */}
-                    <img
-                      src={advisor.image}
-                      alt="Advisor"
-                      className="object-cover w-full h-full"
-                    />
+                    {ALTERN8_ADVISORS.map((advisor, index) => (
+                        <div key={index} className="relative group w-[190px] h-[240px] bg-gray-100 rounded-lg shadow-md overflow-hidden">
+                            {/* Image */}
+                            <img
+                                src={advisor.image}
+                                alt="Advisor"
+                                className="object-cover w-full h-full"
+                            />
 
-                    {/* Always-visible overlay at the bottom */}
-                    <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent p-2 flex flex-col justify-end">
-                      <p className="text-white text-[16px]">{advisor.name}</p>
-                      <span className="text-gray-200 text-[12px]">
-                        {advisor.post}
-                      </span>
-                      <span className="text-[12px]  text-[#BF8EFE]">
-                        {advisor.location}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                            {/* Always-visible overlay at the bottom */}
+                            <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent p-2 flex flex-col justify-end">
+                                <p className="text-white text-[16px]">{advisor.name}</p>
+                                <span className='text-gray-200 text-[12px] h-[40px]'>{advisor.post}</span>
+                                <span className='text-[12px]  text-[#BF8EFE]'>{advisor.location}</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
           </div>
         </section>
@@ -497,15 +540,12 @@ const AboutUsPage: React.FC = () => {
               
             >
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-gray-800 mb-5">
-                  Our Founding Team&apos;s Journey
-                </DialogTitle>
+                {/* <DialogTitle className="text-2xl font-bold text-gray-800 mb-5">
+                  Our Founding Team&apos;s Expertise
+                </DialogTitle> */}
                 <DialogDescription className="text-gray-700">
                 <p className="mb-4">
-                    The Team has Expertise in Financial Acumen, Technology, Human Resources,
-                    Organizational Transformation, Innovation, Sustainability, Conscious Growth,
-                    Entrepreneurship, Transformative initiates.
-                    <br />
+                    <p className="text-base font-medium">The founding team has Expertise in{' '}<b><TypingAnimation /></b></p>
                     <br />
                     The team's entrepreneurial vision has seen the successful launch and expansion
                     of businesses across 32 countries, with over $700 million in transactions. Their

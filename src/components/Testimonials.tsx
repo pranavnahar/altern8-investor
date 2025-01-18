@@ -140,13 +140,13 @@ export const Testimonials = ({
   const secondHalf = data.slice(middleIndex);
 
   return (
-    <div className="w-full h-[1100px] px-10 py-10 ">
+    <div className="w-full px-10 py-10 ">
       <div className="flex mt-5 flex-col gap-3">
         <h1 className="text-31xl font-semibold leading-tight mt-0 mb-3">
           {name}
         </h1>
       </div>
-      <div className="mt-6 p-1 h-[350px]">
+      <div className="mt-6 p-1">
         {whichTestimonial === 1 ? (
           <TestimonialCarousel1 data={data} />
         ) : (
