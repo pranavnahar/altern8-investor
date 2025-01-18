@@ -7,8 +7,8 @@ import ShareMessageDialog from "./shareInstaMessageDialog";
 export const Footer = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const text = "Hey have a look at Altern8 site.";
-  const url = "https://ethyxsolo.club";
-  const imageUrl = "https://ethyxsolo.club/preview_image.png";
+  const url = "https://altern8-investor.vercel.app";
+  const imageUrl = "https://altern8-investor-git-ayush-pranav-nahars-projects.vercel.app/altern8-investor-og.png";
   
   const toggleDialog = () => {
     setIsDialogOpen(!isDialogOpen);
