@@ -24,6 +24,7 @@ interface ClothUnrollEffectProps {
   children: ReactNode;
 }
 import { animate, useTransform, AnimatePresence, useMotionValue } from 'framer-motion';
+import VideoPlayer from "@/components/video-player";
 
 const TypingAnimation = () => {
   //animating taglines
@@ -485,6 +486,9 @@ const AboutUsPage: React.FC = () => {
             </div>
           </div>
         </section>
+        <div className="text-center mt-[10%] mb-10">
+          <VideoPlayer/>
+        </div>
         <div className="mt-14 relative w-full py-4">
           <div className="absolute inset-0 flex justify-center">
             <div className="w-[90%] h-[1px] bg-gradient-to-r from-transparent via-gray-500 to-transparent"></div>
@@ -525,59 +529,7 @@ const AboutUsPage: React.FC = () => {
             </div>
           </div>
         </section>
-        <div className="text-center mt-5 mb-10">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                variant="outline"
-                className=""
-              >
-                Get to know our Founding Team
-              </Button>
-            </DialogTrigger>
-            <DialogContent
-              className="sm:max-w-[625px] bg-gradient-to-b bg-white p-6 rounded-md max-w-[40vw] text-black border border-[#6e3050]"
-              
-            >
-              <DialogHeader>
-                {/* <DialogTitle className="text-2xl font-bold text-gray-800 mb-5">
-                  Our Founding Team&apos;s Expertise
-                </DialogTitle> */}
-                <DialogDescription className="text-gray-700">
-                <p className="mb-4">
-                    <p className="text-base font-medium">The founding team has Expertise in{' '}<b><TypingAnimation /></b></p>
-                    <br />
-                    The team's entrepreneurial vision has seen the successful launch and expansion
-                    of businesses across 32 countries, with over $700 million in transactions. Their
-                    efforts have included establishing operations for a €200 million LSE-listed
-                    carbon finance firm and leading social enterprise private equity initiatives in
-                    Asia. With a passion for conscious capitalism, they have combined modern
-                    business strategies with ancient practices, dedicating significant time to
-                    meditation and personal growth.
-                    <br /> <br />
-                    In the realm of HR and coaching, the team has extensive experience in talent
-                    acquisition, policy consulting, and fostering Diversity & Inclusion initiatives.
-                    They have created inclusive workplaces, facilitated performance appraisals for
-                    organizations of varying scales, and led over 20 workshops and retreats
-                    globally. By integrating modern coaching techniques with practices like NLP,
-                    hypnotherapy, and meditation, they address complex analytical, operational, and
-                    relational challenges effectively.
-                    <br /> <br />
-                    On the technology front, the team brings 24 years of collective expertise in
-                    developing scalable solutions, including SaaS products generating $10 million in
-                    revenue and modernizing tech platforms. They specialize in building
-                    fault-tolerant systems with 100% uptime and delivering high-traffic websites,
-                    B2B applications, and CRM systems that have collectively achieved $42 million in
-                    revenue. By leveraging technology and strategic roadmaps, they address key
-                    business challenges and capitalize on emerging opportunities while cultivating
-                    high-performing, globally distributed teams.
-                  </p>
-                </DialogDescription>
-              </DialogHeader>
-            </DialogContent>
-          </Dialog>
-        </div>
-
+       
 
         {/* <Footer /> */}
         </ClothUnrollEffect>  

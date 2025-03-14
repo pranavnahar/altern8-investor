@@ -1,24 +1,37 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { FaFacebook, FaTwitter, FaEnvelope, FaWhatsapp, FaLinkedin, FaInstagram } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaEnvelope,
+  FaWhatsapp,
+  FaLinkedin,
+  FaInstagram,
+} from "react-icons/fa";
 import ShareMessageDialog from "./shareInstaMessageDialog";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../components/ui/tooltip";
 
 export const Footer = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const text = "Hey have a look at Altern8 site.";
   const url = "https://altern8-investor.vercel.app";
-  const imageUrl = "https://altern8-investor-git-ayush-pranav-nahars-projects.vercel.app/altern8-investor-og.png";
-  
+  const imageUrl =
+    "https://altern8-investor-git-ayush-pranav-nahars-projects.vercel.app/altern8-investor-og.png";
+
   const toggleDialog = () => {
     setIsDialogOpen(!isDialogOpen);
   };
 
-
   const redirectToInstagram = () => {
-    window.open('https://www.instagram.com', '_blank');
+    window.open("https://www.instagram.com", "_blank");
   };
-  
+
   const shareOnFacebook = () => {
     window.open(
       `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
@@ -53,7 +66,7 @@ export const Footer = () => {
 
   const shareOnInstagram = () => {
     toggleDialog();
-  }
+  };
 
   const icons = [
     { id: "facebook", Icon: FaFacebook, onClick: shareOnFacebook },
@@ -124,30 +137,97 @@ export const Footer = () => {
         </div>
       </div>
       <div className="flex gap-5 mb-5">
-        
         <div className="bg-[#ffffff] bottom-[15%] right-4 z-20 fixed flex flex-col gap-4 py-2 px-2 rounded-lg">
-          <FaFacebook
-            className="h-5 w-5 text-black cursor-pointer"
-            onClick={shareOnFacebook}
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <FaFacebook
+                  className="h-5 w-5 text-black cursor-pointer"
+                  onClick={shareOnFacebook}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                className="select-none rounded bg-white p-3 font-semibold text-[12px] leading-tight text-violet11 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity] data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade"
+                sideOffset={15}
+              >
+                <p className="">Share on facebook</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <FaTwitter
+                  className="h-5 w-5 text-black cursor-pointer"
+                  onClick={shareOnTwitter}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                className="select-none rounded bg-white p-3 font-semibold text-[12px] leading-tight text-violet11 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity] data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade"
+                sideOffset={15}
+              >
+                <p className="">Share on X/Twitter</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <FaWhatsapp
+                  className="h-5 w-5 text-black cursor-pointer"
+                  onClick={shareOnWhatsapp}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                className="select-none rounded bg-white p-3 font-semibold text-[12px] leading-tight text-violet11 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity] data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade"
+                sideOffset={15}
+              >
+                <p className="">Share on WhatsApp</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <FaLinkedin
+                  className="h-5 w-5 text-black cursor-pointer"
+                  onClick={shareOnLinkedIn}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                className="select-none rounded bg-white p-3 font-semibold text-[12px] leading-tight text-violet11 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity] data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade"
+                sideOffset={15}
+              >
+                <p className="">Share on Linkedin</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <FaInstagram
+                  className="h-5 w-5 text-black cursor-pointer"
+                  onClick={shareOnInstagram}
+                />
+              </TooltipTrigger>
+              <TooltipContent
+                className="select-none rounded bg-white p-3 font-semibold text-[12px] leading-tight text-violet11 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] will-change-[transform,opacity] data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade"
+                sideOffset={15}
+              >
+                <p className="">Share on Instagram</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+
+          <ShareMessageDialog
+            isOpen={isDialogOpen}
+            onClose={toggleDialog}
+            onRedirectToInstagram={redirectToInstagram}
           />
-          <FaTwitter
-            className="h-5 w-5 text-black cursor-pointer"
-            onClick={shareOnTwitter}
-          />
-          <FaWhatsapp
-            className="h-5 w-5 text-black cursor-pointer"
-            onClick={shareOnWhatsapp}
-          />
-          <FaLinkedin
-            className="h-5 w-5 text-black cursor-pointer"
-            onClick={shareOnLinkedIn}
-          />
-      
-          <FaInstagram
-          className="h-5 w-5 text-black cursor-pointer"
-          onClick={shareOnInstagram}
-          />
-          <ShareMessageDialog isOpen={isDialogOpen} onClose={toggleDialog} onRedirectToInstagram={redirectToInstagram} />
         </div>
       </div>
       <p className="text-white">
